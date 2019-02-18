@@ -12,6 +12,14 @@ res.json - http://expressjs.com/en/4x/api.html#res.json
 res.send - http://expressjs.com/en/4x/api.html#res.send
 res.status - http://expressjs.com/en/4x/api.html#res.status
 
-
 Services vs factories 
 http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/
+
+HTML/CSS Tutorial
+https://learn.shayhowe.com/
+
+AngularJS Tutorial
+https://docs.angularjs.org/tutorial
+
+MongoDB and NodeJS Tutorial
+https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
