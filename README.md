@@ -10,3 +10,6 @@
 6. Create an About Me page that allows the creator to edit the text
 7. Take in the users' information, such as Name, E-mail, Address, and Phone Number
 8. Implement some sort of method that allows users to pay through Paypal 
+
+## Help ##
+* Refer to the links.txt file for some helpful tutorials.
