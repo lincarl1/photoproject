@@ -20,18 +20,36 @@ input[type=text], input[type=password] {
 /* Set a style for all buttons */
 button {
   background-color: #4CAF50;
+  float: right; 
   color: white;
-  padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: auto;
+}
+
+button.Login {
+	position: relative; 
+	right: 30px;
+	height: 40px;
+	bottom: 10px; 
+}
+
+button.SignUp {
+	position: relative; 
+	height: 40px;
+	bottom: 10px; 
 }
 
 button:hover {
   opacity: 0.8;
 }
 
+h1 {
+color: violet; 
+ 
+
+}	
 /* Extra styles for the cancel button */
 .cancelbtn {
   width: auto;

@@ -7,12 +7,14 @@
   <body ng-app="directoryApp">
     <div class="container">
       <div class="row">
-        <h1 align = "center">Petree's Prints</h1>
+        <h1 align = "center">Petree's Prints
+		<button class = "SignUp" onclick="document.getElementById('id02').style.display='block'" >Sign Up</button>
+		<button class = "Login" onclick="document.getElementById('id01').style.display='block'">Login</button>
+		</h1>
       </div>
-      <center>
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button>
-      </center>
+      
+        
+      
       <div id="id01" class="login">
     
           <form class="modal-content animate" action="/action_page.php">
@@ -101,12 +103,6 @@
 		<p align = "center"> Insert Mission Statement here</p>
 		  <h3 align = "left">More Info</h3>
 		 <p align = "left"> Placeholder for information to add</p>
-          <form novalidate class="simple-form">
-            <h2>New User</h2>
-            Username: <input type="text"/><br />
-            Password: <input type="text"/><br />
-            <button class="btn btn-primary" ng-click="addListing()">Add User</button>
-          </form>
 		  <footer>
   <p align = "center" >Petree's Contact Information</p>
   <p align = "center">Email Address: <a href="mailto:someone@example.com">someone@example.com</a>.
