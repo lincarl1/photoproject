@@ -20,10 +20,14 @@ module.exports.init = function() {
   app.use(bodyParser.json());
 
   /* Serve static files */
+  app.use(express.static('client'));
 
   /* Uses the listings router for requests to the api */
 
-  /* Goes to homepage for all routes not specified */ 
+  /* Goes to homepage for all routes not specified */
+app.get('/*', function(req, res){
+    res.redirect('/index.html');
+  });  
 
   return app;
 }; 

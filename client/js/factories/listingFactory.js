@@ -1,15 +1,15 @@
 angular.module('listings', []).factory('Listings', function($http) {
   var methods = {
     getAll: function() {
-      return $http.get('/api/listings');
+      return $http.get('https://petreeprints.herokuapp.com/api/listings');
     },
 	
 	  create: function(listing) {
-	  return $http.post('/api/listings', listing);
+	  return $http.post('https://petreeprints.herokuapp.com/api/listings', listing);
     }, 
 
     delete: function(id) {
-    return $http.delete('/api/listings/' + id);
+    return $http.delete('https://petreeprints.herokuapp.com/api/listings/' + id);
     }
   };
 
