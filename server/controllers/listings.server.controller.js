@@ -1,6 +1,6 @@
 /* Dependencies */
 var mongoose = require('mongoose'),
-    Listing = require('../models/listings.server.model.js');
+    User = require('../models/listings.server.model.js');
 
 /*
   In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
@@ -14,15 +14,15 @@ var mongoose = require('mongoose'),
 exports.create = function(req, res) {
 
   /* Instantiate a Listing */
-  var listing = new Listing(req.body);
+  var user = new User(req.body);
 
   /* Then save the listing */
-  listing.save(function(err) {
+  user.save(function(err) {
     if(err) {
       console.log(err);
       res.status(400).send(err);
     } else {
-      res.json(listing);
+      res.json(user);
     }
   });
 };
@@ -30,11 +30,48 @@ exports.create = function(req, res) {
 /* Show the current listing */
 exports.read = function(req, res) {
   /* send back the listing as json from the request */
-  res.json(req.listing);
+  res.json(req.user);
 };
 
 /* Update a listing */
 exports.update = function(req, res) {
+  var user = req.user;
+
+  /** TODO **/
+  /* Replace the article's properties with the new properties found in req.body */
+  var updated = req.body;
+  var loca = req.results;
+  
+
+  User.findOne({email: user.email},function(err){
+    if(err){
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      user.first = updated.first;
+      user.last = updated.last;
+      user.email = updated.email;
+      user.password = updated.password;
+/*
+      if(loca){
+        user.address.street = loca.lat;
+        listing.coordinates.longitude = loca.lng;
+      }
+*/
+    }
+  })
+  
+  
+  /* Save the article */
+  user.save(function(err) {
+    if(err) {
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      res.json(user);
+    }
+  });
+
 };
 
 /* Delete a listing */
@@ -43,6 +80,14 @@ exports.delete = function(req, res) {
 
 /* Retreives all the directory listings, sorted alphabetically by listing code */
 exports.list = function(req, res) {
+  User.find().sort({code: 1}).exec(function(err, user){
+    if(err){
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      res.json(user);
+    }
+  });
 };
 
 /* 
@@ -52,12 +97,12 @@ exports.list = function(req, res) {
         bind it to the request object as the property 'listing', 
         then finally call next
  */
-exports.listingByID = function(req, res, next, id) {
-  Listing.findById(id).exec(function(err, listing) {
+exports.userByID = function(req, res, next, id) {
+  User.findById(id).exec(function(err, user) {
     if(err) {
       res.status(404).send(err);
     } else {
-      req.listing = listing;
+      req.user = user;
       next();
     }
   });
