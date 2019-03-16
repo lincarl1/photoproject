@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body ng-app="printsApp">
+  <div class="row" ng-controller="UsersController">
   <div class="background_block"><img src="./bck1.png">
   <!-- /***********************************************************************
 *  Nav Bar
@@ -32,7 +33,7 @@
         <div class= "front_header">
           Petree's Prints 
         </div>
-      </div> 
+    </div> 
   
 
 
@@ -45,7 +46,7 @@
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
     <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button>
   </center>
-  <div id="id01" class="login">
+  <div id="id01" class="login" ng-controller="UsersController">
 
     <form class="modal-content animate">
 
@@ -73,7 +74,7 @@
   
   <div id="id02" class="signup" ng-controller="UsersController">
 
-    <form class="modal-content animate" action="#">
+    <form class="modal-content animate"  action="/action_page.php">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
       <!--User login information-->
       <div novalidate class="container simple-form">
@@ -133,12 +134,18 @@
       <h3 align = "left">More Info</h3>
       <p align = "left"> Placeholder for information to add</p>
 
+      <div class="row" ng-controller="UsersController">
       <form novalidate class="simple-form">
         <h2>New User</h2>
-        Username: <input type="text" ng-model="newUser.first"/><br />
+        First Name: <input type="text" ng-model="newUser.first"/><br />
+        Last Name: <input type="text" ng-model="newUser.last"/><br />
+        Email: <input type="text" ng-model="newUser.email"/><br />
         Password: <input type="text" ng-model="newUser.password"/><br />
         <button class="btn btn-primary" ng-click="addUser()">Add User</button>
       </form>
+    </div>
+      
+
       <footer>
         <p align = "center" >Petree's Contact Information</p>
         <p align = "center">Email Address: <a href="mailto:someone@example.com">someone@example.com</a>.
@@ -147,7 +154,8 @@
       </footer>
     </div>
   </div>
-</div>
+  <!--</div> -->
+<!--</div> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
@@ -155,3 +163,4 @@
 <script src="js/factories/listingFactory.js"></script>
 <script src="js/controllers/listingController.js"></script>
 </body>
+</html>
