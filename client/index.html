@@ -54,14 +54,14 @@
 
       <div class="container">
         <label for="email"><b>E-mail</b></label>
-        <input type="text" placeholder="E-mail" name="email" required>
+        <input type="text" placeholder="E-mail" ng-model="user.email"name="email" required>
 
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Password" name="psw" required>
+        <input type="password" placeholder="Password" ng-model="user.password" name="psw" required>
 
-        <button type="submit">Login</button>
+        <button type="submit" ng-click="validateUser()">Login</button>
         <label>
-          <input type="checkbox" checked="checked" name="remember"> Remember me
+          <input type="checkbox" name="remember"> Remember me
         </label>
       </div>
 
@@ -72,7 +72,7 @@
     </form>
   </div>
   
-  <div id="id02" class="signup" ng-controller="UsersController">
+  <div id="id02" class="signup">
 
     <form class="modal-content animate"  action="/action_page.php">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>

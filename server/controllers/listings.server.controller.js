@@ -78,6 +78,31 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
 };
 
+
+/* Validate a user */
+exports.find = function(req, res) {
+  console.log("made it hereee yeah here");
+  var user = req.user;
+
+  User.findOne({email: user.email},function(err){
+    if(err){
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      res.status(200);
+/*
+      if(loca){
+        user.address.street = loca.lat;
+        listing.coordinates.longitude = loca.lng;
+      }
+*/
+    }
+  });
+
+};
+
+
+
 /* Retreives all the directory listings, sorted alphabetically by listing code */
 exports.list = function(req, res) {
   User.find().sort({code: 1}).exec(function(err, user){

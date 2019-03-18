@@ -9,6 +9,7 @@ var users = require('../controllers/listings.server.controller.js'),
  */
 router.route('/')
   .get(users.list)
+  .get(users.find)
   .post(users.create);
 
 
