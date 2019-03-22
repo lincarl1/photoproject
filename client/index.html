@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -45,6 +45,7 @@
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
     <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button>
   </center>
+  <!-- Login Popup -->
   <div id="id01" class="login">
 
     <form class="modal-content animate">
@@ -71,6 +72,7 @@
     </form>
   </div>
   
+  <!-- Sign Up Popup -->
   <div id="id02" class="signup" ng-controller="UsersController">
 
     <form class="modal-content animate" action="#">
@@ -87,10 +89,10 @@
         <input type="text" ng-model="newUser.email" placeholder="Enter E-mail" name="email" required>
 
         <label for="psw"><b>Password</b></label>
-        <input type="password" ng-model="newUser.password" placeholder="Password" name="psw" required>
+        <input type="password" ng-model="newUser.password" placeholder="Password" id="psw" required>
 
         <label for="pswconfirmation"><b>Confirm Password</b></label>
-        <input type="password" placeholder="Confirm Password" name="pswconfirmation" required>
+        <input type="password" placeholder="Confirm Password" id="pswconfirmation" onblur="confirmPassword()" required>
 
         <label for="address"><b>Street Address</b></label>
         <input type="text" ng-model="newUser.address.street" placeholder="Address" name="address">
@@ -113,6 +115,7 @@
     </form>
   </div>
   
+  <!-- Script for the Popups -->
   <script>
         // Gets the two popups
         var login = document.getElementById('id01');
@@ -126,7 +129,7 @@
             signup.style.display ="none";
           }
         }
-      </script>
+  </script>
       <!--UI of front page-->
       <h2 align = "center"> Mission Statement</h2>
       <p align = "center"> Insert Mission Statement here</p>
@@ -147,9 +150,16 @@
         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
       </form>
       </center>
+      <!--End of PayPal-->
 
+      <!--Upload Image-->
+      <form>
+        <input type="file" name="userImage" accept="image/*">
+      </form>
+      <!--End of Upload Image-->
+      
       <form novalidate class="simple-form">
-        <h2>New User</h2>
+        <h2>New User</xh2>
         Username: <input type="text" ng-model="newUser.first"/><br />
         Password: <input type="text" ng-model="newUser.password"/><br />
         <button class="btn btn-primary" ng-click="addUser()">Add User</button>
