@@ -1,0 +1,8 @@
+Wad* Wad::loadWad(const string &path) {
+static Wad* newWad = new Wad; 
+ifstream DOOM(path, ios_base::in | ios_base::binary);
+DOOM.open("DOOM1.WAD", ifstream::in);
+if(DOOM.is_open()) {
+cout<<"GAY BOI"<<endl; 
+}
+}
