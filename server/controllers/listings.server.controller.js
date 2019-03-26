@@ -27,11 +27,95 @@ exports.create = function(req, res) {
   });
 };
 
-/* Show the current listing */
+
 exports.read = function(req, res) {
-  /* send back the listing as json from the request */
+  var user = req.user;
+  var inputeduser = req.body;
+  console.log("In listings.server.controller.js");
+  console.log("exports.read: req.user: " + req.user);
+  console.log("exports.read: req.body: " + req.body);
+  /** TODO **/
+  /* Replace the article's properties with the new properties found in req.body */
+  //var updated = req.body;
+  //var loca = req.results;
+  //, password: inputeduser.password
+  
+  User.findOne({email: inputeduser.email, password: inputeduser.password},function(err){
+    if(err){
+      console.log("Error in exports.read: " + err);
+      res.status(400).send(err);
+    } else {
+      //res.json(req.user);
+      res.json(req.body);
+      //console.log("exports.login success");
+      //console.log("email given: " + inputeduser.email);
+      res.status(200);
+      //console.log("send success");
+
+    }
+  });
+
+
+};
+
+/*
+exports.read = function(req, res) {
+  console.log("listings.server.controller - exports.read")
+  //// send back the listing as json from the request
+  //res.json(req.user);
+  //var user = req.user;
+   User.findOne({email: id.email, password: id.password}).exec(function(err, user) {
+    if(err) {
+      res.status(404).send(err);
+    } else {
+      req.user = user;
+      next();
+    }
+  });
+};
+*/
+
+/*
+//// Show the current listing 
+exports.read = function(req, res) {
+  console.log("listings.server.controller - exports.read");
+  //console.log(req);
+  //// send back the listing as json from the request
   res.json(req.user);
 };
+*/
+
+exports.login = function(req, res) {
+  var user = req.user;
+  var inputeduser = req.body;
+  var email = "xifak";
+  console.log("In listings.server.controller.js");
+  console.log("exports.login: req.user: " + req.user);
+  console.log("exports.login: req.body: " + req.body);
+  /** TODO **/
+  /* Replace the article's properties with the new properties found in req.body */
+  //var updated = req.body;
+  //var loca = req.results;
+  //, password: inputeduser.password
+  
+  User.findOne({email: inputeduser.email, password: inputeduser.password},function(err){
+    if(err){
+      console.log("Error in exports.login: " + err);
+      res.status(400).send(err);
+    } else {
+      //res.json(req.user);
+      res.json(req.body);
+      //console.log("exports.login success");
+      //console.log("email given: " + inputeduser.email);
+      //res.status(200);
+      //console.log("send success");
+
+    }
+  });
+
+
+};
+
 
 /* Update a listing */
 exports.update = function(req, res) {
@@ -59,7 +143,7 @@ exports.update = function(req, res) {
       }
 */
     }
-  })
+  });
   
   
   /* Save the article */
@@ -79,33 +163,10 @@ exports.delete = function(req, res) {
 };
 
 
-/* Validate a user */
-exports.find = function(req, res) {
-  console.log("made it hereee yeah here");
-  var user = req.user;
 
-  User.findOne({email: user.email},function(err){
-    if(err){
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.status(200);
-/*
-      if(loca){
-        user.address.street = loca.lat;
-        listing.coordinates.longitude = loca.lng;
-      }
-*/
-    }
-  });
-
-};
-
-
-
-/* Retreives all the directory listings, sorted alphabetically by listing code */
+/* Retreives all the directory users, sorted by oldest date first */
 exports.list = function(req, res) {
-  User.find().sort({code: 1}).exec(function(err, user){
+  User.find().sort({created_at: -1}).exec(function(err, user){
     if(err){
       console.log(err);
       res.status(400).send(err);
@@ -122,7 +183,59 @@ exports.list = function(req, res) {
         bind it to the request object as the property 'listing', 
         then finally call next
  */
+ /*
+exports.userBbyID = function(req, res, next, id) {
+  //var user = id.user;
+  //console.log(req);
+  console.log("listings.server.controller: exports.userByID");
+  console.log("id.body: " + id.body);
+  console.log("id: " + id);
+  console.log("req.user: " + req.user);
+  console.log("res.user: " + res.user);
+  User.findOne({email: id.email, password: id.password}).exec(function(err, user) {
+    if(err) {
+      res.status(404).send(err);
+    } else {
+      //req.user = user;
+      req.user = user;
+      console.log("success. req.user: " + req.user);
+      next();
+    }
+  });
+
+};
+
+*/
+
+
+
+
+
+
+
 exports.userByID = function(req, res, next, id) {
+  //var user = id.user;
+  //console.log(req);
+  console.log("listings.server.controller: exports.userByID");
+  console.log("id.body: " + id.body);
+  console.log("id: ");
+  console.log(JSON.stringify(id, null, 4));
+  console.log("id.email: " + id.email);
+  console.log("req.email: " + req.email);
+  console.log("req.user: " + req.user);
+  console.log("res.user: " + res.user);
+  User.findOne({email: id.email, password: id.password}).exec(function(err, user) {
+    if(err) {
+      res.status(404).send(err);
+    } else {
+      //req.user = user;
+      req.user = user;
+      console.log("user: " + user);
+      console.log("success. req.user: " + req.user);
+      next();
+    }
+  });
+  /*
   User.findById(id).exec(function(err, user) {
     if(err) {
       res.status(404).send(err);
@@ -131,4 +244,5 @@ exports.userByID = function(req, res, next, id) {
       next();
     }
   });
+  */
 };

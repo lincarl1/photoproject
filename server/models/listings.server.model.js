@@ -28,17 +28,34 @@ var userSchema = new Schema({
     state: String,
     zip: Number 
   },
-  created_at: Date,
-  updated_at: Date
+  created_at: String,
+  updated_at: String
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
+/*
 userSchema.pre('save', function(next) {
   var currentTime = new Date;
   this.updated_at = currentTime;
   if(!this.created_at)
   {
     this.created_at = currentTime;
+  }
+  next();
+});
+*/
+userSchema.pre('save', function(next) {
+  var time = new Date;
+  var dd = String(time.getDate()).padStart(2, '0');
+  var mm = String(time.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = time.getFullYear();
+  var hr = time.getHours();
+  var min = time.getMinutes();
+  time = mm + '/' + dd + '/' + yyyy + ' ' + hr + ':' + min;
+  this.updated_at = time;
+  if(!this.created_at)
+  {
+    this.created_at = time;
   }
   next();
 });

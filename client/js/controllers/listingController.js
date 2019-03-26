@@ -39,13 +39,11 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
     }
 
 
-    $scope.validateUser = function() {
+    $scope.validateUser = function(id) {
 
-      console.log('MADE IT HERE');
-
-
-
-      Users.find($scope.user).then(function(response) {
+      console.log('listingController is called (validateUser)');
+/*
+      Users.find(email: $scope.user.email).then(function(response) {
       //console.log('MADEEEEITTT');
       console.log($scope.user);
       console.log("success");
@@ -54,6 +52,50 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
     }, function(error) {
       console.log('Unable to add user: ', error);
     });
+
+*/
+
+// changes read to login
+  Users.read(id).then(function(response) {
+      //console.log('MADEEEEITTT');
+      console.log("listingController - given user email: " + $scope.user.email);
+      console.log("id.email: " + id.email);
+      console.log("id.password: " + id.password);
+      console.log("listingController - Success: Users.login(id)");
+      //console.log("response: " + response.email);
+      //window.location = "order_page.html";
+
+    }, function(error) {
+      console.log("listingController - given user email: " + $scope.user.email);
+      console.log('listingController- Cant find user: ', error);
+    });
+
+/*
+///////// Mar 19
+  Users.findByEmail(id).then(function(response) {
+      //console.log('MADEEEEITTT');
+      console.log($scope.user);
+      console.log("success");
+      //window.location = "order_page.html";
+
+    }, function(error) {
+      console.log($scope.user);
+      console.log('Cant find user: ', error);
+    });
+*/
+
+/*
+      Users.find($scope.user).then(function(response) {
+      //console.log('MADEEEEITTT');
+      console.log($scope.user);
+      console.log("success");
+      //window.location = "order_page.html";
+
+    }, function(error) {
+      console.log('Cant find user: ', error);
+    });
+
+*/
 
 
 /*

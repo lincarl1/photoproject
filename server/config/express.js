@@ -25,6 +25,9 @@ module.exports.init = function() {
   /* Uses the listings router for requests to the api */
   app.use('/api/users', usersRouter);
 
+  /* Uses the listings router for requests to the api */
+  //app.use('/api/users/auth', usersRouter);
+
   /* Goes to homepage for all routes not specified */
 app.get('/*', function(req, res){
     res.redirect('/index.html');

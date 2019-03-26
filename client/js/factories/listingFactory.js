@@ -7,9 +7,20 @@ angular.module('users', []).factory('Users', function($http) {
 
     
 
-    find: function(user) {
+    read: function(id) {
+      console.log("listingFactory - read: function(id) id.email: " + id.email);
       //return $http.get('https://petreeprints.herokuapp.com/api/users');
-      return $http.get('http://localhost:8080/api/users', user);
+      //return $http.get('http://localhost:8080/api/users/auth', id);
+      return $http.get('http://localhost:8080/api/users/' + id);
+
+    },
+
+    login: function(user) {
+      console.log("listingFactory - login: function(user)");
+      //return $http.get('https://petreeprints.herokuapp.com/api/users');
+      //return $http.get('http://localhost:8080/api/users/auth', id);
+      //return $http.get('http://localhost:8080/api/users', user);
+      return $http.put('http://localhost:8080/api/users', user);
 
     },
 

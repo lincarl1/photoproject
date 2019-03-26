@@ -54,12 +54,12 @@
 
       <div class="container">
         <label for="email"><b>E-mail</b></label>
-        <input type="text" placeholder="E-mail" ng-model="user.email"name="email" required>
+        <input type="text" placeholder="E-mail" ng-model="user.email" name="email" required>
 
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Password" ng-model="user.password" name="psw" required>
 
-        <button type="submit" ng-click="validateUser()">Login</button>
+        <button type="submit" ng-click="validateUser(user)">Login</button>
         <label>
           <input type="checkbox" name="remember"> Remember me
         </label>
@@ -136,12 +136,10 @@
 
       <div class="row" ng-controller="UsersController">
       <form novalidate class="simple-form">
-        <h2>New User</h2>
-        First Name: <input type="text" ng-model="newUser.first"/><br />
-        Last Name: <input type="text" ng-model="newUser.last"/><br />
-        Email: <input type="text" ng-model="newUser.email"/><br />
-        Password: <input type="text" ng-model="newUser.password"/><br />
-        <button class="btn btn-primary" ng-click="addUser()">Add User</button>
+        <h2>Login:</h2>
+        Email: <input type="text" ng-model="user.email"/><br />
+        Password: <input type="text" ng-model="user.password"/><br />
+        <button class="btn btn-primary" ng-click="validateUser(user)">Go!</button>
       </form>
     </div>
       

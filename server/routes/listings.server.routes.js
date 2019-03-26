@@ -9,7 +9,9 @@ var users = require('../controllers/listings.server.controller.js'),
  */
 router.route('/')
   .get(users.list)
-  .get(users.find)
+  .put(users.login)
+  //.get(users.login);
+  //.get(users.findByEmail)
   .post(users.create);
 
 
@@ -18,9 +20,12 @@ router.route('/')
  */
 router.route('/:userId')
   .get(users.read)
-  .put(users.update)
+  //.put(users.update)
+  //.put(users.login)
   .delete(users.delete);
 
+//router.route('/auth')
+//  .get(users.findByEmail)
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle 
   requests with a parameter.
