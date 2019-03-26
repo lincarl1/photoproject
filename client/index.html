@@ -148,9 +148,37 @@
       <!--End of PayPal-->
 
       <!--Upload Image-->
-      <form>
-        <input type="file" name="userImage" accept="image/*">
+      <hr>
+      <form action="index.html" method="post" enctype="multipart/form-data">
+        <input type="file" accept="image/*" onChange="preview_2(this);">
+        <img id="userImage" width="200"><br>
+        <input type="submit" value="upload">
       </form>
+      <hr>
+
+      <script>
+        var outImage="userImage";
+        function preview_2(obj)
+        {
+          if (FileReader)
+	        {
+		        var reader = new FileReader();
+		        reader.readAsDataURL(obj.files[0]);
+		        reader.onload = function (e) {
+		        var image=new Image();
+		        image.src=e.target.result;
+		        image.onload = function () {
+			      document.getElementById(outImage).src=image.src;
+		            };
+		            }
+	        }
+	        else
+	        {
+		            // Not supported
+	        }
+        }
+      </script>
+
       <!--End of Upload Image-->
       
       <form novalidate class="simple-form">
