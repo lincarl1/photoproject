@@ -1,8 +1,109 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body background="./image.png">
 
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
 
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+
+<div class="container">
+    <div class="row">
+        <center>
+            <h2>Upload An Image</h2>
+            <form action="index.html" method="post" enctype="multipart/form-data">
+                <input type="file" accept="image/*" onChange="preview_2(this);">
+                <img id="userImage" width="200"><br>
+                <input type="submit" value="upload">
+            </form>
+        </center>
+    </div>
+    <div class="row">
+        <center>
+            <h2>Choose A Size</h2>
+            Sizes: <select id = "PhotoOption">
+                    <option value = "small.jpg"> 640x480 
+                    <img id = "image" src = "paint.jpg" height = "64" width = "48">
+                    </option>
+                    <option value = "medium.jpg"> 1024x768 
+                    <img id = "image" src = "paint.jpg" height = "102.4" width = "76.8">
+                    </option>
+                    <option value = "large.jpg"> 1536x1024 
+                    <img id = "image" src = "paint.jpg" height = "153.6" width = "102.4">
+                    </option>
+                    <option value = "custom"> Custom
+                    </option>
+                    </select>	
+                    <input type = "submit" value = "Submit">
+                    
+                    <p> If the following sizes do not fit your demands input your custom dimensions here in pixels. </p>
+                    <form>
+                    Height: <input type = "decimal" name = "Height" <br>
+                    Width: <input type = "decimal" name = "Width" <br>
+                    <input type = "submit" value = "Submit">
+                    </form>
+        </center>
+    </div>
+    <div class="row">
+        <center>
+             <h2>Choose A Medium</h2>
+             Mediums: <select id = "MediumOption">
+                    <option value="Black and white">Black and white</option>
+                    <option value="Paper cutting">Paper cutting</option>
+                    <option value="transparencies">Transparencies</option>
+                    <option value="Collage">Collage</option>
+                    </select>
+                    <input type = "submit" value = "Submit">
+        </center>
+    </div>
+    <div class="row">
+        <center>
+            <h2>Pay Here</h2>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="example@gmail.com">
+                <input type="hidden" name="lc" value="US">
+                <input type="hidden" name="button_subtype" value="services">
+                <input type="hidden" name="no_note" value="0">
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+        </center>
+    </div>
+    
+    <div class="clr-fix"></div>
+    
+</div>
+
+<!--Preview Image-->
+<script>
+var outImage="userImage";
+function preview_2(obj)
+{
+    if (FileReader)
+	{
+		var reader = new FileReader();
+		reader.readAsDataURL(obj.files[0]);
+	    reader.onload = function (e) {
+	    var image=new Image();
+	    image.src=e.target.result;
+	    image.onload = function () {
+		    document.getElementById(outImage).src=image.src;
+	        };
+	    }
+    }
+    else
+    {
+	        // Not supported
+    }
+}
+</script>
 
 </body>
 </html>
