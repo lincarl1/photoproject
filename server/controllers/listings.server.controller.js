@@ -30,30 +30,38 @@ exports.create = function(req, res) {
 
 exports.read = function(req, res) {
   var user = req.user;
-  var inputeduser = req.body;
   console.log("In listings.server.controller.js");
-  console.log("exports.read: req.user: " + req.user);
-  console.log("exports.read: req.body: " + req.body);
+  console.log("exports.read: user: " + user);
   /** TODO **/
   /* Replace the article's properties with the new properties found in req.body */
   //var updated = req.body;
   //var loca = req.results;
   //, password: inputeduser.password
-  
-  User.findOne({email: inputeduser.email, password: inputeduser.password},function(err){
-    if(err){
-      console.log("Error in exports.read: " + err);
-      res.status(400).send(err);
-    } else {
+  if(user==null)
+  {
+    console.log("Email or password is null");
+    var error = "Email or password is null.";
+    res.status(400).send(error);
+  }
+  else
+  {
+    User.findOne({email: user.email, password: user.password},function(err){
+      if(err){
+        console.log("Error in exports.read: " + err);
+        res.status(400).send(err);
+      } else {
       //res.json(req.user);
-      res.json(req.body);
+      res.json(user);
+      //res.status(200);
       //console.log("exports.login success");
       //console.log("email given: " + inputeduser.email);
-      res.status(200);
+      //res.status(200);
       //console.log("send success");
 
     }
   });
+  }
+
 
 
 };
@@ -216,22 +224,20 @@ exports.userBbyID = function(req, res, next, id) {
 exports.userByID = function(req, res, next, id) {
   //var user = id.user;
   //console.log(req);
+  var id = JSON.parse(id);
   console.log("listings.server.controller: exports.userByID");
-  console.log("id.body: " + id.body);
   console.log("id: ");
   console.log(JSON.stringify(id, null, 4));
-  console.log("id.email: " + id.email);
-  console.log("req.email: " + req.email);
-  console.log("req.user: " + req.user);
-  console.log("res.user: " + res.user);
+
   User.findOne({email: id.email, password: id.password}).exec(function(err, user) {
     if(err) {
       res.status(404).send(err);
     } else {
-      //req.user = user;
+      //res.status(200);
       req.user = user;
+      console.log("finished findOne");
       console.log("user: " + user);
-      console.log("success. req.user: " + req.user);
+      console.log("req.user: " + req.user);
       next();
     }
   });
