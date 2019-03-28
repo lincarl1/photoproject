@@ -40,16 +40,30 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
     $scope.validateUser = function(id) {
 
       console.log('listingController is called (validateUser)');
+      var adminbool = 0;
+      if(id.email=='admin' && id.password =='admin')
+      {
+        adminbool =1;
+      }
 
-    var id2 = JSON.stringify(id);
+      console.log('adminbool: ' + adminbool);
 
+      var id2 = JSON.stringify(id);
+      
       // changes read to login
       Users.read(id2).then(function(response) {
       console.log("listingController - given user email: " + $scope.user.email);
-
+      if(adminbool)
+      {
+        window.location = "admin_page.html";
+      }
+      else
+      {
+        window.location = "order_page.html";
+      }
       
       //console.log("response: " + response.email);
-      window.location = "order_page.html";
+      ////window.location = "order_page.html";
       console.log("listingController - Success: Users.login(id)");
 
     }, function(error) {
