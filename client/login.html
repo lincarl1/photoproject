@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html>
-<body background="./image.png">
+<body background="./forest.png">
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    <meta charset="utf-8">
 </head>
 
-<br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br>
+<!--JQuery Script-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<!-- Navigation Bar -->
+<nav class="zone green">
+    <ul class = "background"></ul>
+      <ul class="main-nav"> 
+          <li class="push">Hello, User!</li>
+          <li> <button>Sign Out</button></li>
+      </ul>
+    </nav>
+<!-- End of Navigation Bar -->
+
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+
+<!--Holds All Four of the Blocks-->
 <div class="container">
-    <div class="row">
+    <div class="row" id="upload">
         <center>
             <h2>Upload An Image</h2>
+            <!--Image Preview is display through the Script at the bottom-->
             <form action="index.html" method="post" enctype="multipart/form-data">
-                <input type="file" accept="image/*" onChange="preview_2(this);">
-                <img id="userImage" width="200"><br>
-                <input type="submit" value="upload">
+                <input type="file" accept="image/*" onChange="preview_2(this);"><br>
+                <img id="userImage" width="175"><br><br>
+                <input type="submit" value="Upload">
             </form>
+            <!--End of Image Preview-->
         </center>
     </div>
-    <div class="row">
+    <div class="row" id="size">
         <center>
-            <h2>Choose A Size</h2>
+            <!--Size Selection-->
+            <h2>Choose A Size</h2><br>
             Sizes: <select id = "PhotoOption">
                     <option value = "small.jpg"> 640x480 
                     <img id = "image" src = "paint.jpg" height = "64" width = "48">
@@ -40,29 +58,37 @@
                     </select>	
                     <input type = "submit" value = "Submit">
                     
+                    <br><br>
+
                     <p> If the following sizes do not fit your demands input your custom dimensions here in pixels. </p>
                     <form>
-                    Height: <input type = "decimal" name = "Height" <br>
-                    Width: <input type = "decimal" name = "Width" <br>
+                    Height: <input type = "decimal" name = "Height"><br>
+                    <br>
+                    Width: <input type = "decimal" name = "Width"><br>
+                    <br>
                     <input type = "submit" value = "Submit">
                     </form>
+            <!--End of Size Selection-->        
         </center>
     </div>
-    <div class="row">
+    <div class="row" id="mediums">
         <center>
-             <h2>Choose A Medium</h2>
+            <!--Medium Selection-->
+             <h2>Choose A Medium</h2><br>
              Mediums: <select id = "MediumOption">
                     <option value="Black and white">Black and white</option>
                     <option value="Paper cutting">Paper cutting</option>
                     <option value="transparencies">Transparencies</option>
                     <option value="Collage">Collage</option>
-                    </select>
+                    </select><br><br>
                     <input type = "submit" value = "Submit">
+            <!--End of Medium Selection-->
         </center>
     </div>
-    <div class="row">
+    <div class="row" id="paypal">
         <center>
-            <h2>Pay Here</h2>
+            <!--PayPal Button-->
+            <h2>Pay Here</h2><br><br><br><br><br>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_xclick">
                 <input type="hidden" name="business" value="example@gmail.com">
@@ -74,12 +100,23 @@
                 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
               </form>
+            <!--End of PayPal Button-->
         </center>
     </div>
-    
+
     <div class="clr-fix"></div>
     
 </div>
+
+<br><br>
+
+<center>
+<input type="button" id="button1" value="Show Upload">
+<input type="button" id="button2" value="Show Size">
+<input type="button" id="button3" value="Show Medium">
+<input type="button" id="button4" value="Show PayPal">
+<input type="button" id="button5" value="Show All">
+</center>
 
 <!--Preview Image-->
 <script>
@@ -103,6 +140,53 @@ function preview_2(obj)
 	        // Not supported
     }
 }
+</script>
+
+<!--Button Scripts-->
+<script>
+$('#button1').click(function()
+{
+    $('#upload').show();
+    $('#size').hide();
+    $('#mediums').hide();
+    $('#paypal').hide();
+});
+
+$('#button2').click(function()
+{
+    $('#upload').hide();
+    $('#size').show();
+    $('#mediums').hide();
+    $('#paypal').hide();
+});
+
+$('#button3').click(function()
+{
+    $('#upload').hide();
+    $('#size').hide();
+    $('#mediums').show();
+    $('#paypal').hide();
+});
+
+$('#button4').click(function()
+{
+    $('#upload').hide();
+    $('#size').hide();
+    $('#mediums').hide();
+    $('#paypal').show();
+});
+
+$('#button5').click(function()
+{
+    $('#upload').show();
+    $('#size').show();
+    $('#mediums').show();
+    $('#paypal').show();
+});
+</script>
+
+<script>
+
 </script>
 
 </body>
