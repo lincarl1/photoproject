@@ -28,6 +28,7 @@ exports.create = function(req, res) {
 };
 
 
+// ACTUAL LOGIN FUNCTION
 exports.read = function(req, res) {
   var user = req.user;
   console.log("In listings.server.controller.js");
@@ -36,7 +37,6 @@ exports.read = function(req, res) {
   /* Replace the article's properties with the new properties found in req.body */
   //var updated = req.body;
   //var loca = req.results;
-  //, password: inputeduser.password
   if(user==null)
   {
     console.log("Email or password is null");
@@ -50,13 +50,9 @@ exports.read = function(req, res) {
         console.log("Error in exports.read: " + err);
         res.status(400).send(err);
       } else {
-      //res.json(req.user);
       res.json(user);
       //res.status(200);
-      //console.log("exports.login success");
       //console.log("email given: " + inputeduser.email);
-      //res.status(200);
-      //console.log("send success");
 
     }
   });
@@ -66,22 +62,6 @@ exports.read = function(req, res) {
 
 };
 
-/*
-exports.read = function(req, res) {
-  console.log("listings.server.controller - exports.read")
-  //// send back the listing as json from the request
-  //res.json(req.user);
-  //var user = req.user;
-   User.findOne({email: id.email, password: id.password}).exec(function(err, user) {
-    if(err) {
-      res.status(404).send(err);
-    } else {
-      req.user = user;
-      next();
-    }
-  });
-};
-*/
 
 /*
 //// Show the current listing 
@@ -236,7 +216,6 @@ exports.userByID = function(req, res, next, id) {
       //res.status(200);
       req.user = user;
       console.log("finished findOne");
-      console.log("user: " + user);
       console.log("req.user: " + req.user);
       next();
     }
