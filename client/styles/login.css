@@ -5,6 +5,7 @@
 .container {
   margin:auto;
   width:80%;
+  display: flex;
 }
 
 .h2 {
@@ -13,13 +14,12 @@
 }
 
 .row {
-  float:left;
   margin:auto;
   border-style: ridge;
   border-color:grey;
   background-color: white;
   height: 350px;
-  width: 25%;
+  width: 40%;
   position: relative;
   box-sizing:border-box; 
 }
@@ -127,7 +127,7 @@ li {
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
