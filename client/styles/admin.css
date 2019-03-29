@@ -1,0 +1,143 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+
+#adminpg {
+	borderColor:#FFFFFF;
+	background: #FFFFFF;
+}
+
+#searchBar {
+  margin: 15px 10px;
+}
+
+.tableWrapper {
+  max-height: 400px;
+  overflow: auto;
+}
+
+button
+{
+	background-color: #7a001a;
+	color: white;
+}
+
+
+.searchbar {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 40%;
+  background: #f1f1f1;
+}
+
+header,
+section,
+aside,
+footer {
+  margin: 0 1.5% 24px 1.5%;
+}
+section {
+  padding: 24px 5px;
+  float: left;
+  width: 63%;
+}
+aside {
+  float: right;
+  width: 30%;
+}
+footer {
+  clear: both;
+  margin-bottom: 0;
+}
+
+.boxed {
+  border: 1px solid #0F5DA4;
+  padding: 3px 20px;
+  background-color: #DCE6FF;
+  text-align: left;
+}
+
+table.adminTable {
+  font-family: "Lucida Console", Monaco, monospace;
+  border: 2px solid #0F5DA4;
+  background-color: #C7D1E7;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.adminTable td, table.adminTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.adminTable tbody td {
+  font-size: 13px;
+}
+table.adminTable tr:nth-child(even) {
+  background: #DCE6FF;
+}
+table.adminTable thead {
+  background: #0F5DA4;
+  background: -moz-linear-gradient(top, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
+  background: -webkit-linear-gradient(top, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
+  background: linear-gradient(to bottom, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
+}
+table.adminTable thead th {
+  font-size: 19px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #0F5DA4;
+}
+table.adminTable thead th:first-child {
+  border-left: none;
+}
+
+table.adminTable tfoot {
+  font-size: 13px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #0F5DA4;
+  background: -moz-linear-gradient(top, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
+  background: -webkit-linear-gradient(top, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
+  background: linear-gradient(to bottom, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
+}
+table.adminTable tfoot td {
+  font-size: 13px;
+}
+table.adminTable tfoot .links {
+  text-align: right;
+}
+table.adminTable tfoot .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #1509A4;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+table.adminTable tr.notfirst:hover {
+          background-color: #FFCE69;
+        }
+
+h1
+{
+	font-size: calc(2.8em + 2.6vw);
+	font-weight: 700;
+	letter-spacing: .01em;
+	padding: 4rem 0 0 4.5rem;
+	text-shadow: .022em .022em .022em #15323D;
+	color: #1f4a5a;
+}
+
+h2
+{
+	text-shadow: .022em .022em .022em #15323D;
+	color: #1f4a5a;
+}
+
+body
+{
+	font-family: "Roboto", Arial, sans-serif;
+	background-color: #e1e1e1;
+}
