@@ -2,7 +2,6 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
   function($scope, Users) {
     /* Get all the users, then bind it to the scope */
     Users.getAll().then(function(response) {
-      console.log("binding users");
       $scope.users = response.data;
     }, function(error) {
       console.log('Unable to retrieve users:', error);
@@ -14,9 +13,10 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
     $scope.form = {};
 
     $scope.addUser = function() {
+      var userbool = 0;
 
       Users.create($scope.newUser).then(function(response) {
-      //console.log('MADEEEEITTT');
+      window.location = "order_page.html";
       $scope.users.push({
         first: $scope.newUser.first,
         last: $scope.newUser.last,
@@ -30,9 +30,12 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
             zip: $scope.newUser.zip
           }
     });
+    
 
     }, function(error) {
+      window.alert("Missing information or user already exists. Try again.");
       console.log('Unable to add user: ', error);
+
     });
 
     }
