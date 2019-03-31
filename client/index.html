@@ -14,9 +14,9 @@
     <nav class="zone green">
       <ul class = "background"></ul>
         <ul class="main-nav">
-            <li><a href="">About</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
             <!-- <li class="push"><a href="">Login</a></li> --> 
             <li class="push"> <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button></li>
             <li> <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button></li>
@@ -42,10 +42,6 @@
     
 
 
-   <center>
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button>
-  </center>
   <div id="id01" class="login" ng-controller="UsersController">
 
     <form class="modal-content animate">
@@ -129,27 +125,31 @@
         }
       </script>
       <!--UI of front page-->
+      <div id="about">
       <h2 align = "center"> Mission Statement</h2>
-      <p align = "center"> Insert Mission Statement here</p>
+      <p align = "center"> Insert Mission Statement/About here</p>
+    </div>
+    <div id="services">
       <h3 align = "left">More Info</h3>
-      <p align = "left"> Placeholder for information to add</p>
+      <p align = "left"> Placeholder for 1-2-3 steps</p>
 
       <div class="row" ng-controller="UsersController">
       <form novalidate class="simple-form">
-        <h2>Login:</h2>
-        Email: <input type="text" ng-model="user.email"/><br />
-        Password: <input type="text" ng-model="user.password"/><br />
-        <button class="btn btn-primary" ng-click="validateUser(user)">Go!</button>
+        <h2>Prices:</h2>
+
+        <br /><br />
       </form>
     </div>
+    </div>
       
-
+    <div id="contact">
       <footer>
         <p align = "center" >Petree's Contact Information</p>
         <p align = "center">Email Address: <a href="mailto:someone@example.com">someone@example.com</a>.
           Phone Number: xxx-xxx-xxxx
         </p>
       </footer>
+    </div>
     </div>
   </div>
   <!--</div> -->
