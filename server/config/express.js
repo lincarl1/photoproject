@@ -4,7 +4,8 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-    usersRouter = require('../routes/listings.server.routes');
+    usersRouter = require('../routes/listings.server.routes'),
+    ordersRouter = require('../routes/orders.server.routes');
 
 module.exports.init = function() {
   //connect to database
@@ -22,8 +23,15 @@ module.exports.init = function() {
   /* Serve static files */
   app.use(express.static('client'));
 
-  /* Uses the listings router for requests to the api */
+  /* Uses the users router for requests to the api */
   app.use('/api/users', usersRouter);
+
+/*TESTING STARTS*/
+
+  /* Uses the users router for requests to the api */
+  app.use('/api/orders', ordersRouter);
+
+/*TESTING ENDS*/
 
   /* Uses the listings router for requests to the api */
   //app.use('/api/users/auth', usersRouter);

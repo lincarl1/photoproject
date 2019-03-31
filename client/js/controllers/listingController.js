@@ -2,6 +2,7 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
   function($scope, Users) {
     /* Get all the users, then bind it to the scope */
     Users.getAll().then(function(response) {
+      console.log("binding users");
       $scope.users = response.data;
     }, function(error) {
       console.log('Unable to retrieve users:', error);
@@ -78,8 +79,11 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
     $scope.deleteUser = function(id) {
     }
 
-    $scope.showDetails = function(index) {
-      $scope.detailedInfo = $scope.users[index];
+    $scope.showDetails = function(user) {
+      //$scope.detailedInfo = $scope.users[index];
+      $scope.detailedInfo = user;
+
     };
+
   }
 ]);

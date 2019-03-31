@@ -3,8 +3,22 @@
 <html>
   <head>
     <link rel="stylesheet" href="styles/admin.css">
+
   </head>
-  <body ng-app="printsApp">
+
+
+
+    <!-- Navigation Bar -->
+    <div class="topnav">
+            <a class="active page" href="">Manage Orders</a>
+            <a class="page" href="">Messages</a>
+            <a class="page" href="/order_page.html">Order Page</a>
+            <a class="page" href="/account_page.html">Account</a>
+            <a class="logout page" href="/index.html">Logout</a>
+        
+    </div>
+    <!-- End of Navigation Bar -->
+  <body ng-app="printsApp" background="../images/background.jpg">
     <div class="container">
       <div class="row">
         <h1>Manage Orders</h1>
@@ -31,12 +45,14 @@
             <tfoot>
               <tr>
                 <td colspan="5">
+                  <!--
                   <div class="links"><a href="#">&laquo;</a>  <a href="#">&raquo;</a></div>
+                  -->
                 </td>
               </tr>
             </tfoot>
             <tbody>
-              <tr class = "notfirst" ng-repeat="user in users | filter: query track by $index" ng-click="showDetails($index)">
+              <tr class = "notfirst" ng-repeat="user in users | filter: query track by $index" ng-click="showDetails(user)">
                 <td>{{user.created_at}}</td>
                 <td>{{user.first}} {{user.last}}</td>
                 <td>   </td>
@@ -49,6 +65,7 @@
         </div>
         <aside>
         <div class="col-md-6">
+          <br>
           <div class="boxed jumbotron">
             <h2>Order Details</h2>
             <h4>{{detailedInfo.created_at}}</h4>

@@ -1,96 +1,145 @@
 <!DOCTYPE html>
 <html>
-<body background="./forest.png">
-
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
     <link rel="stylesheet" href="styles/order_page.css">
     <meta charset="utf-8">
 </head>
+<body background="../images/forest.png" ng-app="printsApp">
 
-<!--JQuery Script-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Navigation Bar -->
-<nav class="zone green">
-    <ul class = "background"></ul>
-      <ul class="main-nav"> 
+
+    <!--JQuery Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Navigation Bar -->
+    <nav class="zone green">
+        <ul class = "background"></ul>
+        <ul class="main-nav"> 
             <li><a href="#upload">Place Order</a></li>
             <li><a href="">Contact</a></li>
             <li><a href="/account_page.html">Account</a></li>
             <li class="push"> <button onclick="window.location.href='/index.html'">Sign Out</button></li>
-      </ul>
+        </ul>
     </nav>
-<!-- End of Navigation Bar -->
+    <!-- End of Navigation Bar -->
+<div ng-controller="OrdersController">
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
 
-<br><br><br><br><br><br>
-<br><br><br><br><br><br>
-
-<!--Holds All Four of the Blocks-->
-<div class="container">
-    <div class="row" id="upload">
-        <center>
-            <h2>Upload An Image</h2>
-            <!--Image Preview is display through the Script at the bottom-->
-            <form action="index.html" method="post" enctype="multipart/form-data">
-                <input type="file" accept="image/*" onChange="preview_2(this);"><br>
-                <img id="userImage" width="175"><br><br>
-                <input type="submit" value="Upload">
-            </form>
-            <!--End of Image Preview-->
-        </center>
-    </div>
-    <div class="row" id="size">
-        <center>
-            <!--Size Selection-->
-            <h2>Choose A Size</h2><br>
-            Sizes: <select id = "PhotoOption">
+    <!--Holds All Four of the Blocks-->
+    <div class="container">
+        <div class="row" id="upload">
+            <center>
+                <h2>Upload An Image</h2>
+                
+                <!--Image Preview is display through the Script at the bottom-->
+                <form action="index.html" method="post" enctype="multipart/form-data">
+                    <input type="file" accept="image/*" onChange="preview_2(this);"><br>
+                    <img id="userImage" width="175"><br><br>
+                    <input type="submit" value="Upload">
+                </form>
+                <!--End of Image Preview-->
+            </center>
+        </div>
+        <div class="row" id="size">
+            <center>
+                <!--Size Selection-->
+                <!--
+                <h2>Choose A Size</h2><br>
+                Sizes: <select id = "PhotoOption">
                     <option value = "small.jpg"> 640x480 
-                    <img id = "image" src = "paint.jpg" height = "64" width = "48">
+                        <img id = "image" src = "paint.jpg" height = "64" width = "48">
                     </option>
                     <option value = "medium.jpg"> 1024x768 
-                    <img id = "image" src = "paint.jpg" height = "102.4" width = "76.8">
+                        <img id = "image" src = "paint.jpg" height = "102.4" width = "76.8">
                     </option>
                     <option value = "large.jpg"> 1536x1024 
-                    <img id = "image" src = "paint.jpg" height = "153.6" width = "102.4">
+                        <img id = "image" src = "paint.jpg" height = "153.6" width = "102.4">
                     </option>
                     <option value = "custom"> Custom
                     </option>
-                    </select>	
-                    <input type = "submit" value = "Submit">
-                    
-                    <br><br>
+                </select>	
+                <input type = "submit" value = "Submit">
 
-                    <p> If the following sizes do not fit your demands input your custom dimensions here in pixels. </p>
-                    <form>
+                <br><br>
+            -->
+            <h2>Choose A Size</h2><br>
+            <form>
+
+              <input type="radio" name="size" value="640x480" ng-model="order.size"> 640x480 
+              <br><br>
+              <input type="radio" name="size" value="1024x768" ng-model="order.size"> 1024x768 
+              <br><br>
+              <input type="radio" name="size" value="1536x1024" ng-model="order.size"> 1536x1024 
+              <br><br>
+<!--
+              <input type="submit" value="Submit" ng-click="showDetails(order)">
+-->
+          </form>
+
+          <br><br>
+          
+          <p> For custom size inquiries, use the contact form. </p>
+                <!--
+                <p> If the following sizes do not fit your demands input your custom dimensions here in pixels. </p>
+                <form>
                     Height: <input type = "decimal" name = "Height"><br>
                     <br>
                     Width: <input type = "decimal" name = "Width"><br>
                     <br>
                     <input type = "submit" value = "Submit">
-                    </form>
+                </form>
+            -->
             <!--End of Size Selection-->        
         </center>
     </div>
     <div class="row" id="mediums">
         <center>
             <!--Medium Selection-->
-             <h2>Choose A Medium</h2><br>
-             Mediums: <select id = "MediumOption">
+            <h2>Choose A Medium</h2><br>
+
+            <form>
+                <input type="radio" name="medium" value="collage" ng-model="order.medium">   Collage<br><br>
+                <input type="radio" name="medium" value="paper cutting" ng-model="order.medium">   Paper cutting<br><br>
+                <input type="radio" name="medium" value="transparencies" ng-model="order.medium">   Transparencies<br><br>
+                <input type="radio" name="medium" value="black and white" ng-model="order.medium">   Black and White<br><br>
+
+
+<!--
+                <input type="submit" value="Submit" ng-click="showDetails(order)">
+                <p> {{detailedInfo.medium}} </p>
+-->
+            </form>
+
+            <!--End of Medium Selection-->
+
+            <!--Medium Selection-->
+                 <!--
+                <h2>Choose A Medium</h2><br>
+                Mediums: <select id = "MediumOption">
                     <option value="Black and white">Black and white</option>
                     <option value="Paper cutting">Paper cutting</option>
                     <option value="transparencies">Transparencies</option>
                     <option value="Collage">Collage</option>
-                    </select><br><br>
-                    <input type = "submit" value = "Submit">
+                </select><br><br>
+                <input type = "submit" value = "Submit">
+            -->
             <!--End of Medium Selection-->
         </center>
     </div>
     <div class="row" id="paypal">
         <center>
+
             <!--PayPal Button-->
-            <h2>Pay Here</h2><br><br><br><br><br>
+            <h2>Pay Here</h2>
+            <br>
+             <button class="btn btn-primary" ng-click="showDetails(order)">Verify Order</button>
+             <br><br>
+             <p> {{detailedInfo.size}} </p>
+             <p> {{detailedInfo.medium}} </p>
+             <br>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_xclick">
                 <input type="hidden" name="business" value="example@gmail.com">
@@ -101,90 +150,104 @@
                 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
                 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-              </form>
+            </form>
+            <br>
+            <input type="submit" value="Submit Order" ng-click="showDetails(order)">
+             
             <!--End of PayPal Button-->
         </center>
     </div>
 
     <div class="clr-fix"></div>
-    
+
 </div>
 
 <br><br>
 
 <center>
-<input type="button" id="button1" value="Show Upload">
-<input type="button" id="button2" value="Show Size">
-<input type="button" id="button3" value="Show Medium">
-<input type="button" id="button4" value="Show PayPal">
-<input type="button" id="button5" value="Show All">
+    <input type="button" id="button1" value="Show Upload">
+    <input type="button" id="button2" value="Show Size">
+    <input type="button" id="button3" value="Show Medium">
+    <input type="button" id="button4" value="Show PayPal">
+    <input type="button" id="button5" value="Show All">
 </center>
 
+
+
+</div>
 <!--Preview Image-->
 <script>
-var outImage="userImage";
-function preview_2(obj)
-{
-    if (FileReader)
-	{
-		var reader = new FileReader();
-		reader.readAsDataURL(obj.files[0]);
-	    reader.onload = function (e) {
-	    var image=new Image();
-	    image.src=e.target.result;
-	    image.onload = function () {
-		    document.getElementById(outImage).src=image.src;
-	        };
-	    }
-    }
-    else
+    var outImage="userImage";
+    function preview_2(obj)
     {
+        if (FileReader)
+        {
+          var reader = new FileReader();
+          reader.readAsDataURL(obj.files[0]);
+          reader.onload = function (e) {
+             var image=new Image();
+             image.src=e.target.result;
+             image.onload = function () {
+              document.getElementById(outImage).src=image.src;
+          };
+      }
+  }
+  else
+  {
 	        // Not supported
+        }
     }
-}
 </script>
 
 <!--Button Scripts-->
 <script>
-$('#button1').click(function()
-{
-    $('#upload').show();
-    $('#size').hide();
-    $('#mediums').hide();
-    $('#paypal').hide();
-});
-$('#button2').click(function()
-{
-    $('#upload').hide();
-    $('#size').show();
-    $('#mediums').hide();
-    $('#paypal').hide();
-});
-$('#button3').click(function()
-{
-    $('#upload').hide();
-    $('#size').hide();
-    $('#mediums').show();
-    $('#paypal').hide();
-});
-$('#button4').click(function()
-{
-    $('#upload').hide();
-    $('#size').hide();
-    $('#mediums').hide();
-    $('#paypal').show();
-});
-$('#button5').click(function()
-{
-    $('#upload').show();
-    $('#size').show();
-    $('#mediums').show();
-    $('#paypal').show();
-});
+    $('#button1').click(function()
+    {
+        $('#upload').show();
+        $('#size').hide();
+        $('#mediums').hide();
+        $('#paypal').hide();
+    });
+    $('#button2').click(function()
+    {
+        $('#upload').hide();
+        $('#size').show();
+        $('#mediums').hide();
+        $('#paypal').hide();
+    });
+    $('#button3').click(function()
+    {
+        $('#upload').hide();
+        $('#size').hide();
+        $('#mediums').show();
+        $('#paypal').hide();
+    });
+    $('#button4').click(function()
+    {
+        $('#upload').hide();
+        $('#size').hide();
+        $('#mediums').hide();
+        $('#paypal').show();
+    });
+    $('#button5').click(function()
+    {
+        $('#upload').show();
+        $('#size').show();
+        $('#mediums').show();
+        $('#paypal').show();
+    });
 </script>
 
 <script>
 </script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/factories/listingFactory.js"></script>
+<script src="js/controllers/listingController.js"></script>
+<script src="js/factories/orderFactory.js"></script>
+<script src="js/controllers/orderController.js"></script>
 
 </body>
 </html>
