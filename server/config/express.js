@@ -6,6 +6,8 @@ var path = require('path'),
     config = require('./config'),
     usersRouter = require('../routes/listings.server.routes'),
     ordersRouter = require('../routes/orders.server.routes');
+    //password hashing
+    //bcrypt = require('bcrypt');
 
 module.exports.init = function() {
   //connect to database

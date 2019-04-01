@@ -1,5 +1,7 @@
 /* Import mongoose and define any variables needed to create the schema */
-var mongoose = require('mongoose'), 
+var mongoose = require('mongoose'),
+    // password hashing
+    bcrypt = require('bcrypt'), 
     Schema = mongoose.Schema;
 
 /* Create your schema */
@@ -57,8 +59,54 @@ userSchema.pre('save', function(next) {
   {
     this.created_at = time;
   }
+  
   next();
 });
+
+userSchema.pre('save', function (next) {
+  var user = this;
+  this.hashPassword(user.password, function(err, hash) {
+    if(err) {
+      return next(err);
+    }
+    console.log("hash from here: " + hash);
+    user.password = hash;
+    next();
+  });
+});
+
+// password hash/salt
+userSchema.methods.hashPassword = function(candidatePassword, cb) {
+  bcrypt.genSalt(11, function(err, salt) {
+    if(err)
+    {
+      console.log(err);
+      return cb(err);
+    }
+    bcrypt.hash(candidatePassword, salt, function(err, hash) {
+      if(err)
+      {
+        console.log(err);
+        return cb(err);
+      }
+      console.log("itworked");
+      console.log("hash after .hash " + hash);
+      return cb(null, hash);
+    });
+  });
+};
+
+// password login check
+userSchema.methods.comparePassword = function(candidatePassword, hashedPassword, cb) {
+  bcrypt.compare(candidatePassword, hashedPassword, function(err, isMatch) {
+    if(err){
+      return cb(err);
+    }
+    return cb(null, isMatch);
+
+  });
+};
+
 
 /* Use your schema to instantiate a Mongoose model */
 var User = mongoose.model('User', userSchema);

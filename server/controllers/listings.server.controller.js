@@ -28,15 +28,12 @@ exports.create = function(req, res) {
 };
 
 
+/*
 // ACTUAL LOGIN FUNCTION
 exports.read = function(req, res) {
   var user = req.user;
   console.log("In listings.server.controller.js");
   console.log("exports.read: user: " + user);
-  /** TODO **/
-  /* Replace the article's properties with the new properties found in req.body */
-  //var updated = req.body;
-  //var loca = req.results;
   if(user==null)
   {
     console.log("Email or password is null");
@@ -58,9 +55,39 @@ exports.read = function(req, res) {
   });
   }
 
+};
+*/
 
+exports.read = function(req, res) {
+  console.log("req.user: " + req.user);
+  var user = req.user;
+  console.log("In listings.server.controller.js");
+  console.log("exports.read: user: " + user);
+  if(user==null)
+  {
+    console.log("Email or password is null");
+    var error = "Email or password is null.";
+    res.status(400).send(error);
+  }
+  else
+  {
+    User.findOne({email: user.email, password: user.password},function(err){
+      if(err){
+        console.log("Error in exports.read: " + err);
+        res.status(400).send(err);
+      } else {
+      res.json(user);
+      //res.status(200);
+      //console.log("email given: " + inputeduser.email);
+
+    }
+    
+  });
+
+  }
 
 };
+
 
 
 /*
@@ -199,8 +226,8 @@ exports.userBbyID = function(req, res, next, id) {
 
 
 
-
-
+/*
+//ORIGINAL
 exports.userByID = function(req, res, next, id) {
   //var user = id.user;
   //console.log(req);
@@ -220,6 +247,51 @@ exports.userByID = function(req, res, next, id) {
       next();
     }
   });
+*/
+
+exports.userByID = function(req, res, next, id) {
+  //var user = id.user;
+  //console.log(req);
+  var id = JSON.parse(id);
+  console.log("listings.server.controller: exports.userByID");
+  console.log("id: ");
+  console.log(JSON.stringify(id, null, 4));
+
+  User.findOne({email: id.email}).exec(function(err, user) {
+    if(err) {
+      res.status(404).send(err);
+
+    } else {
+      if(user == null){
+        res.status(404).send(err);
+      }
+      else {
+      user.comparePassword(id.password, user.password, function(err, isMatch) {
+        if(err){
+          console.log("err in compare");
+          res.status(404).send(err);
+        }
+        else if(!isMatch){
+          console.log("pass incorrect");
+          res.status(404).send(err);
+        }
+        else {
+          req.user = user;
+          console.log("finished findOne");
+          console.log("req.user: " + req.user);
+          next();
+        }
+        // test
+        //id.password = user.password;
+        //res.status(200);
+        
+      });
+    }
+
+      
+    }
+  });
+
   /*
   User.findById(id).exec(function(err, user) {
     if(err) {
