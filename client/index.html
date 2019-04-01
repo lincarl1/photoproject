@@ -1,52 +1,162 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <!-- need to clean up all these tags --> 
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="./styles/newfront.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Oswald|Satisfy|Unica+One" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Kaushan+Script" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bangers|Open+Sans" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body ng-app="printsApp">
-  <div class="row" ng-controller="UsersController">
-  <div class="background_block"><img src="images/bck1.png">
-  <!-- /***********************************************************************
+
+
+<!-- /***********************************************************************
 *  Nav Bar
 **********************************************************************/ -->
-    <nav class="zone green">
-      <ul class = "background"></ul>
-        <ul class="main-nav">
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <!-- <li class="push"><a href="">Login</a></li> --> 
-            <li class="push"> <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button></li>
-            <li> <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button></li>
-
-       
-        
-     
-        </ul>
-      </nav>
+<nav class="zone green">
+  <ul class = "background"></ul>
+  <ul class="main-nav">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#prices">Prices</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <!-- <li class="push"><a href="">Login</a></li> --> 
+    <li class="push"> <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button></li>
+    <li> <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button></li>
+  </ul>
+</nav>
 <!-- /***********************************************************************
 *  Nav Bar - end 
 **********************************************************************/ -->
+<section>
 
-        <div class= "front_header">
-          Petree's Prints 
+ <div class="background_block"><img src="images/leaf2.jpg"> 
+  <div class= "front_header">
+    <h1>PETREE'S PRINTS </h1>
+    <p> Life is full of stories. Tell yours. </p>
+  </div>
+</div>
+
+
+<div class = "module" id="about" data-aos="fade-in" data-aos-duration="2000">
+ <div class="background_block"><img src="images/wood.jpg" style="max-height: 650px;"> 
+  <div class= "about header">
+    <center>
+      <h2>Meet Danielle Petree</h2>
+      <p> [optional autobio here] </p>
+    </center>
+    <img src="images/icon.png">
+  </div>
+</div>
+</div>
+
+<div class ="module" id="services" data-aos="fade-up" data-aos-duration="2000">
+  <div class="instruction_block"> 
+    <center>
+      <h1>Easy As ...</h1>
+    </center>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm"><img src="images/upload.png">
+         <div class="instruction_text">
+          Upload Image
         </div>
-    </div> 
-  
+        <div id="circle">
+          <div class="number"><strong>1</strong></div>
+        </div>
+      </div>
+      <div class="col-sm"><img src="images/frame.png">
+        <div class="instruction_text">
+          Choose Size 
+        </div>
+        <div id="circle">
+          <div class="number"><strong>2</strong></div>
+        </div>
+      </div>
+      <div class="col-sm"><img src="images/medium.png">
+        <div class="instruction_text">
+          Choose Medium
+        </div>
+        <div id="circle">
+          <div class="number"><strong>3</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <center>
+    <button type="button" class="btn btn-primary">Get started!</button>
+  </center>
+  <br>
+  <br>
+  <br>
+</div>
+</div>
+
+
+<div class="module" id="prices" data-aos="fade-up" data-aos-duration="2000">
+  <div class= "prices_block"> 
+    <div id="hero" style="background-image: url(&quot;green.jpg&quot;);">
+      <div style="position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.4);"></div>
+      <div class= "prices_header">
+        <center>
+          <h2>Prices</h2> 
+        </center>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
 
-  <div class="container">
-    
+
+<div class = "module" id="contact">
+ <div class="background_block"><img src="images/white.jpg" style="max-height: 250px;"> 
+  <div class= "about header">
+    <center>
+      <h2>Contact</h2>
+
+      <p>Email Address: <a href="mailto:someone@example.com">someone@example.com</a>
+        <br>
+      Phone Number: xxx-xxx-xxxx</p>
+    </center>
+  </div>
+</div>
+</div>
 
 
+</section>
+
+
+
+
+
+
+<div class="container">
   <div id="id01" class="login" ng-controller="UsersController">
 
     <form class="modal-content animate">
 
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
 
       <div class="container">
         <label for="email"><b>E-mail</b></label>
@@ -68,7 +178,8 @@
     </form>
   </div>
   
-  <div id="id02" class="signup">
+  <div id="id02" class="signup" ng-controller="UsersController">
+
 
     <form class="modal-content animate">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -108,57 +219,31 @@
         <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
       </div>
     </form>
+
+
+    
+
   </div>
   
-  <script>
-        // Gets the two popups
-        var login = document.getElementById('id01');
-        var signup = document.getElementById('id02');
-        // When the user clicks anywhere outside of the popups, close it
-        window.onclick = function(event) {
-          if (event.target == login) {
-            login.style.display = "none";
-          }
-          if (event.target == signup) {
-            signup.style.display ="none";
-          }
-        }
-      </script>
-      <!--UI of front page-->
-      <div id="about">
-      <h2 align = "center"> Mission Statement</h2>
-      <p align = "center"> Insert Mission Statement/About here</p>
-    </div>
-    <div id="services">
-      <h3 align = "left">More Info</h3>
-      <p align = "left"> Placeholder for 1-2-3 steps</p>
 
-      <div class="row" ng-controller="UsersController">
-      <form novalidate class="simple-form">
-        <h2>Prices:</h2>
 
-        <br /><br />
-      </form>
-    </div>
-    </div>
-      
-    <div id="contact">
-      <footer>
-        <p align = "center" >Petree's Contact Information</p>
-        <p align = "center">Email Address: <a href="mailto:someone@example.com">someone@example.com</a>.
-          Phone Number: xxx-xxx-xxxx
-        </p>
-      </footer>
-    </div>
-    </div>
-  </div>
-  <!--</div> -->
-<!--</div> -->
+</div>
+</div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
 <script src="js/app.js"></script>
 <script src="js/factories/listingFactory.js"></script>
 <script src="js/controllers/listingController.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>

@@ -85,8 +85,7 @@
   -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
   box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
   background:white; 
-  opacity: 0.6; 
-  color: black; 
+  opacity: 0.6;
 }
 .zone:hover > a:hover{
 color: black;
