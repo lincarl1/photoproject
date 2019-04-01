@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -69,6 +69,8 @@
   </div>
   
   <div id="id02" class="signup">
+  <!-- Sign Up Popup -->
+  <div id="id02" class="signup" ng-controller="UsersController">
 
     <form class="modal-content animate">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -84,10 +86,10 @@
         <input type="text" ng-model="newUser.email" placeholder="Enter E-mail" name="email" required>
 
         <label for="psw"><b>Password</b></label>
-        <input type="password" ng-model="newUser.password" placeholder="Password" name="psw" required>
+        <input type="password" ng-model="newUser.password" placeholder="Password" id="psw" required>
 
         <label for="pswconfirmation"><b>Confirm Password</b></label>
-        <input type="password" placeholder="Confirm Password" name="pswconfirmation" required>
+        <input type="password" placeholder="Confirm Password" id="pswconfirmation" onblur="confirmPassword()" required>
 
         <label for="address"><b>Street Address</b></label>
         <input type="text" ng-model="newUser.address.street" placeholder="Address" name="address">
@@ -110,6 +112,7 @@
     </form>
   </div>
   
+  <!-- Script for the Popups -->
   <script>
         // Gets the two popups
         var login = document.getElementById('id01');
@@ -123,7 +126,8 @@
             signup.style.display ="none";
           }
         }
-      </script>
+  </script>
+
       <!--UI of front page-->
       <div id="about">
       <h2 align = "center"> Mission Statement</h2>
