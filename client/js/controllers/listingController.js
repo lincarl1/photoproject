@@ -12,14 +12,6 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
     // form to hold new user
     $scope.form = {};
 
-    function confirmPassword() {
-      var password1 = document.getElementById("psw").value;
-      var password2 = document.getElementById("pswconfirmation").value;
-      if (password1 != password2)
-      {
-        alert("Confirmation Password does not match Password!");
-      }
-    }
 
     $scope.addUser = function() {
       var userbool = 0;
