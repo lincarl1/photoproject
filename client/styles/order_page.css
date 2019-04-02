@@ -108,10 +108,12 @@ li {
   padding: 14px;
 }
 
+/*
 a {
   color: white;
   text-decoration: none;
 }
+*/
 
 button {
 background-color: #4CAF50;
@@ -128,3 +130,35 @@ opacity: 0.8;
 }
 
 
+.zone {
+    /*padding:30px 50px;*/
+    /*cursor:pointer;*/
+    
+    font-size:2em;
+    border-radius:4px;
+   /* border:1px solid #bbb;    
+   position: absolute;*/
+    transition: all 0.3s linear;
+ 
+    width: 100%; 
+
+
+    background: white;
+}
+
+.zone:hover > .zone a:hover{
+  color: black;
+}
+.zone a:hover{
+  color: black; 
+}
+
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #AFB1B2; 
+  }

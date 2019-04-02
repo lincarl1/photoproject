@@ -344,8 +344,45 @@ span.psw {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 500px;
+  /*width: 80%; *//* Could be more or less, depending on screen size */
 }
+
+
+.login-content input{
+  width: 400px;
+}
+
+
+.login-content label{
+  font-size: 11px;
+}
+
+.login-content label[for=head]{
+  font-size: 20px;
+}
+
+.login-content button[class=log]{
+  font-size: 14px;
+  width: 400px;
+  color: white;
+  background-color: #4CAF50;
+  padding: 10px 26px;
+  border-radius: 4px;
+  border: 2px solid white;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.login-content button[class=log]:hover {
+  background-color: #4CAF50; /* Green */
+  opacity: 0.6;
+  color: white;
+}
+
+
+
+
 
 /* Sign Up (background) */
 .signup {
@@ -367,23 +404,66 @@ span.psw {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  /*width: 80%; *//* Could be more or less, depending on screen size */
+  width: 500px;
 }
 
 
+.signup-content input{
+  width: 198px;
+}
+
+.signup-content input[name=email], input[name=address]{
+  width: 400px;
+}
+
+.signup-content input[name=state], input[name=zip]{
+  width: 98px;
+}
+
+.signup-content label{
+  font-size: 11px;
+}
+
+.signup-content label[for=head]{
+  font-size: 20px;
+}
+
+.signup-content button[class=start]{
+  font-size: 14px;
+  width: 406px;
+  color: white;
+  background-color: #4CAF50;
+  padding: 10px 26px;
+  border-radius: 4px;
+  border: 2px solid white;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.signup-content button[class=start]:hover {
+  background-color: #4CAF50; /* Green */
+  opacity: 0.6;
+  color: white;
+}
+
+
+
+
+
 /* The Close Button (x) */
-.close {
+.closee {
   position: absolute;
   right: 25px;
   top: 0;
   color: #000;
-  font-size: 35px;
+  font-size: 25px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-  color: red;
+.closee:hover,
+.closee:focus {
+  color: grey;
   cursor: pointer;
 }
 
