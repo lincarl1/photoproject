@@ -32,7 +32,8 @@ var userSchema = new Schema({
   },
   created_at: String,
   updated_at: String
-});
+},
+{ collection: 'users' });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 /*

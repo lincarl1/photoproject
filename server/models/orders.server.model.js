@@ -14,7 +14,8 @@ var orderSchema = new Schema({
   },
   created_at: String,
   updated_at: String
-});
+},
+{ collection: 'orders' });
 
 
 

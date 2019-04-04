@@ -70,11 +70,11 @@
             <h2>Choose A Size</h2><br>
             <form>
 
-              <input type="radio" name="size" value="640x480" ng-model="order.size"> 640x480 
+              <input type="radio" name="size" value="640x480" ng-model="newOrder.size"> 640x480 
               <br><br>
-              <input type="radio" name="size" value="1024x768" ng-model="order.size"> 1024x768 
+              <input type="radio" name="size" value="1024x768" ng-model="newOrder.size"> 1024x768 
               <br><br>
-              <input type="radio" name="size" value="1536x1024" ng-model="order.size"> 1536x1024 
+              <input type="radio" name="size" value="1536x1024" ng-model="newOrder.size"> 1536x1024 
               <br><br>
 <!--
               <input type="submit" value="Submit" ng-click="showDetails(order)">
@@ -103,10 +103,11 @@
             <h2>Choose A Medium</h2><br>
 
             <form>
-                <input type="radio" name="medium" value="collage" ng-model="order.medium">   Collage<br><br>
-                <input type="radio" name="medium" value="paper cutting" ng-model="order.medium">   Paper cutting<br><br>
-                <input type="radio" name="medium" value="transparencies" ng-model="order.medium">   Transparencies<br><br>
-                <input type="radio" name="medium" value="black and white" ng-model="order.medium">   Black and White<br><br>
+                <input type="radio" name="medium" value="canvas" ng-model="newOrder.medium">   Canvas<br><br>
+                <input type="radio" name="medium" value="fine art paper" ng-model="newOrder.medium">   Fine Art Paper<br><br>
+                <input type="radio" name="medium" value="photo paper(glossy)" ng-model="newOrder.medium">   Photo Paper(Glossy)<br><br>
+                <input type="radio" name="medium" value="photo paper(matte)" ng-model="newOrder.medium">   Photo Paper(Matte)<br><br>
+                <input type="radio" name="medium" value="black and white" ng-model="newOrder.medium">   Black and White<br><br>
 
 
 <!--
@@ -137,7 +138,7 @@
             <!--PayPal Button-->
             <h2>Pay Here</h2>
             <br>
-             <button class="btn btn-primary" ng-click="showDetails(order)">Verify Order</button>
+             <button class="btn btn-primary" ng-click="showDetails(newOrder)">Verify Order</button>
              <br><br>
              <p> {{detailedInfo.size}} </p>
              <p> {{detailedInfo.medium}} </p>
@@ -154,7 +155,7 @@
                 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
             </form>
             <br>
-            <input type="submit" value="Submit Order" ng-click="showDetails(order)">
+            <input type="submit" value="Submit Order" ng-click="addOrder()">
              
             <!--End of PayPal Button-->
         </center>
