@@ -1,17 +1,22 @@
+html body{
+     background-color: : #f9f9f9;
+}
+
 #searchBar {
   margin: 15px 10px;
 }
 
-/*background block styling */ 
+/*background block styling 
 .background_block {
-  /*display: flex; 
-  flex-grow: 1; */ 
   position: relative;
+  background-attachment: fixed; 
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .background_block img{
   width: 100%; 
   height: auto; 
-}
+}*/ 
 
 .front_header {
   position: absolute;
@@ -33,20 +38,80 @@
   color: black; 
 }
 
+section{
+  margin-top: 87px; 
+  background-color: : #f9f9f9;
+}
+
+.module{
+    padding:200px 20px 200px 20px;
+    text-align: center;
+}
+.section-1{
+    background-image:url('./images/leaforg.jpg');
+    background-position:center;
+     background-size: cover;
+    position: relative;
+    height: 750px;
+}
+.section-2{
+     background-image:url('./images/woodorg.jpg');
+    background-position:center;
+    position: relative;
+    height: 750px;
+}
+.section-4 h2 {
+    font-family: 'Clarkson',Helvetica,sans-serif; 
+     font-weight: 550;
+    line-height: 1.1em;
+    font-size: 35px;
+    color: #222;
+}
+
+.section-5 h2{
+    font-family: 'Clarkson',Helvetica,sans-serif; 
+     font-weight: 550;
+    line-height: 1.1em;
+    font-size: 35px;
+    color: #222;
+}
+
+.section-5 p{
+    font-size: 12px;
+}
+.section-4 p{
+    font-size: 12px;
+}
+
+.section-5 .two-up__left{
+  margin-left: 30px; 
+}
+
+.section-5{
+  margin-top: 100px; 
+}
+body > section > .section-3 {
+    background-position:center;
+    position: relative;
+     background-size: cover;
+     background-color: : #f9f9f9 !important; 
+}
+
 /***********************************************************************
  *  Nav Bar
  **********************************************************************/
 
 .zone {
-    /*padding:30px 50px;*/
-    /*cursor:pointer;*/
-    
     font-size:2em;
     border-radius:4px;
-   /* border:1px solid #bbb;    
-   position: absolute;*/
     transition: all 0.3s linear;
- 
+    position: fixed; 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 999;
+    top:-11px;
     width: 100%; 
 }
 
@@ -181,7 +246,9 @@
 /*font-family: 'Bangers', cursive; */
 font-size: 48px; 
 letter-spacing: 5px; 
-font-family: 'Kaushan Script', cursive;
+ font-family: 'Staatliches', cursive;
+color: black; 
+margin-bottom: 15px; 
 }
 
 .instruction_text{
