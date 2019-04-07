@@ -272,6 +272,10 @@ span.psw {
   font-size: 20px;
 }
 
+.edituser-content label[for=body]{
+  font-size: 10px;
+}
+
 .edituser-content button[class=start]{
   font-size: 14px;
   width: 406px;

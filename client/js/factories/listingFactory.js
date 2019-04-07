@@ -15,12 +15,11 @@ angular.module('users', []).factory('Users', function($http) {
 
     },
 
-    login: function(user) {
-      console.log("listingFactory - login: function(user)");
-      //return $http.get('https://petreeprints.herokuapp.com/api/users');
-      //return $http.get('http://localhost:8080/api/users/auth', id);
-      //return $http.get('http://localhost:8080/api/users', user);
-      return $http.put('http://localhost:8080/api/users', user);
+
+    update: function(user) {
+      console.log("listingFactory - update: function(user) user: " + user);
+      //return $http.put('http://localhost:8080/api/users/' + id);
+      return $http.put('http://localhost:8080/api/users/', user);
 
     },
 

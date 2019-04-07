@@ -55,7 +55,7 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
 
       var id2 = JSON.stringify(id);
       
-      // changes read to login
+      // read is login
       Users.read(id2).then(function(response) {
       console.log("listingController - given user email: " + $scope.user.email);
       sessionStorage['thisuser'] = JSON.stringify(response.data);
@@ -80,28 +80,68 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
     }
 
 
+    $scope.updateUser = function() {
+      if($scope.editedUser == null){
+        alert("No changes made.");
+      }
+      else if($scope.editedUser.password == null){
+        alert("Please enter password.")
+      }
+      else
+      {
+        var thisuser2 = JSON.parse(sessionStorage['thisuser']);
+        if($scope.editedUser._id == null){
+          $scope.editedUser._id = thisuser2._id;
+        }
+        if($scope.editedUser.first == null){
+          $scope.editedUser.first = thisuser2.first;
+        }
+        if($scope.editedUser.last == null){
+          $scope.editedUser.last = thisuser2.last;
+        }
+        if($scope.editedUser.email == null){
+          $scope.editedUser.email = thisuser2.email;
+        }
+        /*
+        if($scope.editedUser.password == null){
+          $scope.editedUser.password = thisuser2.password;
+        }
+        */
+        if($scope.editedUser.address == null){
+          $scope.editedUser.address = thisuser2.address;
+        }
+        else
+        {
+          if($scope.editedUser.address.street == null){
+            $scope.editedUser.address.street = thisuser2.address.street;
+          }
+          if($scope.editedUser.address.city == null){
+            $scope.editedUser.address.city = thisuser2.address.city;
+          }
+          if($scope.editedUser.address.state == null){
+            $scope.editedUser.address.state = thisuser2.address.state;
+          }
+          if($scope.editedUser.address.zip == null){
+            $scope.editedUser.address.zip = thisuser2.address.zip;
+          }
+        }
 
-    $scope.updateUser = function(id) {
 
-      var id2 = JSON.stringify(id);
-      console.log(id2);
+        //var id2 = JSON.stringify(id);
+        var newEdit = JSON.stringify($scope.editedUser);
+        Users.update(newEdit).then(function(response) {
+         // console.log(JSON.stringify(response.data));
+        sessionStorage['thisuser'] = JSON.stringify(response.data);
+        window.location = "account_page.html";
+        console.log("listingController - Success: Users.update");
+
+        }, function(error) {
+        window.alert("Problem updating account.\nTry again.");
+        console.log('listingController- Cant find user: ', error);
+        });
+        
+      }  // end main else
       console.log("updateUser: " + JSON.stringify($scope.editedUser));
-      
-      // changes read to login
-      /*
-      Users.update(id2).then(function(response) {
-      console.log("listingController - given user email: " + $scope.user.email);
-      sessionStorage['thisuser'] = JSON.stringify(response.data);
-      
-      //console.log("response: " + response.email);
-      ////window.location = "order_page.html";
-      console.log("listingController - Success: Users.login(id)");
-
-    }, function(error) {
-      window.alert("User with that email or password does not exist.\nCreate an account or try again.");
-      console.log('listingController- Cant find user: ', error);
-    });
-    */
 
     }
 

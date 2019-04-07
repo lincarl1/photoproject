@@ -9,6 +9,7 @@ var users = require('../controllers/listings.server.controller.js'),
  */
 router.route('/')
   .get(users.list)
+  .put(users.update)
   //.get(users.login);
   //.get(users.findByEmail)
   .post(users.create);
@@ -20,7 +21,6 @@ router.route('/')
 router.route('/:userId')
   .get(users.read)
   //.put(users.update)
-  //.put(users.login)
   .delete(users.delete);
 
 /*

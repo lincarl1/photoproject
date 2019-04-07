@@ -99,25 +99,26 @@
         <center><label for="head"><b>Account Info</b></label>
         <br>
 
-        <input type="text" ng-model="editedUser.first"placeholder="{{thisuser.first}}" name="firstName" required>
+        <input type="text" ng-model="editedUser.first"placeholder="{{thisuser.first}}" name="firstName">
         <!--
         <label for="lastName"><b>Last Name</b></label>
         -->
-        <input type="text" ng-model="editedUser.last"placeholder="{{thisuser.last}}" name="lastName" required>
+        <input type="text" ng-model="editedUser.last"placeholder="{{thisuser.last}}" name="lastName">
         <br>
         <!--
         <label for="email"><b>E-mail</b></label>
         -->
-        <input type="text" ng-model="editedUser.email" placeholder="{{thisuser.email}}" name="email" required>
+        <input type="text" ng-model="editedUser.email" placeholder="{{thisuser.email}}" name="email">
         <br>
         <!--
         <label for="psw"><b>Password</b></label>
         -->
-        <input type="password" ng-model="editedUser.password" placeholder="New Password" name="psw" id="psw" required>
+
+        <input type="password" ng-model="editedUser.password" placeholder="Password*" name="psw" id="psw">
         <!--
         <label for="pswconfirmation"><b>Confirm Password</b></label>
         -->
-        <input type="password" placeholder="Confirm New Password" name="pswconfirmation" id="pswconfirmation" onchange="confirmPassword()" required>
+        <input type="password" placeholder="Confirm Password*" name="pswconfirmation" id="pswconfirmation" onchange="confirmPassword()">
         <script>
           function confirmPassword() {
             var password1 = document.getElementById("psw").value;
@@ -128,6 +129,7 @@
             }
           }
         </script>
+        <label for="body">Password required. If changing password, enter new password above.</label>
         <br>
         <br>
         <input type="text" ng-model="editedUser.address.street" placeholder="{{thisuser.address.street}}" name="address">
@@ -145,7 +147,7 @@
         -->
         <input type="text" ng-model="editedUser.address.zip" placeholder="{{thisuser.address.zip}}" name="zip">
         <br><br>
-        <button class="start" ng-click="updateUser(thisuser)">Confirm Changes</button>
+        <button class="start" ng-click="updateUser()">Confirm Changes</button>
       </div>
       <!--
       <div class="container" style="background-color:#f1f1f1">

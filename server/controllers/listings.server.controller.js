@@ -74,42 +74,39 @@ exports.read = function(req, res) {
 
 /* Update a listing */
 exports.update = function(req, res) {
-  var user = req.user;
+  //var user = JSON.stringify(req);
 
+  //console.log("exports.update user: " + req);
   /** TODO **/
   /* Replace the article's properties with the new properties found in req.body */
   var updated = req.body;
-  var loca = req.results;
-  
+  console.log("exports.update updated: " + updated._id);
+  res.status(200);
 
-  User.findOne({email: user.email},function(err){
+  User.findById(updated._id, function (err, userfound) {
     if(err){
       console.log(err);
       res.status(400).send(err);
     } else {
-      user.first = updated.first;
-      user.last = updated.last;
-      user.email = updated.email;
-      user.password = updated.password;
-/*
-      if(loca){
-        user.address.street = loca.lat;
-        listing.coordinates.longitude = loca.lng;
-      }
-*/
+      console.log("userfound og: " + JSON.stringify(userfound));
+      
+      userfound.first = updated.first;
+      userfound.last = updated.last;
+      userfound.email = updated.email;
+      userfound.password = updated.password;
+      userfound.address = updated.address;
+      userfound.save(function(err) {
+        if(err) {
+          console.log(err);
+          res.status(400).send(err);
+        } else {
+          console.log("userfound: " + JSON.stringify(userfound));
+          res.json(userfound);
+        }
+      });
+      
     }
-  });
-  
-  
-  /* Save the article */
-  user.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.json(user);
-    }
-  });
+});
 
 };
 
