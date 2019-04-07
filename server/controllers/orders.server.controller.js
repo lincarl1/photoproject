@@ -9,9 +9,8 @@ exports.create = function(req, res) {
   var order = new Order(req.body);
   // TESTING
 
-  console.log("exports.create: order.img: " + JSON.stringify(order));
-  //console.log("exports.create: req.file: " + JSON.stringify(req.file));
-  //console.log("exports.create: req.files: " + JSON.stringify(req.files));
+  //console.log("exports.create: order.img: " + JSON.stringify(order));
+  
   //order.img.data = fs.readFileSync(req.files.userPhoto.path)
   //order.img.data = order.img;
   //order.img.contentType = 'image/png';

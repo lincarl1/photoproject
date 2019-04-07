@@ -28,36 +28,6 @@ exports.create = function(req, res) {
 };
 
 
-/*
-// ACTUAL LOGIN FUNCTION
-exports.read = function(req, res) {
-  var user = req.user;
-  console.log("In listings.server.controller.js");
-  console.log("exports.read: user: " + user);
-  if(user==null)
-  {
-    console.log("Email or password is null");
-    var error = "Email or password is null.";
-    res.status(400).send(error);
-  }
-  else
-  {
-    User.findOne({email: user.email, password: user.password},function(err){
-      if(err){
-        console.log("Error in exports.read: " + err);
-        res.status(400).send(err);
-      } else {
-      res.json(user);
-      //res.status(200);
-      //console.log("email given: " + inputeduser.email);
-
-    }
-  });
-  }
-
-};
-*/
-
 exports.read = function(req, res) {
   console.log("req.user: " + req.user);
   var user = req.user;
@@ -100,36 +70,6 @@ exports.read = function(req, res) {
 };
 */
 
-exports.login = function(req, res) {
-  var user = req.user;
-  var inputeduser = req.body;
-  var email = "xifak";
-  console.log("In listings.server.controller.js");
-  console.log("exports.login: req.user: " + req.user);
-  console.log("exports.login: req.body: " + req.body);
-  /** TODO **/
-  /* Replace the article's properties with the new properties found in req.body */
-  //var updated = req.body;
-  //var loca = req.results;
-  //, password: inputeduser.password
-  
-  User.findOne({email: inputeduser.email, password: inputeduser.password},function(err){
-    if(err){
-      console.log("Error in exports.login: " + err);
-      res.status(400).send(err);
-    } else {
-      //res.json(req.user);
-      res.json(req.body);
-      //console.log("exports.login success");
-      //console.log("email given: " + inputeduser.email);
-      //res.status(200);
-      //console.log("send success");
-
-    }
-  });
-
-
-};
 
 
 /* Update a listing */
@@ -198,29 +138,6 @@ exports.list = function(req, res) {
         bind it to the request object as the property 'listing', 
         then finally call next
  */
- /*
-exports.userBbyID = function(req, res, next, id) {
-  //var user = id.user;
-  //console.log(req);
-  console.log("listings.server.controller: exports.userByID");
-  console.log("id.body: " + id.body);
-  console.log("id: " + id);
-  console.log("req.user: " + req.user);
-  console.log("res.user: " + res.user);
-  User.findOne({email: id.email, password: id.password}).exec(function(err, user) {
-    if(err) {
-      res.status(404).send(err);
-    } else {
-      //req.user = user;
-      req.user = user;
-      console.log("success. req.user: " + req.user);
-      next();
-    }
-  });
-
-};
-
-*/
 
 
 

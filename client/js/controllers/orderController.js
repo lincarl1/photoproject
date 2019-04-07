@@ -13,11 +13,11 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
     $scope.form = {};
 
     $scope.addOrder = function() {
+      var thisuser2 = JSON.parse(sessionStorage['thisuser']);
+      console.log("read value: " + sessionStorage['thisuser']);
       $scope.newOrder.status = "Placed";
       console.log("ORDERCONTROLLER - client")
-      console.log("$scope.newOrder.img.contentType: " + $scope.newOrder.img.data);
       console.log("$scope.newOrder.img: " + $scope.newOrder.img);
-      //console.log("object FileList: " + JSON.stringify($scope.newOrder.img));
       Orders.create($scope.newOrder).then(function(response) {
       $scope.orders.push({
         //img: btoa($scope.newOrder.img),
@@ -47,6 +47,8 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
         var win = window.open();
         win.document.write('<iframe src="' + img  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
       };
+
+
 
   }
 ]);

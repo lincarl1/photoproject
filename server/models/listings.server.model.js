@@ -85,7 +85,6 @@ userSchema.pre('save', function (next) {
     if(err) {
       return next(err);
     }
-    console.log("hash from here: " + hash);
     user.password = hash;
     next();
   });
@@ -105,8 +104,6 @@ userSchema.methods.hashPassword = function(candidatePassword, cb) {
         console.log(err);
         return cb(err);
       }
-      console.log("itworked");
-      console.log("hash after .hash " + hash);
       return cb(null, hash);
     });
   });

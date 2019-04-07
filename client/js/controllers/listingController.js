@@ -9,6 +9,9 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
 
     $scope.detailedInfo = undefined;
 
+    // this user session
+    $scope.thisuser = undefined;
+
     // form to hold new user
     $scope.form = {};
 
@@ -17,6 +20,7 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
       var userbool = 0;
 
       Users.create($scope.newUser).then(function(response) {
+      sessionStorage['thisuser'] = JSON.stringify(response.data);
       window.location = "order_page.html";
       $scope.users.push({
         first: $scope.newUser.first,
@@ -30,15 +34,11 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
             state: $scope.newUser.state,
             zip: $scope.newUser.zip
           }
-    });
-    
-
+    }); 
     }, function(error) {
       window.alert("Missing information or user already exists. Try again.");
       console.log('Unable to add user: ', error);
-
     });
-
     }
 
 
@@ -58,6 +58,7 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
       // changes read to login
       Users.read(id2).then(function(response) {
       console.log("listingController - given user email: " + $scope.user.email);
+      sessionStorage['thisuser'] = JSON.stringify(response.data);
       if(adminbool)
       {
         window.location = "admin_page.html";
@@ -76,18 +77,52 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
       console.log('listingController- Cant find user: ', error);
     });
 
-}
-
-
-
-    $scope.deleteUser = function(id) {
     }
+
+
+
+    $scope.updateUser = function(id) {
+
+      var id2 = JSON.stringify(id);
+      console.log(id2);
+      console.log("updateUser: " + JSON.stringify($scope.editedUser));
+      
+      // changes read to login
+      /*
+      Users.update(id2).then(function(response) {
+      console.log("listingController - given user email: " + $scope.user.email);
+      sessionStorage['thisuser'] = JSON.stringify(response.data);
+      
+      //console.log("response: " + response.email);
+      ////window.location = "order_page.html";
+      console.log("listingController - Success: Users.login(id)");
+
+    }, function(error) {
+      window.alert("User with that email or password does not exist.\nCreate an account or try again.");
+      console.log('listingController- Cant find user: ', error);
+    });
+    */
+
+    }
+
 
     $scope.showDetails = function(user) {
       //$scope.detailedInfo = $scope.users[index];
       $scope.detailedInfo = user;
 
     };
+
+    $scope.showUser = function() {
+      if(sessionStorage['thisuser'] == null) {
+        window.location = "index.html";
+      }
+      var thisuser2 = JSON.parse(sessionStorage['thisuser']);
+      //$scope.detailedInfo = $scope.users[index];
+      $scope.thisuser = thisuser2;
+
+    };
+
+
 
   }
 ]);
