@@ -7,7 +7,16 @@ exports.create = function(req, res) {
 
   /* Instantiate an Order */
   var order = new Order(req.body);
+  // TESTING
 
+  console.log("exports.create: order.img: " + JSON.stringify(order));
+  //console.log("exports.create: req.file: " + JSON.stringify(req.file));
+  //console.log("exports.create: req.files: " + JSON.stringify(req.files));
+  //order.img.data = fs.readFileSync(req.files.userPhoto.path)
+  //order.img.data = order.img;
+  //order.img.contentType = 'image/png';
+  
+  // END TESTING
   /* Then save the order */
   order.save(function(err) {
     if(err) {

@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="styles/admin.css">
 
   </head>
+
+
+
     <!-- Navigation Bar -->
     <div class="topnav">
             <a class="active page" href="">Manage Orders</a>
@@ -15,15 +18,11 @@
     </div>
     <!-- End of Navigation Bar -->
   <body ng-app="printsApp" background="images/background.jpg">
-    <!--JQuery Script-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
     <div class="container">
       <div class="row">
         <h1>Manage Orders</h1>
       </div>
-      <div class="row" ng-controller="OrdersController">
+      <div class="row" ng-controller="UsersController">
         <div class="col-md-6">
           <header>
           <div class="input-group" id="searchBar">
@@ -52,11 +51,10 @@
               </tr>
             </tfoot>
             <tbody>
-              <tr class = "notfirst" ng-repeat="order in orders | filter: query track by $index" ng-click="showDetails(order)">
-                <td>{{order.created_at}}</td>
-                <td>  </td>
-                <td>{{order.size}}<br>{{order.medium}}</td>
-              
+              <tr class = "notfirst" ng-repeat="user in users | filter: query track by $index" ng-click="showDetails(user)">
+                <td>{{user.created_at}}</td>
+                <td>{{user.first}} {{user.last}}</td>
+                <td>   </td>
                 <td>   </td>
               </tr>
             </tbody>
@@ -70,18 +68,9 @@
           <div class="boxed jumbotron">
             <h2>Order Details</h2>
             <h4>{{detailedInfo.created_at}}</h4>
-            <p><b>Name: </b> </p>
-            <p><b>Address:</b><br><br></p>
-            <p><b>Order Info:</b></p>
-            <p>
-            <img src="{{detailedInfo.img}}" width="175"/>
-            <br>
-            {{detailedInfo.size}}
-            <br>
-            {{detailedInfo.medium}}
-            <br>
-            <button ng-click="showImage(detailedInfo.img);">Download</button>
-            </p>
+            <p><b>Name:</b> {{detailedInfo.first}} {{detailedInfo.last}}</p>
+            <p><b>Address:</b><br>{{detailedInfo.address.street}}<br>{{detailedInfo.address.city}}, {{detailedInfo.address.state}} {{detailedInfo.address.zip}}</p>
+            <p><b>Order Info:</b> </p>
             <p><b>Status:</b> </p>
           </div>
         </div>
@@ -95,8 +84,6 @@
     <script src="js/app.js"></script>
     <script src="js/factories/listingFactory.js"></script>
     <script src="js/controllers/listingController.js"></script>
-    <script src="js/factories/orderFactory.js"></script>
-    <script src="js/controllers/orderController.js"></script>
   </body>
 </html>
 </div>

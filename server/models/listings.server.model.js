@@ -54,7 +54,22 @@ userSchema.pre('save', function(next) {
   var yyyy = time.getFullYear();
   var hr = time.getHours();
   var min = time.getMinutes();
-  time = mm + '/' + dd + '/' + yyyy + ' ' + hr + ':' + min;
+  if(hr<10){
+    if(min<10){
+      time = mm + '/' + dd + '/' + yyyy + ' 0' + hr + ':0' + min;
+    }
+    else{
+      time = mm + '/' + dd + '/' + yyyy + ' 0' + hr + ':' + min;
+    }
+  }
+  else{
+    if(min<10){
+      time = mm + '/' + dd + '/' + yyyy + ' ' + hr + ':0' + min;
+    }
+    else{
+      time = mm + '/' + dd + '/' + yyyy + ' ' + hr + ':' + min;
+    }
+  }
   this.updated_at = time;
   if(!this.created_at)
   {

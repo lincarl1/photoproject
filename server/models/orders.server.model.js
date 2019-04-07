@@ -4,6 +4,13 @@ var mongoose = require('mongoose'),
 
 /* Create your schema */
 var orderSchema = new Schema({
+  img: {
+    type: String
+    //type: Buffer,
+    //data: Buffer
+    //data: Buffer,
+    //contentType: String
+  },
   size: {
     type: String, 
     required: true
@@ -11,6 +18,9 @@ var orderSchema = new Schema({
   medium: {
     type: String,
     required: true
+  },
+  status: {
+    type: String
   },
   created_at: String,
   updated_at: String
@@ -26,7 +36,23 @@ orderSchema.pre('save', function(next) {
   var yyyy = time.getFullYear();
   var hr = time.getHours();
   var min = time.getMinutes();
-  time = mm + '/' + dd + '/' + yyyy + ' ' + hr + ':' + min;
+  if(hr<10){
+    if(min<10){
+      time = mm + '/' + dd + '/' + yyyy + ' 0' + hr + ':0' + min;
+    }
+    else{
+      time = mm + '/' + dd + '/' + yyyy + ' 0' + hr + ':' + min;
+    }
+  }
+  else{
+    if(min<10){
+      time = mm + '/' + dd + '/' + yyyy + ' ' + hr + ':0' + min;
+    }
+    else{
+      time = mm + '/' + dd + '/' + yyyy + ' ' + hr + ':' + min;
+    }
+  }
+  
   this.updated_at = time;
   if(!this.created_at)
   {

@@ -6,8 +6,6 @@ var path = require('path'),
     config = require('./config'),
     usersRouter = require('../routes/listings.server.routes'),
     ordersRouter = require('../routes/orders.server.routes');
-    //password hashing
-    //bcrypt = require('bcrypt');
 
 module.exports.init = function() {
   //connect to database
@@ -20,7 +18,11 @@ module.exports.init = function() {
   app.use(morgan('dev'));
 
   //body parsing middleware 
-  app.use(bodyParser.json());
+  //app.use(bodyParser.json());
+  //app.use(bodyParser.urlencoded({extended: true}));
+  app.use(bodyParser.json({limit: '10mb', extended: true}))
+  app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
+
 
   /* Serve static files */
   app.use(express.static('client'));
@@ -28,15 +30,8 @@ module.exports.init = function() {
   /* Uses the users router for requests to the api */
   app.use('/api/users', usersRouter);
 
-/*TESTING STARTS*/
-
   /* Uses the users router for requests to the api */
   app.use('/api/orders', ordersRouter);
-
-/*TESTING ENDS*/
-
-  /* Uses the listings router for requests to the api */
-  //app.use('/api/users/auth', usersRouter);
 
   /* Goes to homepage for all routes not specified */
 app.get('/*', function(req, res){

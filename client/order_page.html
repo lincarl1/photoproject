@@ -37,11 +37,22 @@
                 <h2>Upload An Image</h2>
                 
                 <!--Image Preview is display through the Script at the bottom-->
-                <form action="index.html" method="post" enctype="multipart/form-data">
-                    <input type="file" accept="image/*" onChange="preview_2(this);"><br>
-                    <img id="userImage" width="175"><br><br>
-                    <input type="submit" value="Upload">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <center>
+                        <input type="file" files-input name="photo" accept="image/*" onChange="preview_2(this);" ng-model="newOrder.img"><br>
+                        <img id="userImage" width="175"><br>
+                        <input type="submit" value="Choose this photo"/>
+                        <br>
+                    </center>
                 </form>
+                <form enctype="multipart/form-data">
+                    <center>
+                        <input type="file" name="photo" accept="image/*" onChange="preview_2(this);" fileread="newOrder.img"><br>
+                        <img id="userImage" width="175"><br>
+                        <br>
+                    </center>
+                </form>
+
                 <!--End of Image Preview-->
             </center>
         </div>
