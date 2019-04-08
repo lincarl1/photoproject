@@ -18,6 +18,15 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
       $scope.newOrder.status = "Placed";
       console.log("ORDERCONTROLLER - client")
       console.log("$scope.newOrder.img: " + $scope.newOrder.img);
+/*
+      switch($scope.newOrder.size){
+        case "130x400": $scope.newOrder.price = 10.50;
+      }
+      if($scope.newOrder.size=="130x400")
+      {
+        $scope.newOrder.price = 10.50;
+      }
+*/
       Orders.create($scope.newOrder).then(function(response) {
       $scope.orders.push({
         //img: btoa($scope.newOrder.img),

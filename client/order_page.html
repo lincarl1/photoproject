@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html>
-<body background="images/forest.png">
-
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
     <link rel="stylesheet" href="styles/order_page.css">
     <meta charset="utf-8">
-</head>
-<body background="images/forest.png" ng-app="printsApp">
-
-
-
     <!--JQuery Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Navigation Bar -->
+</head>
+<body background="images/forest.png" ng-app="printsApp">
+<!-- Navigation Bar -->
     <nav class="zone green">
         <ul class = "background"></ul>
         <ul class="main-nav"> 
@@ -29,22 +23,12 @@
 <div ng-controller="OrdersController">
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
-
     <!--Holds All Four of the Blocks-->
     <div class="container">
         <div class="row" id="upload">
             <center>
-                <h2>Upload An Image</h2>
-                
+                <h2>Upload An Image</h2>               
                 <!--Image Preview is display through the Script at the bottom-->
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <center>
-                        <input type="file" files-input name="photo" accept="image/*" onChange="preview_2(this);" ng-model="newOrder.img"><br>
-                        <img id="userImage" width="175"><br>
-                        <input type="submit" value="Choose this photo"/>
-                        <br>
-                    </center>
-                </form>
                 <form enctype="multipart/form-data">
                     <center>
                         <input type="file" name="photo" accept="image/*" onChange="preview_2(this);" fileread="newOrder.img"><br>
@@ -52,7 +36,6 @@
                         <br>
                     </center>
                 </form>
-
                 <!--End of Image Preview-->
             </center>
         </div>
@@ -77,10 +60,9 @@
                 <input type = "submit" value = "Submit">
 
                 <br><br>
-            -->
+                -->
             <h2>Choose A Size</h2><br>
             <form>
-
               <input type="radio" name="size" value="640x480" ng-model="newOrder.size"> 640x480 
               <br><br>
               <input type="radio" name="size" value="1024x768" ng-model="newOrder.size"> 1024x768 
@@ -90,12 +72,10 @@
 <!--
               <input type="submit" value="Submit" ng-click="showDetails(order)">
 -->
-          </form>
-
-          <br><br>
-          
-          <p> For custom size inquiries, use the contact form. </p>
-                <!--
+            </form>
+            <br><br>         
+            <p> For custom size inquiries, use the contact form. </p>
+            <!--
                 <p> If the following sizes do not fit your demands input your custom dimensions here in pixels. </p>
                 <form>
                     Height: <input type = "decimal" name = "Height"><br>
@@ -106,29 +86,20 @@
                 </form>
             -->
             <!--End of Size Selection-->        
-        </center>
-    </div>
-    <div class="row" id="mediums">
+            </center>
+        </div>
+        <div class="row" id="mediums">
         <center>
             <!--Medium Selection-->
             <h2>Choose A Medium</h2><br>
-
             <form>
                 <input type="radio" name="medium" value="canvas" ng-model="newOrder.medium">   Canvas<br><br>
                 <input type="radio" name="medium" value="fine art paper" ng-model="newOrder.medium">   Fine Art Paper<br><br>
                 <input type="radio" name="medium" value="photo paper(glossy)" ng-model="newOrder.medium">   Photo Paper(Glossy)<br><br>
                 <input type="radio" name="medium" value="photo paper(matte)" ng-model="newOrder.medium">   Photo Paper(Matte)<br><br>
                 <input type="radio" name="medium" value="black and white" ng-model="newOrder.medium">   Black and White<br><br>
-
-
-<!--
-                <input type="submit" value="Submit" ng-click="showDetails(order)">
-                <p> {{detailedInfo.medium}} </p>
--->
             </form>
-
             <!--End of Medium Selection-->
-
             <!--Medium Selection-->
                  <!--
                 <h2>Choose A Medium</h2><br>
@@ -142,10 +113,9 @@
             -->
             <!--End of Medium Selection-->
         </center>
-    </div>
-    <div class="row" id="paypal">
+        </div>
+        <div class="row" id="paypal">
         <center>
-
             <!--PayPal Button-->
             <h2>Pay Here</h2>
             <br>
@@ -166,16 +136,14 @@
                 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
             </form>
             <br>
-            <input type="submit" value="Submit Order" ng-click="addOrder()">
-             
+            <input type="submit" value="Submit Order" ng-click="addOrder()">          
             <!--End of PayPal Button-->
         </center>
+        </div>
+
+        <div class="clr-fix"></div>
     </div>
-
-    <div class="clr-fix"></div>
-</div>
-
-<br><br>
+    <br><br>
 
 <center>
     <input type="button" id="button1" value="Show Upload">
@@ -185,9 +153,8 @@
     <input type="button" id="button5" value="Show All">
 </center>
 
-
-
 </div>
+
 <!--Preview Image-->
 <script>
     var outImage="userImage";
@@ -251,8 +218,6 @@
     });
 </script>
 
-<script>
-</script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
@@ -261,6 +226,5 @@
 <script src="js/controllers/listingController.js"></script>
 <script src="js/factories/orderFactory.js"></script>
 <script src="js/controllers/orderController.js"></script>
-
 </body>
 </html>
