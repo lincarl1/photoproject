@@ -20,7 +20,7 @@
         <ul class = "background"></ul>
         <ul class="main-nav"> 
             <li><a href="#upload">Place Order</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="/contact.html">Contact</a></li>
             <li><a href="/account_page.html">Account</a></li>
             <li class="push"> <button onclick="window.location.href='/index.html'">Sign Out</button></li>
         </ul>
@@ -103,12 +103,57 @@
             <h2>Choose A Medium</h2><br>
 
             <form>
+
                 <input type="radio" name="medium" value="collage" ng-model="order.medium">   Collage<br><br>
                 <input type="radio" name="medium" value="paper cutting" ng-model="order.medium">   Paper cutting<br><br>
                 <input type="radio" name="medium" value="transparencies" ng-model="order.medium">   Transparencies<br><br>
                 <input type="radio" name="medium" value="black and white" ng-model="order.medium">   Black and White<br><br>
 
+<!--
+                Photo Paper: <select id = "MediumOption">
+                    <option value="PremiumGlossy170" ng-model="order.medium">Premium Glossy Photo Paper (170)</option>
+                    <option value="PremiumGlossy250" ng-model="order.medium">Premium Glossy Photo Paper (250)</option>
+                    <option value="PremiumSemiGloss170" ng-model="order.medium">Premium Semigloss Photo Paper (170)</option>
+                    <option value="PremiumSemiGlossy250" ng-model="order.medium">Premium Semigloss Photo Paper (250)</option>
+                    <option value="PremiumLuster" ng-model="order.medium">Premium Luster Photo Paper (260)</option>
+                    <option value="PremiumSemimatte" ng-model="order.medium">Premium Semimatte Photo Paper (260)</option>
+                </select>
+                <br><br>
 
+                Proofing Paper: <select id = "MediumOption">
+                    <option value="ProofCommercial" ng-model="order.medium">Proofing Paper Commercial</option>
+                    <option value="ProofSemimatte" ng-model="order.medium">Proofing Paper White Semimatte</option>
+                    <option value="ProofPublication" ng-model="order.medium">Proofing Paper Publication</option>
+                </select>
+                <br><br>
+
+                Matte Paper: <select id = "MediumOption">
+                    <option value="MattePaper" ng-model="order.medium">Doubleweight Matte Paper</option>
+                    <option value="UltraPremium" ng-model="order.medium">Ultra Premium Presentation Paper Matte</option>
+                    <option value="SomersetVelvet" ng-model="order.medium">Somerset Velvet (roll)</option>
+                    <option value="SingleMatte" ng-model="order.medium">Singleweight Matte Paper</option>
+                    <option value="PresentationMatte" ng-model="order.medium">Presentation Paper Matte</option>
+                </select>
+                <br><br>
+
+                Fine Art Paper: <select id = "MediumOption">
+                    <option value="UltraSmoothFineArt" ng-model="order.medium">UltraSmooth Fine Art Paper</option>
+                    <option value="TexturedFineArt" ng-model="order.medium">Textured Fine Art Paper</option>
+                    <option value="VelvetFineArt" ng-model="order.medium">Velvet Fine Art Paper</option>
+                    <option value="WatercolorPaper" ng-model="order.medium">Watercolor Paper - Radiant White</option>
+                    <option value="PremiumWater" ng-model="order.medium">Premium Canvas Satin PremierArt Water Resistant Canvas</option>
+                    <option value="PremiumMatte" ng-model="order.medium">Premium Canvas Matte Piezo Pro Matte Canvas</option>
+                    <option value="Canvas" ng-model="order.medium">Canvas</option>
+                </select>
+                <br><br>
+
+                Others: <select id = "MediumOption">
+                    <option value="MattePoster" ng-model="order.medium">Enhanced Matte Posterboard</option>
+                    <option value="SomersetVelversheet" ng-model="order.medium">Somerset Velver (sheet)</option>
+                    <option value="SyntheticPaper" ng-model="order.medium">Enhanced Adhesive Synthetic Paper</option>
+                </select>
+                <br><br>
+-->
 <!--
                 <input type="submit" value="Submit" ng-click="showDetails(order)">
                 <p> {{detailedInfo.medium}} </p>
