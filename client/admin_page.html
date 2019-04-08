@@ -1,39 +1,67 @@
 <!DOCTYPE html>
-<div id="adminpg">
 <html>
-  <head>
-    <link rel="stylesheet" href="styles/admin.css">
+<head>
+ 
+<!--
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-  </head>
-    <!-- Navigation Bar -->
-    <div class="topnav">
-            <a class="active page" href="">Manage Orders</a>
-            <a class="page" href="/order_page.html">Order Page</a>
-            <a class="page" href="/account_page.html">Account</a>
-            <a class="logout page" href="/index.html">Logout</a>
-        
-    </div>
-    <!-- End of Navigation Bar -->
-  <body ng-app="printsApp" background="images/background.jpg">
-    <!--JQuery Script-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+-->
+  <!-- need to clean up all these tags --> 
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/admin.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Oswald|Satisfy|Unica+One" rel="stylesheet">
 
-    <div class="container">
-      <div class="row">
-        <h1>Manage Orders</h1>
-      </div>
-      <div class="row" ng-controller="OrdersController">
-        <div class="col-md-6">
-          <header>
-          <div class="input-group" id="searchBar">
-            <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Kaushan+Script" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bangers|Open+Sans" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/table.css">
+</head>
+<body ng-app="printsApp">
+
+  <!-- 
+*  Nav Bar
+**********************************************************************/ -->
+<nav class="zone green">
+  <ul class = "background"></ul>
+  <ul class="main-nav">
+    <li><a href="">Manage Orders</a></li>
+    <li><a href="/order_page.html">Order Page</a></li>
+    <li><a href="/account_page.html">Account</a></li>
+    <li class="push"> <button onclick="window.location.href='/index.html'" style="width:auto;">Logout</button></li>
+  </ul>
+</nav>
+<!-- /***********************************************************************
+*  Nav Bar - end 
+**********************************************************************/ -->
+<div ng-controller="UsersController" ng-init="showUser()">
+</div>
+
+  <div ng-controller="OrdersController"">
+
+    <div>
+      <section>
+        <div class="input-group" id="searchBar">
+            
             <input type="text" class="searchbar form-control" placeholder="Search" ng-model="query">
           </div>
-        </header>
-        <section>
-          <div class="tableWrapper">
-            <table class="adminTable">
+        <br>
+        <div class="tableWrapper">
+            <table class="orderTable">
               <thead>
               <tr>
                 <th>Date</th>
@@ -62,19 +90,29 @@
             </tbody>
             </table>
           </div>
-        </section>
-        </div>
-        <aside>
-        <div class="col-md-6">
+
+      </section>
+      <aside>
+          <br><br><br><br>
+          <br><br><br>
+
+          <div class="ordercard orderinfo">
+          <!--UI of front page-->
+          <div class="cardbody">
+          <div class="cardhead">
+          <h1>Order Details</h1>
+          </div>
+          
           <br>
-          <div class="boxed jumbotron">
-            <h2>Order Details</h2>
-            <h4>{{detailedInfo.created_at}}</h4>
-            <p><b>Name: </b> </p>
-            <p><b>Address:</b><br><br></p>
-            <p><b>Order Info:</b></p>
-            <p>
-            <img src="{{detailedInfo.img}}" width="175"/>
+          <input type="image" src="images/edit.png" width=75px align = "right" name="saveForm" class="btTxt submit" id="saveForm" onclick="document.getElementById('id02').style.display='block'"/>
+          <!--<button ng-click=showUser()>Click</button>-->
+          <h2 align = "left">{{detailedInfo.created_at}}</h2>
+          
+          <h3 align = "left">Name: </h3>
+          <h3 align = "left">Address: </h3>
+          <h3 align = "left">Image Details: </h3>
+          <p>
+          <img src="{{detailedInfo.img}}" width="250"/>
             <br>
             {{detailedInfo.size}}
             <br>
@@ -82,21 +120,116 @@
             <br>
             <button ng-click="showImage(detailedInfo.img);">Download</button>
             </p>
-            <p><b>Status:</b> </p>
-          </div>
+            <h3 align = "left">Status: </h3>
+          <br><br>
         </div>
+        </div>
+
       </aside>
+
       <footer>
+
       </footer>
-      </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/factories/listingFactory.js"></script>
-    <script src="js/controllers/listingController.js"></script>
+  </div>
+
+
+  <div id="id02" class="edituser" ng-controller="UsersController" ng-init="showUser()">
+    <div class="edituser-content">
+
+    <form class="modal-content animate">
+      <span onclick="document.getElementById('id02').style.display='none'" class="closee" title="Close Modal">&times;</span>
+
+      <!--User login information-->
+      <div novalidate class="container simple-form">
+        <!--
+        <label for="firstName"><b>First Name</b></label>
+        -->
+
+        <center><label for="head"><b>Order Info</b></label>
+        <br>
+
+        <input type="text" ng-model="editedUser.first"placeholder="{{thisuser.first}}" name="firstName">
+        <!--
+        <label for="lastName"><b>Last Name</b></label>
+        -->
+        <input type="text" ng-model="editedUser.last"placeholder="{{thisuser.last}}" name="lastName">
+        <br>
+        <!--
+        <label for="email"><b>E-mail</b></label>
+        -->
+        <input type="text" ng-model="editedUser.email" placeholder="{{thisuser.email}}" name="email">
+        <br>
+        <!--
+        <label for="psw"><b>Password</b></label>
+        -->
+
+        <input type="password" ng-model="editedUser.password" placeholder="Password*" name="psw" id="psw">
+        <!--
+        <label for="pswconfirmation"><b>Confirm Password</b></label>
+        -->
+        <input type="password" placeholder="Confirm Password*" name="pswconfirmation" id="pswconfirmation" onchange="confirmPassword()">
+        <script>
+          function confirmPassword() {
+            var password1 = document.getElementById("psw").value;
+            var password2 = document.getElementById("pswconfirmation").value;
+            if (password1 != password2)
+            {
+              alert("Confirmation Password does not match Password.");
+            }
+          }
+        </script>
+        <label for="body">Password required. If changing password, enter new password above.</label>
+        <br>
+        <br>
+        <input type="text" ng-model="editedUser.address.street" placeholder="{{thisuser.address.street}}" name="address">
+        <br>
+        <!--
+        <label for="city"><b>City</b></label>
+        -->
+        <input type="text" ng-model="editedUser.address.city" placeholder="{{thisuser.address.city}}" name="city">
+        <!--
+        <label for="state"><b>State</b></label>
+        -->
+        <input type="text" ng-model="editedUser.address.state" placeholder="{{thisuser.address.state}}" name="state">
+        <!--
+        <label for="zip"><b>Zip Code</b></label>
+        -->
+        <input type="text" ng-model="editedUser.address.zip" placeholder="{{thisuser.address.zip}}" name="zip">
+        <br><br>
+        <button class="start" ng-click="">Confirm Changes</button>
+      </div>
+      <!--
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      </div>
+    -->
+    </center>
+    </form>
+  </div>
+
+
+
+  </div>
+
+
+
+
+<!-- </div>
+</div>-->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/factories/listingFactory.js"></script>
+<script src="js/controllers/listingController.js"></script>
     <script src="js/factories/orderFactory.js"></script>
     <script src="js/controllers/orderController.js"></script>
-  </body>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
 </html>
-</div>
