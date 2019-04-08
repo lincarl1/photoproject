@@ -64,10 +64,10 @@ button {
 
  /* Style the container/contact section */
 .container {
-  max-width: 60%;
+  max-width: 50%;
   border-radius: 5px;
   background-color: #ffffff98;
-  padding: 5px;
+  padding: 10px;
   opacity: 0.95;
 }
 
@@ -101,6 +101,3 @@ input[type=submit]:hover {
   padding: 5px;
   border-radius: 5px;
 }
-
-
-
