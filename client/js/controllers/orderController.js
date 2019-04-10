@@ -14,7 +14,7 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
 
     $scope.addOrder = function() {
       var thisuser2 = JSON.parse(sessionStorage['thisuser']);
-      console.log("read value: " + sessionStorage['thisuser']);
+      console.log("current user: " + sessionStorage['thisuser']);
       $scope.newOrder.status = "Placed";
       console.log("ORDERCONTROLLER - client")
       console.log("$scope.newOrder.img: " + $scope.newOrder.img);
@@ -26,14 +26,28 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
       {
         $scope.newOrder.price = 10.50;
       }
-*/
+*/    // get name, address, email from user session
+      $scope.newOrder.name = thisuser2.first + " " + thisuser2.last;
+      
+      $scope.newOrder.email = thisuser2.email;
+
+      $scope.newOrder.address = thisuser2.address;
+      $scope.newOrder.address.street = thisuser2.address.street;
+      $scope.newOrder.address.city = thisuser2.address.city;
+      $scope.newOrder.address.state = thisuser2.address.state;
+      $scope.newOrder.address.zip = thisuser2.address.zip;
+      
+      //$scope.newOrder.address = thisuser2.address.street + "\n" + thisuser2.address.city + ", " + thisuser2.address.state " " + thisuser2.address.zip;
       Orders.create($scope.newOrder).then(function(response) {
       $scope.orders.push({
         //img: btoa($scope.newOrder.img),
         img: $scope.newOrder.img,
         size: $scope.newOrder.size,
         medium: $scope.newOrder.medium,
-        status: $scope.newOrder.status
+        status: $scope.newOrder.status,
+        name: $scope.newOrder.name,
+        address: $scope.newOrder.address,
+        email: $scope.newOrder.email
     });
 
     }, function(error) {

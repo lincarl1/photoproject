@@ -22,6 +22,18 @@ var orderSchema = new Schema({
   status: {
     type: String
   },
+  name: {
+    type: String
+  },
+  address: {
+    street: String,
+    city: String,
+    state: String,
+    zip: Number 
+  },
+  email: {
+    type: String
+  },
   created_at: String,
   updated_at: String
 },

@@ -93,13 +93,13 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
         if($scope.editedUser._id == null){
           $scope.editedUser._id = thisuser2._id;
         }
-        if($scope.editedUser.first == null){
+        if($scope.editedUser.first == null || $scope.editedUser.first == ""){
           $scope.editedUser.first = thisuser2.first;
         }
-        if($scope.editedUser.last == null){
+        if($scope.editedUser.last == null || $scope.editedUser.last == ""){
           $scope.editedUser.last = thisuser2.last;
         }
-        if($scope.editedUser.email == null){
+        if($scope.editedUser.email == null || $scope.editedUser.email == ""){
           $scope.editedUser.email = thisuser2.email;
         }
         /*
@@ -112,16 +112,16 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
         }
         else
         {
-          if($scope.editedUser.address.street == null){
+          if($scope.editedUser.address.street == null || $scope.editedUser.address.street == ""){
             $scope.editedUser.address.street = thisuser2.address.street;
           }
-          if($scope.editedUser.address.city == null){
+          if($scope.editedUser.address.city == null || $scope.editedUser.address.city == ""){
             $scope.editedUser.address.city = thisuser2.address.city;
           }
-          if($scope.editedUser.address.state == null){
+          if($scope.editedUser.address.state == null || $scope.editedUser.address.state == ""){
             $scope.editedUser.address.state = thisuser2.address.state;
           }
-          if($scope.editedUser.address.zip == null){
+          if($scope.editedUser.address.zip == null || $scope.editedUser.address.zip == ""){
             $scope.editedUser.address.zip = thisuser2.address.zip;
           }
         }
