@@ -31,6 +31,8 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
       
       $scope.newOrder.email = thisuser2.email;
 
+      $scope.newOrder.user_id = thisuser2._id;
+
       $scope.newOrder.address = thisuser2.address;
       $scope.newOrder.address.street = thisuser2.address.street;
       $scope.newOrder.address.city = thisuser2.address.city;
@@ -47,7 +49,8 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
         status: $scope.newOrder.status,
         name: $scope.newOrder.name,
         address: $scope.newOrder.address,
-        email: $scope.newOrder.email
+        email: $scope.newOrder.email,
+        user_id: $scope.newOrder.user_id
     });
 
     }, function(error) {
@@ -70,6 +73,27 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
         var win = window.open();
         win.document.write('<iframe src="' + img  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
       };
+
+
+    $scope.findOrders = function(id) {
+
+      console.log('orderController is called (findOrders)');
+
+      var id2 = JSON.stringify(id);
+      
+      Orders.read(id2).then(function(response) {
+      //console.log("orderController - given user id: " + $scope.user._id);
+
+      
+      //console.log("response: " + response.email);
+      console.log("orderController - Success: Orders.read(id2)");
+
+    }, function(error) {
+      window.alert("No orders have been placed.");
+      console.log('orderController- Cant find orders: ', error);
+    });
+
+    }
 
 
 

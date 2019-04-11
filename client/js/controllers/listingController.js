@@ -70,7 +70,7 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
       
       //console.log("response: " + response.email);
       ////window.location = "order_page.html";
-      console.log("listingController - Success: Users.login(id)");
+      console.log("listingController - Success: Users.read(id)");
 
     }, function(error) {
       window.alert("User with that email or password does not exist.\nCreate an account or try again.");

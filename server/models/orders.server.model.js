@@ -34,6 +34,9 @@ var orderSchema = new Schema({
   email: {
     type: String
   },
+  user_id: {
+    type: String
+  },
   created_at: String,
   updated_at: String
 },
