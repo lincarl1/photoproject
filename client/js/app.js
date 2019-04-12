@@ -7,7 +7,7 @@ angular.module('orders', []);
 var app = angular.module('printsApp', ['users', 'orders']);
 
 
-
+// allows a file type input for ng-model
 app.directive("fileread", [function () {
     return {
         scope: {

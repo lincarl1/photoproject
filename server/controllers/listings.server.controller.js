@@ -3,20 +3,16 @@ var mongoose = require('mongoose'),
     User = require('../models/listings.server.model.js');
 
 /*
-  In this file, you should use Mongoose queries in order to retrieve/add/remove/update listings.
-  On an error you should send a 404 status code, as well as the error message. 
-  On success (aka no error), you should send the listing(s) as JSON in the response.
-  HINT: if you are struggling with implementing these functions, refer back to this tutorial 
-  from assignment 3 https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
+  This file, uses Mongoose queries in order to retrieve/add/remove/update users.
+  On an error, sends a 404 status code, as well as the error message. 
+  On success, sends the user(s) as JSON in the response.
  */
 
-/* Create a listing */
+/* Create a user */
 exports.create = function(req, res) {
-
-  /* Instantiate a Listing */
+  /* Instantiate a User */
   var user = new User(req.body);
-
-  /* Then save the listing */
+  /* Then save the user */
   user.save(function(err) {
     if(err) {
       console.log(err);
@@ -27,7 +23,7 @@ exports.create = function(req, res) {
   });
 };
 
-
+/* Login- checks if user exists */
 exports.read = function(req, res) {
   console.log("req.user: " + req.user);
   var user = req.user;
@@ -47,9 +43,7 @@ exports.read = function(req, res) {
         res.status(400).send(err);
       } else {
       res.json(user);
-      //res.status(200);
-      //console.log("email given: " + inputeduser.email);
-
+      res.status(200);
     }
     
   });
@@ -59,37 +53,32 @@ exports.read = function(req, res) {
 };
 
 
-
 /*
-//// Show the current listing 
+//// Show the current user 
 exports.read = function(req, res) {
   console.log("listings.server.controller - exports.read");
   //console.log(req);
-  //// send back the listing as json from the request
+  //// send back the user as json from the request
   res.json(req.user);
 };
 */
 
 
 
-/* Update a listing */
+/* Update a user */
 exports.update = function(req, res) {
-  //var user = JSON.stringify(req);
-
-  //console.log("exports.update user: " + req);
-  /** TODO **/
   /* Replace the article's properties with the new properties found in req.body */
   var updated = req.body;
   console.log("exports.update updated: " + updated._id);
   res.status(200);
-
+  // Find user by given unique id
   User.findById(updated._id, function (err, userfound) {
     if(err){
       console.log(err);
       res.status(400).send(err);
     } else {
-      console.log("userfound og: " + JSON.stringify(userfound));
-      
+      console.log("userfound original: " + JSON.stringify(userfound));
+      // update user data
       userfound.first = updated.first;
       userfound.last = updated.last;
       userfound.email = updated.email;
@@ -100,7 +89,7 @@ exports.update = function(req, res) {
           console.log(err);
           res.status(400).send(err);
         } else {
-          console.log("userfound: " + JSON.stringify(userfound));
+          console.log("userfound after edits: " + JSON.stringify(userfound));
           res.json(userfound);
         }
       });
@@ -116,7 +105,7 @@ exports.delete = function(req, res) {
 
 
 
-/* Retreives all the directory users, sorted by oldest date first */
+/* Retreives all users, sorted by oldest date first */
 exports.list = function(req, res) {
   User.find().sort({created_at: -1}).exec(function(err, user){
     if(err){
@@ -129,43 +118,15 @@ exports.list = function(req, res) {
 };
 
 /* 
-  Middleware: find a listing by its ID, then pass it to the next request handler. 
+  Middleware: find a user by its ID, then pass it to the next request handler. 
 
   Find the listing using a mongoose query, 
-        bind it to the request object as the property 'listing', 
-        then finally call next
+  bind it to the request object as the property 'listing', 
+  then finally call next
  */
 
 
-
-
-
-/*
-//ORIGINAL
 exports.userByID = function(req, res, next, id) {
-  //var user = id.user;
-  //console.log(req);
-  var id = JSON.parse(id);
-  console.log("listings.server.controller: exports.userByID");
-  console.log("id: ");
-  console.log(JSON.stringify(id, null, 4));
-
-  User.findOne({email: id.email, password: id.password}).exec(function(err, user) {
-    if(err) {
-      res.status(404).send(err);
-    } else {
-      //res.status(200);
-      req.user = user;
-      console.log("finished findOne");
-      console.log("req.user: " + req.user);
-      next();
-    }
-  });
-*/
-
-exports.userByID = function(req, res, next, id) {
-  //var user = id.user;
-  //console.log(req);
   var id = JSON.parse(id);
   console.log("listings.server.controller: exports.userByID");
   console.log("id: ");
@@ -205,15 +166,27 @@ exports.userByID = function(req, res, next, id) {
       
     }
   });
+};
 
-  /*
-  User.findById(id).exec(function(err, user) {
+/*
+//ORIGINAL
+exports.userByID = function(req, res, next, id) {
+  //var user = id.user;
+  //console.log(req);
+  var id = JSON.parse(id);
+  console.log("listings.server.controller: exports.userByID");
+  console.log("id: ");
+  console.log(JSON.stringify(id, null, 4));
+
+  User.findOne({email: id.email, password: id.password}).exec(function(err, user) {
     if(err) {
       res.status(404).send(err);
     } else {
+      //res.status(200);
       req.user = user;
+      console.log("finished findOne");
+      console.log("req.user: " + req.user);
       next();
     }
   });
-  */
-};
+*/

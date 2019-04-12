@@ -29,7 +29,7 @@ exports.create = function(req, res) {
 
 
 
-/* Retreives all the orders, sorted by oldest date first */
+/* Retreives all the orders, sorted by newest date first */
 exports.list = function(req, res) {
   Order.find().sort({created_at: -1}).exec(function(err, order){
     if(err){
@@ -55,7 +55,7 @@ exports.read = function(req, res) {
 };
 */
 
-
+// finds orders given unique user id
 exports.read = function(req, res) {
   console.log("req.order: " + req.order);
   var order = req.order;
@@ -79,110 +79,20 @@ exports.read = function(req, res) {
       else
       {
         res.json(orders);
+        res.status(200);
       }
     });
   }
-  /*
-
-  if(order==null)
-  {
-    console.log("ordel is null?");
-    var error = "Order is null in exports.read.";
-    res.status(400).send(error);
-  }
-  else
-  {
-    User.findOne({user_id: order.user_id},function(err){
-      if(err){
-        console.log("Error in exports.read: " + err);
-        res.status(400).send(err);
-      } else {
-      res.json(order);
-      //res.status(200);
-      //console.log("email given: " + inputeduser.email);
-
-    }
-    
-  });
-
-  }
-  */
-
 };
 
 
-
-/*
-exports.orderuserByID = function(req, res, next, id) {
-  console.log("id: " + id);
-  //var user = id.user;
-  //console.log(req);
-  var id = JSON.parse(id);
-  console.log("orders.server.controller: exports.orderuserByID");
-  console.log("id: ");
-  console.log(JSON.stringify(id, null, 4));
-
-  User.find({user_id: id._id}).exec(function(err, order) {
-    if(err) 
-    {
-      res.status(404).send(err);
-    } 
-    else 
-    {
-      if(order == null)
-      {
-        res.status(404).send(err);
-      }
-      else 
-      {
-        req.order = order;
-          console.log("finished findOne");
-          console.log("req.order: " + req.order);
-          next();
-      }    
-    }
-  });
-
-};
-*/
-
-
+// passes along id to read
 exports.orderByID = function(req, res, next, id) {
-  //var user = id.user;
-  //console.log(req);
-  /*
-  var id = JSON.parse(id);
-  console.log("id: ");
-  console.log(JSON.stringify(id, null, 4));
-  */
   console.log("made it");
   console.log("orders.server.controller: exports.orderByID");
   console.log("id: " + id);
   req.id = id;
   next();
-  /*
-  User.find({user_id: id._id}).exec(function(err, order) {
-    if(err) 
-    {
-      res.status(404).send(err);
-    } 
-    else 
-    {
-      if(order == null)
-      {
-        res.status(404).send(err);
-      }
-      else 
-      {
-        req.user = user;
-        console.log("finished findOne");
-        console.log("req.user: " + req.user);
-        next();
-      }      
-    }
-  });
-
-  */
   /*
   Order.find({user_id: id}).exec(function(err, order) {
     if(err) {

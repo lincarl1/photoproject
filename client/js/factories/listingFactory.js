@@ -5,16 +5,12 @@ angular.module('users', []).factory('Users', function($http) {
       return $http.get('http://localhost:8080/api/users');
     },
 
-    
-
     read: function(id) {
       console.log("listingFactory - read: function(id) id.email: " + id.email);
       //return $http.get('https://petreeprints.herokuapp.com/api/users');
-      //return $http.get('http://localhost:8080/api/users/auth', id);
       return $http.get('http://localhost:8080/api/users/' + id);
 
     },
-
 
     update: function(user) {
       console.log("listingFactory - update: function(user) user: " + user);
@@ -23,7 +19,6 @@ angular.module('users', []).factory('Users', function($http) {
 
     },
 
-	
 	  create: function(user) {
 	  // $http.post('https://petreeprints.herokuapp.com/api/users', user);
     return $http.post('http://localhost:8080/api/users', user);

@@ -15,11 +15,11 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
     // form to hold new user
     $scope.form = {};
 
-
+    // Sign Up: Adds user to database
     $scope.addUser = function() {
-      var userbool = 0;
 
       Users.create($scope.newUser).then(function(response) {
+      // Binds user data to sessionStorage(remains as long as browser is open)
       sessionStorage['thisuser'] = JSON.stringify(response.data);
       window.location = "order_page.html";
       $scope.users.push({
@@ -42,22 +42,24 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
     }
 
 
+    // Login - validates that email & matching password are in database
     $scope.validateUser = function(id) {
 
-      console.log('listingController is called (validateUser)');
+      console.log('listingController: validateUser');
+      // handles if an admin is logging in
       var adminbool = 0;
       if(id.email=='admin' && id.password =='admin')
       {
         adminbool =1;
       }
-
       console.log('adminbool: ' + adminbool);
 
       var id2 = JSON.stringify(id);
       
-      // read is login
+      // read=login
       Users.read(id2).then(function(response) {
       console.log("listingController - given user email: " + $scope.user.email);
+      // If success, bind user data to sessionStorage
       sessionStorage['thisuser'] = JSON.stringify(response.data);
       if(adminbool)
       {
@@ -68,9 +70,7 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
         window.location = "order_page.html";
       }
       
-      //console.log("response: " + response.email);
-      ////window.location = "order_page.html";
-      console.log("listingController - Success: Users.read(id)");
+      console.log("listingController-Success: Users.read(id)");
 
     }, function(error) {
       window.alert("User with that email or password does not exist.\nCreate an account or try again.");
@@ -79,7 +79,7 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
 
     }
 
-
+    // Update logged in user's information
     $scope.updateUser = function() {
       if($scope.editedUser == null){
         alert("No changes made.");
@@ -90,6 +90,7 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
       else
       {
         var thisuser2 = JSON.parse(sessionStorage['thisuser']);
+        // following if's: account for unchanged values, set as original values
         if($scope.editedUser._id == null){
           $scope.editedUser._id = thisuser2._id;
         }
@@ -126,12 +127,11 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
           }
         }
 
-
-        //var id2 = JSON.stringify(id);
         var newEdit = JSON.stringify($scope.editedUser);
         Users.update(newEdit).then(function(response) {
-         // console.log(JSON.stringify(response.data));
+        // update sessionStorage
         sessionStorage['thisuser'] = JSON.stringify(response.data);
+        // Manually refresh to show changes made
         window.location = "account_page.html";
         console.log("listingController - Success: Users.update");
 
@@ -145,13 +145,15 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
 
     }
 
-
+    // Show logged in user's details
     $scope.showDetails = function(user) {
       //$scope.detailedInfo = $scope.users[index];
       $scope.detailedInfo = user;
 
     };
 
+    // Bind logged in user to sessionStorage
+    // If not logged in, redirect to index.html
     $scope.showUser = function() {
       if(sessionStorage['thisuser'] == null) {
         window.location = "index.html";
