@@ -12,11 +12,11 @@ router.route('/')
   .post(orders.create);
 
 
-router.route('/:orderuserId')
+router.route('/:orderId')
   .get(orders.read)
   //.put(users.update)
   //.delete(orders.delete);
 
-router.param('orderuserId', orders.orderuserByID);
+router.param('orderId', orders.orderByID);
 
 module.exports = router;

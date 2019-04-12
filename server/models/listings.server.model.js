@@ -3,9 +3,16 @@ var mongoose = require('mongoose'),
     // password hashing
     bcrypt = require('bcrypt'), 
     Schema = mongoose.Schema;
+//    ObjectId = Schema.ObjectId;
 
 /* Create your schema */
 var userSchema = new Schema({
+/*
+  _id: { 
+    type: ObjectId, 
+    auto: true 
+  },
+*/
   first: {
     type: String, 
     required: true

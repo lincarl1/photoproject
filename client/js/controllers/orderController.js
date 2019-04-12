@@ -2,7 +2,14 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
   function($scope, Orders) {
     /* Get all the orders, then bind it to the scope */
     Orders.getAll().then(function(response) {
-      $scope.orders = response.data;
+      //$scope.orders = response.data;
+      if(window.location.href.indexOf("account_page") > -1) {
+       //alert("your url contains the name franky");
+      }
+      else
+      {
+        $scope.orders = response.data;
+      }
     }, function(error) {
       console.log('Unable to retrieve orders:', error);
     });
@@ -75,15 +82,21 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
       };
 
 
-    $scope.findOrders = function(id) {
-
+    $scope.findOrders = function() {
       console.log('orderController is called (findOrders)');
+      var thisorder = JSON.parse(sessionStorage['thisuser']);
+      console.log('thisorder: ' + thisorder);
 
-      var id2 = JSON.stringify(id);
+      var thisorder2 = JSON.stringify(thisorder);
+      console.log('thisorder2: ' + thisorder2);
+      console.log('thisorder._id ' + thisorder._id);
+      console.log('thisorder2._id ' + thisorder2._id);
+      //var id2 = JSON.stringify(id);
       
-      Orders.read(id2).then(function(response) {
+      Orders.read(thisorder._id).then(function(response) {
+      //  console.log("response: " + response.data);
       //console.log("orderController - given user id: " + $scope.user._id);
-
+      $scope.orders = response.data;
       
       //console.log("response: " + response.email);
       console.log("orderController - Success: Orders.read(id2)");

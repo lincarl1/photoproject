@@ -67,7 +67,7 @@ section {
 }
 aside {
   float: right;
-  width: 30%;
+  width: 44%;
 }
 footer {
   clear: both;
@@ -309,4 +309,74 @@ span.psw {
 .closee:focus {
   color: grey;
   cursor: pointer;
+}
+
+
+
+
+.tableWrapper {
+  max-height: 400px;
+  overflow: auto;
+}
+
+table.orderTable {
+  font-family: Verdana, Geneva, sans-serif;
+  border: 2px solid #023F05;
+  background-color: #FFFFFF;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.orderTable td, table.orderTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.orderTable tbody td {
+  font-size: 13px;
+}
+table.orderTable tr:nth-child(even) {
+  background: #E2E2E2;
+}
+table.orderTable thead {
+  background: #023F05;
+  background: -moz-linear-gradient(top, #035106 0%, #023F05 66%, #023A05 100%);
+  background: -webkit-linear-gradient(top, #035106 0%, #023F05 66%, #023A05 100%);
+  background: linear-gradient(to bottom, #035106 0%, #023F05 66%, #023A05 100%);
+}
+table.orderTable thead th {
+  font-size: 19px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #023F05;
+}
+table.orderTable thead th:first-child {
+  border-left: none;
+}
+
+table.orderTable tfoot {
+  font-size: 13px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #023F05;
+  background: -moz-linear-gradient(top, #035106 0%, #023F05 66%, #023A05 100%);
+  background: -webkit-linear-gradient(top, #035106 0%, #023F05 66%, #023A05 100%);
+  background: linear-gradient(to bottom, #035106 0%, #023F05 66%, #023A05 100%);
+}
+table.orderTable tfoot td {
+  font-size: 13px;
+}
+table.orderTable tfoot .links {
+  text-align: right;
+}
+table.orderTable tfoot .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #023F05;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+table.orderTable tr.notfirst:hover {
+  background-color: #a8a8a8;
 }

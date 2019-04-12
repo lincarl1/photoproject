@@ -51,15 +51,61 @@
         <br><br>
       </div>
     </section>
+  <!--
     <aside>
       <br><br><br>
       <h2 align = "left">Order History</h2>
       <p align = "left"> Small Scroll Menu?</p>
     </aside>
+  -->
+  <!--
     <footer>
       <p align = "center" >Additional Questions? Contact</p>
     </footer>
+  -->
   </div>
+</div>
+
+<div ng-controller="OrdersController" ng-init=findOrders()>
+  <aside>
+      <br><br><br>
+      <h2 align = "left">Order History</h2>
+      <br>
+      <div class="input-group" id="searchBar">
+        <input type="text" class="searchbar form-control" placeholder="Search" ng-model="query">
+      </div>
+      <br>
+      <div class="tableWrapper">
+        <table class="orderTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Order Info</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                  <!--
+                  <div class="links"><a href="#">&laquo;</a>  <a href="#">&raquo;</a></div>
+                -->
+              </td>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr class = "notfirst" ng-repeat="order in orders | filter: query track by $index" ng-click="showDetails(order)">
+              <td>{{order.created_at}}</td>
+              <td>{{order.name}}</td>
+              <td>{{order.size}}<br>{{order.medium}}</td>
+              
+              <td>   </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </aside>
 </div>
 
 <div id="id02" class="edituser" ng-controller="UsersController" ng-init="showUser()">
@@ -115,6 +161,8 @@
 <script src="js/app.js"></script>
 <script src="js/factories/listingFactory.js"></script>
 <script src="js/controllers/listingController.js"></script>
+<script src="js/factories/orderFactory.js"></script>
+<script src="js/controllers/orderController.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 </body>
 </html>

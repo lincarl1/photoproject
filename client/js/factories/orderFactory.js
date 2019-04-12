@@ -7,6 +7,7 @@ angular.module('orders', []).factory('Orders', function($http) {
 
 
     read: function(id) {
+      console.log("orderFactory - read: function(id) id: " + id);
       //console.log("orderFactory - read: function(id) id.email: " + id.email);
       //return $http.get('https://petreeprints.herokuapp.com/api/orders');
       return $http.get('http://localhost:8080/api/orders/' + id);
