@@ -18,10 +18,27 @@
   border-style: ridge;
   border-color:grey;
   background-color: white;
-  height: 350px;
+  height: 450px;
   width: 40%;
   position: relative;
   box-sizing:border-box; 
+}
+
+#size {
+  height: 450px;
+}
+
+#sizeSelection {
+  font-size: 12px;
+}
+
+#mediums {
+  height: 450px;
+}
+
+#mediumSelection {
+  font-size: 12px;
+  display: flexbox;
 }
 
 #button1 {
