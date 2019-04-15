@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html>
-<body background="images/forest.png">
-
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
     <link rel="stylesheet" href="styles/order_page.css">
     <meta charset="utf-8">
-</head>
-<body background="images/forest.png" ng-app="printsApp">
-
-
-
     <!--JQuery Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Navigation Bar -->
+</head>
+<body background="images/forest.png" ng-app="printsApp">
+<!-- Navigation Bar -->
     <nav class="zone green">
         <ul class = "background"></ul>
         <ul class="main-nav"> 
@@ -29,18 +23,18 @@
 <div ng-controller="OrdersController">
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
-
     <!--Holds All Four of the Blocks-->
     <div class="container">
         <div class="row" id="upload">
             <center>
-                <h2>Upload An Image</h2>
-                
+                <h2>Upload An Image</h2>               
                 <!--Image Preview is display through the Script at the bottom-->
-                <form action="index.html" method="post" enctype="multipart/form-data">
-                    <input type="file" accept="image/*" onChange="preview_2(this);"><br>
-                    <img id="userImage" width="175"><br><br>
-                    <input type="submit" value="Upload">
+                <form enctype="multipart/form-data">
+                    <center>
+                        <input type="file" name="photo" accept="image/*" onChange="preview_2(this);" fileread="newOrder.img"><br>
+                        <img id="userImage" width="175"><br>
+                        <br>
+                    </center>
                 </form>
                 <!--End of Image Preview-->
             </center>
@@ -66,7 +60,7 @@
                 <input type = "submit" value = "Submit">
 
                 <br><br>
-            -->
+                -->
             <h2>Choose A Size</h2><br>
             <form id="sizeSelection">
 
@@ -106,9 +100,9 @@
                 </form>
             -->
             <!--End of Size Selection-->        
-        </center>
-    </div>
-    <div class="row" id="mediums">
+            </center>
+        </div>
+        <div class="row" id="mediums">
         <center>
             <!--Medium Selection-->
             <h2>Choose A Medium</h2><br>
@@ -204,9 +198,7 @@
                 <p> {{detailedInfo.medium}} </p>
 -->
             </form>
-
             <!--End of Medium Selection-->
-
             <!--Medium Selection-->
                  <!--
                 <h2>Choose A Medium</h2><br>
@@ -220,14 +212,13 @@
             -->
             <!--End of Medium Selection-->
         </center>
-    </div>
-    <div class="row" id="paypal">
+        </div>
+        <div class="row" id="paypal">
         <center>
-
             <!--PayPal Button-->
             <h2>Pay Here</h2>
             <br>
-             <button class="btn btn-primary" ng-click="showDetails(order)">Verify Order</button>
+             <button class="btn btn-primary" ng-click="showDetails(newOrder)">Verify Order</button>
              <br><br>
              <p> {{detailedInfo.size}} </p>
              <p> {{detailedInfo.medium}} </p>
@@ -247,16 +238,14 @@
                 <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
              </form>
             <br>
-            <input type="submit" value="Submit Order" ng-click="showDetails(order)">
-             
+            <input type="submit" value="Submit Order" ng-click="addOrder()">          
             <!--End of PayPal Button-->
         </center>
+        </div>
+
+        <div class="clr-fix"></div>
     </div>
-
-    <div class="clr-fix"></div>
-</div>
-
-<br><br>
+    <br><br>
 
 <center>
     <input type="button" id="button1" value="Show Upload">
@@ -266,9 +255,8 @@
     <input type="button" id="button5" value="Show All">
 </center>
 
-
-
 </div>
+
 <!--Preview Image-->
 <script>
     var outImage="userImage";
@@ -332,8 +320,6 @@
     });
 </script>
 
-<script>
-</script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
@@ -342,6 +328,5 @@
 <script src="js/controllers/listingController.js"></script>
 <script src="js/factories/orderFactory.js"></script>
 <script src="js/controllers/orderController.js"></script>
-
 </body>
 </html>

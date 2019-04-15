@@ -1,89 +1,162 @@
 <!DOCTYPE html>
-<div id="adminpg">
 <html>
-  <head>
-    <link rel="stylesheet" href="styles/admin.css">
+<head>
+  <!-- Bootstrap CSS - Helps with layout -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-  </head>
+  <!-- Nav Bar Font -->
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
 
+  <!-- Custom CSS for layout -->
+  <link rel="stylesheet" href="./styles/admin.css">
 
+  <!-- Font for order details -->
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Oswald|Satisfy|Unica+One" rel="stylesheet">
 
-    <!-- Navigation Bar -->
-    <div class="topnav">
-            <a class="active page" href="">Manage Orders</a>
-            <a class="page" href="/order_page.html">Order Page</a>
-            <a class="page" href="/account_page.html">Account</a>
-            <a class="logout page" href="/index.html">Logout</a>
-        
-    </div>
-    <!-- End of Navigation Bar -->
-  <body ng-app="printsApp" background="images/background.jpg">
-    <div class="container">
-      <div class="row">
-        <h1>Manage Orders</h1>
+  <!-- Required meta tags - Mobile friendly? Maybe? -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS - Helps with layout, navbar -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom CSS for table and popup box -->
+  <link rel="stylesheet" href="./styles/table.css">
+</head>
+<body ng-app="printsApp">
+
+<!-- NAV BAR -->
+<nav class="zone green">
+  <ul class = "background"></ul>
+  <ul class="main-nav">
+    <li><a href="">Manage Orders</a></li>
+    <li><a href="/order_page.html">Order Page</a></li>
+    <li><a href="/account_page.html">Account</a></li>
+    <li class="push"> <button onclick="window.location.href='/index.html'" style="width:auto;">Logout</button></li>
+  </ul>
+</nav>
+<!-- NAV BAR -->
+
+<!-- Verify Logged In Status (Eventually verify admin) -->
+<div ng-controller="UsersController" ng-init="showUser()">
+</div>
+
+<div ng-controller="OrdersController">
+    <!-- Order Table -->
+    <section>
+      <br>
+      <div class="input-group" id="searchBar">
+        <input type="text" class="searchbar form-control" placeholder="Search" ng-model="query">
       </div>
-      <div class="row" ng-controller="UsersController">
-        <div class="col-md-6">
-          <header>
-          <div class="input-group" id="searchBar">
-            <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
-            <input type="text" class="searchbar form-control" placeholder="Search" ng-model="query">
-          </div>
-        </header>
-        <section>
-          <div class="tableWrapper">
-            <table class="adminTable">
-              <thead>
-              <tr>
-                <th>Date</th>
-                <th>Name</th>
-                <th>Order Info</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <td colspan="5">
+      <br>
+      <div class="tableWrapper">
+        <table class="orderTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Order Info</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="5">
                   <!--
                   <div class="links"><a href="#">&laquo;</a>  <a href="#">&raquo;</a></div>
-                  -->
-                </td>
-              </tr>
-            </tfoot>
-            <tbody>
-              <tr class = "notfirst" ng-repeat="user in users | filter: query track by $index" ng-click="showDetails(user)">
-                <td>{{user.created_at}}</td>
-                <td>{{user.first}} {{user.last}}</td>
-                <td>   </td>
-                <td>   </td>
-              </tr>
-            </tbody>
-            </table>
-          </div>
-        </section>
-        </div>
-        <aside>
-        <div class="col-md-6">
-          <br>
-          <div class="boxed jumbotron">
-            <h2>Order Details</h2>
-            <h4>{{detailedInfo.created_at}}</h4>
-            <p><b>Name:</b> {{detailedInfo.first}} {{detailedInfo.last}}</p>
-            <p><b>Address:</b><br>{{detailedInfo.address.street}}<br>{{detailedInfo.address.city}}, {{detailedInfo.address.state}} {{detailedInfo.address.zip}}</p>
-            <p><b>Order Info:</b> </p>
-            <p><b>Status:</b> </p>
-          </div>
-        </div>
-      </aside>
-      <footer>
-      </footer>
+                -->
+              </td>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr class = "notfirst" ng-repeat="order in orders | filter: query track by $index" ng-click="showDetails(order)">
+              <td>{{order.created_at}}</td>
+              <td>{{order.name}}</td>
+              <td>{{order.size}}<br>{{order.medium}}</td>
+              
+              <td>   </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/factories/listingFactory.js"></script>
-    <script src="js/controllers/listingController.js"></script>
-  </body>
-</html>
+    </section>
+    <!-- Order Details -->
+    <aside>
+      <br><br><br><br>
+      <br><br><br>
+      <div class="ordercard orderinfo">
+        <div class="cardbody">
+          <div class="cardhead">
+            <h1>Order Details</h1>
+          </div>
+          <br>
+          <input type="image" src="images/edit.png" width=75px align = "right" name="saveForm" class="btTxt submit" id="saveForm" onclick="document.getElementById('id02').style.display='block'"/>
+          <!--<button ng-click=showUser()>Click</button>-->
+          <h2 align= "left">{{detailedInfo.created_at}}</h2>
+          <h3 align = "left">Status: </h3>
+          <h3 align= "left">Image Details: </h3>
+          <p>
+            <img src="{{detailedInfo.img}}" width="250"/>
+            <br>
+            {{detailedInfo.size}}
+            <br>
+            {{detailedInfo.medium}}
+            <br>
+            <button ng-click="showImage(detailedInfo.img);">Download</button>
+          </p>    
+          <h3 align= "left">Name: {{detailedInfo.name}}</h3>
+          <h3 align="left">Email: {{detailedInfo.email}}</h3>
+          <h3 align= "left">Address: </h3>
+          <h3 align="left">{{detailedInfo.address.street}}, {{detailedInfo.address.city}}, {{detailedInfo.address.state}} {{detailedInfo.address.zip}}</h3>
+        <!--
+          <h3 align="left">{{detailedInfo.address.city}}, {{detailedInfo.address.state}} {{detailedInfo.address.zip}}</h3>
+        -->
+          <br><br>
+        </div>
+      </div>
+    </aside>
+    <footer>
+      <!-- Currently Empty Footer -->
+    </footer>
+<!-- Popup Box -->
+<div id="id02" class="editorder">
+  <div class="editorder-content">
+    <form class="modal-content animate">
+      <span onclick="document.getElementById('id02').style.display='none'" class="closee" title="Close Modal">&times;</span>
+      <!-- Order Information -->
+      <div novalidate class="container simple-form">
+        <center><label for="head"><b>Order Info</b></label>
+          <br>
+          <input type="text" ng-model="editedUser.first"placeholder="{{detailedInfo.created_at}}" name="created_at" disabled>
+          <input type="text" ng-model="editedUser.last"placeholder="{{detailedInfo.name}}" name="name">
+          <br>
+          <input type="text" ng-model="editedUser.email" placeholder="email" name="email">
+          <br>
+          <input type="text" ng-model="editedUser.address.street" placeholder="{{detailedInfo.address.street}}" name="address">
+          <br>
+          <input type="text" ng-model="editedUser.address.city" placeholder="{{detailedInfo.address.city}}" name="city">
+          <input type="text" ng-model="editedUser.address.state" placeholder="{{detailedInfo.address.state}}" name="state">
+          <input type="text" ng-model="editedUser.address.zip" placeholder="{{detailedInfo.address.zip}}" name="zip">
+          <br><br>
+          <button class="start" ng-click="">Confirm Changes</button>
+        </center>
+      </div> 
+    </form>
+  </div>
 </div>
+<!-- Following div ends ng-controller -->
+</div>
+
+
+<!-- Bootstrap's JS requires jQuery 1.9.1 or higher -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/factories/listingFactory.js"></script>
+<script src="js/controllers/listingController.js"></script>
+<script src="js/factories/orderFactory.js"></script>
+<script src="js/controllers/orderController.js"></script>
+
+</body>
+</html>

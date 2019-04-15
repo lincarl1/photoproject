@@ -12,4 +12,11 @@ router.route('/')
   .post(orders.create);
 
 
+router.route('/:orderId')
+  .get(orders.read)
+  //.put(users.update)
+  //.delete(orders.delete);
+
+router.param('orderId', orders.orderByID);
+
 module.exports = router;

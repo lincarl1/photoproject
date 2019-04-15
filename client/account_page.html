@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
-<!-- <body background="./forest.png">   -->
 <head>
+  <!-- Bootstrap CSS - Helps with layout -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- Nav Bar Font -->
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css">
+  <!-- Custom CSS for layout -->
+  <link rel="stylesheet" href="./styles/account_page.css">
 
-</head>
+  <!-- Font for user details -->
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Oswald|Satisfy|Unica+One" rel="stylesheet">
 
 <!-- Navigation Bar -->
 <nav class="zone green">
@@ -20,33 +23,162 @@
     </nav>
 <!-- End of Navigation Bar -->
 <br><br><br><br><br><br>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
 <body ng-app="printsApp">
-  <div class="row" ng-controller="UsersController">
 
-    <div class="container">
+<!-- NAV BAR -->
+<nav class="zone green">
+  <ul class = "background"></ul>
+  <ul class="main-nav">
+    <li><a href="/order_page.html">Place Order</a></li>
+    <li><a href="">Contact</a></li>
+    <li><a href="">Account</a></li>
+    <li class="push"> <button onclick="window.location.href='/index.html'" style="width:auto;">Logout</button></li>
+  </ul>
+</nav>
+<!-- NAV BAR -->
 
-      <!--UI of front page-->
-      <h2 align = "center">Account Info</h2>
-      <p align = "center">User's Name Here</p>
-      <p align = "center">Account details</p>
-      <p align = "center">Email Address: <a href="mailto:someone@example.com">someone@example.com</a></p>
-      <h3 align = "left">Order History</h3>
+<div ng-controller="UsersController" ng-init="showUser()">
+  <div>
+    <section>
+      <div class="usercard userinfo">
+        <!--UI of front page-->
+        <div class="cardhead">
+        <h1>{{thisuser.first}} {{thisuser.last}}</h1>
+        </div>
+        <br><br>
+        <input type="image" src="images/edit.png" width=75px align = "right" name="saveForm" class="btTxt submit" id="saveForm" onclick="document.getElementById('id02').style.display='block'"/>      
+          <!--<button ng-click=showUser()>Click</button>-->
+        <h2 align = "left">{{thisuser.email}}</h2>
+        <h2 align = "left">{{thisuser.address.street}}</h2>
+        <h2 align = "left">{{thisuser.address.city}}, {{thisuser.address.state}} {{thisuser.address.zip}}</h2>
+        <br><br>
+      </div>
+    </section>
+  <!--
+    <aside>
+      <br><br><br>
+      <h2 align = "left">Order History</h2>
       <p align = "left"> Small Scroll Menu?</p>
-      
+    </aside>
+  -->
+  <!--
+    <footer>
+      <p align = "center" >Additional Questions? Contact</p>
+    </footer>
+  -->
+  </div>
+</div>
 
       <footer>
         <p align = "center" >Additional Questions? <a href="/contact.html">Contact</a></p>
       </footer>
     </div>
+<div ng-controller="OrdersController" ng-init=findOrders()>
+  <aside>
+      <br><br><br>
+      <h2 align = "left">Order History</h2>
+      <br>
+      <div class="input-group" id="searchBar">
+        <input type="text" class="searchbar form-control" placeholder="Search" ng-model="query">
+      </div>
+      <br>
+      <div class="tableWrapper">
+        <table class="orderTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Order Info</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                  <!--
+                  <div class="links"><a href="#">&laquo;</a>  <a href="#">&raquo;</a></div>
+                -->
+              </td>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr class = "notfirst" ng-repeat="order in orders | filter: query track by $index" ng-click="showDetails(order)">
+              <td>{{order.created_at}}</td>
+              <td>{{order.name}}</td>
+              <td>{{order.size}}<br>{{order.medium}}</td>
+              
+              <td>   </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </aside>
+</div>
+
+<div id="id02" class="edituser" ng-controller="UsersController" ng-init="showUser()">
+  <div class="edituser-content">
+    <form class="modal-content animate">
+      <span onclick="document.getElementById('id02').style.display='none'" class="closee" title="Close Modal">&times;</span>
+      <!--User login information-->
+      <div novalidate class="container simple-form">
+        <center>
+        <label for="head"><b>Account Info</b></label>
+        <br>
+        <input type="text" ng-model="editedUser.first"placeholder="{{thisuser.first}}" name="firstName">
+        <input type="text" ng-model="editedUser.last"placeholder="{{thisuser.last}}" name="lastName">
+        <br>
+        <input type="text" ng-model="editedUser.email" placeholder="{{thisuser.email}}" name="email">
+        <br>
+        <input type="password" ng-model="editedUser.password" placeholder="Password*" name="psw" id="psw">
+        <input type="password" placeholder="Confirm Password*" name="pswconfirmation" id="pswconfirmation" onchange="confirmPassword()">
+        <script>
+          function confirmPassword() {
+            var password1 = document.getElementById("psw").value;
+            var password2 = document.getElementById("pswconfirmation").value;
+            if (password1 != password2)
+            {
+              alert("Confirmation Password does not match Password.");
+            }
+          }
+        </script>
+        <label for="body">Password required. If changing password, enter new password above.</label>
+        <br>
+        <br>
+        <input type="text" ng-model="editedUser.address.street" placeholder="{{thisuser.address.street}}" name="address">
+        <br>
+        <input type="text" ng-model="editedUser.address.city" placeholder="{{thisuser.address.city}}" name="city">
+        <input type="text" ng-model="editedUser.address.state" placeholder="{{thisuser.address.state}}" name="state">
+        <input type="text" ng-model="editedUser.address.zip" placeholder="{{thisuser.address.zip}}" name="zip">
+        <br><br>
+        <button class="start" ng-click="updateUser()">Confirm Changes</button>
+        </center>
+      </div>  
+    </form>
   </div>
-  <!--</div> -->
-  <!--</div> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-  <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/factories/listingFactory.js"></script>
-  <script src="js/controllers/listingController.js"></script>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/factories/listingFactory.js"></script>
+<script src="js/controllers/listingController.js"></script>
+<script src="js/factories/orderFactory.js"></script>
+<script src="js/controllers/orderController.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 </body>
 </html>

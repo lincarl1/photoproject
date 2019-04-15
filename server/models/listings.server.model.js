@@ -3,9 +3,16 @@ var mongoose = require('mongoose'),
     // password hashing
     bcrypt = require('bcrypt'), 
     Schema = mongoose.Schema;
+//    ObjectId = Schema.ObjectId;
 
 /* Create your schema */
 var userSchema = new Schema({
+/*
+  _id: { 
+    type: ObjectId, 
+    auto: true 
+  },
+*/
   first: {
     type: String, 
     required: true
@@ -32,7 +39,8 @@ var userSchema = new Schema({
   },
   created_at: String,
   updated_at: String
-});
+},
+{ collection: 'users' });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 /*
@@ -53,7 +61,22 @@ userSchema.pre('save', function(next) {
   var yyyy = time.getFullYear();
   var hr = time.getHours();
   var min = time.getMinutes();
-  time = mm + '/' + dd + '/' + yyyy + ' ' + hr + ':' + min;
+  if(hr<10){
+    if(min<10){
+      time = mm + '/' + dd + '/' + yyyy + ' 0' + hr + ':0' + min;
+    }
+    else{
+      time = mm + '/' + dd + '/' + yyyy + ' 0' + hr + ':' + min;
+    }
+  }
+  else{
+    if(min<10){
+      time = mm + '/' + dd + '/' + yyyy + ' ' + hr + ':0' + min;
+    }
+    else{
+      time = mm + '/' + dd + '/' + yyyy + ' ' + hr + ':' + min;
+    }
+  }
   this.updated_at = time;
   if(!this.created_at)
   {
@@ -69,7 +92,6 @@ userSchema.pre('save', function (next) {
     if(err) {
       return next(err);
     }
-    console.log("hash from here: " + hash);
     user.password = hash;
     next();
   });
@@ -89,8 +111,6 @@ userSchema.methods.hashPassword = function(candidatePassword, cb) {
         console.log(err);
         return cb(err);
       }
-      console.log("itworked");
-      console.log("hash after .hash " + hash);
       return cb(null, hash);
     });
   });

@@ -1,82 +1,63 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
-
-#adminpg {
-  borderColor:#FFFFFF;
-  background: #FFFFFF;
-}
-
-
-
-/*------------------NAV BAR STARTS -------------------*/
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: #0F5DA4;
-  overflow: hidden;
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: #f2f2f2;
+.ordercard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+  /*padding: 10px 20px;*/
 }
 
-/* Change the color of links on hover */
-.topnav a.page:hover {
-  background-color: #ddd;
-  color: black;
+.cardhead {
+  background-color: #023f05;
+}
+.cardbody {
+  background-color: #FFFFFF;
 }
 
-.topnav a.button:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: #333;
-  color: white;
-}
-
-.topnav a.logout {
-  background-color: #990000;
-  color: white;
+.orderinfo h1 {
+    /*font-weight: 700;*/
+    padding: 10px 20px;
+    font-size: 32px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    /*font-family: 'Unica One', cursive;*/ 
+   /* max-width: 50%; */
 }
 
 
-
-/*------------------NAV BAR ENDS -------------------*/
-
-
-
-/*-----------------HEADER STARTS------------------*/
-h1
-{
-  font-size: calc(2.8em + 2.6vw);
-  font-weight: 700;
-  letter-spacing: .01em;
-  padding: 1rem 0 0 18.5rem;
-  text-shadow: .022em .022em .022em #15323D;
-  color: #1f4a5a;
+.orderinfo h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    padding: 0px 30px; 
+    color: black; 
 }
 
-h2
-{
-  text-shadow: .022em .022em .022em #15323D;
-  color: #1f4a5a;
+.orderinfo h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    padding: 0px 30px; 
+    color: black; 
 }
 
-
-body
-{
-  font-family: "Roboto", Arial, sans-serif;
-  background-color: #e1e1e1;
-
+.orderinfo p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px; 
+  padding: 0px 30px;
+  color: black; 
 }
-/*-----------------HEADER ENDS------------------*/
+
+.orderinfo img {
+  padding-right: 25px;
+}
+
+.orderinfo input {
+  padding-right: 25px;
+}
+
+p {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px; 
+  color: black; 
+}
 
 /*-----------------LAYOUT STARTS-----------------*/
 header,
@@ -86,13 +67,13 @@ footer {
   margin: 0 1.5% 24px 1.5%;
 }
 section {
-  padding: 24px 5px;
+  padding: 20px 5px;
   float: left;
-  width: 63%;
+  width: 62%;
 }
 aside {
   float: right;
-  width: 30%;
+  width: 32%;
 }
 footer {
   clear: both;
@@ -100,120 +81,146 @@ footer {
 }
 /*------------------LAYOUT ENDS-------------------*/
 
+/***********************************************************************
+ *  Nav Bar
+ **********************************************************************/
 
-/*----------------SEARCHBAR STARTS-----------------*/
-
-.searchbar {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 40%;
-  background: #f1f1f1;
-}
-/*----------------SEARCHBAR ENDS-------------------*/
-
-
-.tableWrapper {
-  max-height: 400px;
-  overflow: auto;
+.zone {
+    /*padding:30px 50px;*/
+    /*cursor:pointer;*/
+    
+    font-size:2em;
+    border-radius:4px;
+   /* border:1px solid #bbb;    
+   position: absolute;*/
+    transition: all 0.3s linear;
+ 
+    width: 100%; 
 }
 
-button
-{
-	background-color: #2eb82e;
-	color: white;
-  width: 80px;
+.zone:hover {
+    -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    background: white; 
+   /* opacity: 0.6; */
+    color: black; 
+}
+.zone:hover > .zone a:hover{
+  color: black;
+}
+.zone a:hover{
+  color: black; 
 }
 
 
-
-
-
-/*---------------ORDER DETAILS STARTS-------------*/
-.boxed {
-  border: 1px solid #0F5DA4;
-  padding: 3px 20px;
-  background-color: #DCE6FF;
-  text-align: left;
+.main-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    font-size: 25px;
+    /*background: white; */
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 3px;
+    padding-right: 25px; 
+    background: #f9f9f9; 
 }
-/*---------------ORDER DETAILS ENDS-------------*/
+
+@media only screen and (max-width: 600px) {
+    .main-nav {
+       
+        font-size: 0.5em;
+        padding: 0;
+    }
+}
 
 
+.push {
+    margin-left: auto;
+}
 
-/*------------------TABLE STARTS-------------------*/
-table.adminTable {
-  /*
-  font-family: "Lucida Console", Monaco, monospace;
-  font-family: Verdana, Helvetica, sans-serif;
-  */
-  font-family: Verdana, Helvetica, sans-serif;
-  
-  border: 2px solid #0F5DA4;
-  background-color: #C7D1E7;
+.zone li {
+    padding: 16px;
+}
+
+.zone a {
+    color: black;
+    text-decoration: none;
+}
+
+.zone button {
+   background-color: #347523;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
   width: 100%;
-  text-align: center;
-  border-collapse: collapse;
+  font-size: 20px; 
+}
+
+.zone button:hover {
+  background-color: #4CAF50;
 }
 
 
-
-table.adminTable td, table.adminTable th {
-  border: 1px solid #AAAAAA;
-  padding: 3px 2px;
-}
-table.adminTable tbody td {
-  font-size: 13px;
-}
+/***********************************************************************
+      Nav Bar - end 
+ **********************************************************************/
 
 
-table.adminTable tr:nth-child(even) {
-  background: #DCE6FF;
-}
-table.adminTable thead {
-  background: #0F5DA4;
-  background: -moz-linear-gradient(top, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
-  background: -webkit-linear-gradient(top, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
-  background: linear-gradient(to bottom, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
-}
-table.adminTable thead th {
-  font-size: 19px;
-  font-weight: bold;
-  color: #FFFFFF;
-  text-align: center;
-  border-left: 2px solid #0F5DA4;
-}
-table.adminTable thead th:first-child {
-  border-left: none;
-}
 
-table.adminTable tfoot {
-  font-size: 13px;
-  font-weight: bold;
-  color: #FFFFFF;
-  background: #0F5DA4;
-  background: -moz-linear-gradient(top, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
-  background: -webkit-linear-gradient(top, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
-  background: linear-gradient(to bottom, #4b85bb 0%, #276dad 66%, #0F5DA4 100%);
-}
-table.adminTable tfoot td {
-  font-size: 13px;
-}
-table.adminTable tfoot .links {
-  text-align: right;
-}
-table.adminTable tfoot .links a{
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
   display: inline-block;
-  background: #FFFFFF;
-  color: #1509A4;
-  padding: 2px 8px;
-  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-table.adminTable tr.notfirst:hover {
-          background-color: #FFCE69;
-        }
 
-/*------------------TABLE ENDS-------------------*/
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+
 
 
