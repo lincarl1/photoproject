@@ -15,6 +15,14 @@ var orderSchema = new Schema({
     type: String, 
     required: true
   },
+  size_height: {
+    type: String,
+    required: true
+  },
+  size_width: {
+    type: String,
+    required: true
+  },
   medium: {
     type: String,
     required: true
