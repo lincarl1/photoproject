@@ -117,5 +117,67 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
 
 
 
+
+    // Update order (admin use only)
+    $scope.updateOrder = function() {
+      if($scope.editedOrder == null){
+        alert("No changes made.");
+      }
+      else
+      {
+
+        // following if's: account for unchanged values, set as original values
+        if($scope.editedOrder._id == null){
+          $scope.editedOrder._id = $scope.detailedInfo._id;
+        }
+
+/*
+        if($scope.editedUser.first == null || $scope.editedUser.first == ""){
+          $scope.editedUser.first = thisuser2.first;
+        }
+        if($scope.editedUser.last == null || $scope.editedUser.last == ""){
+          $scope.editedUser.last = thisuser2.last;
+        }
+        if($scope.editedUser.email == null || $scope.editedUser.email == ""){
+          $scope.editedUser.email = thisuser2.email;
+        }
+        if($scope.editedUser.address == null){
+          $scope.editedUser.address = thisuser2.address;
+        }
+        else
+        {
+          if($scope.editedUser.address.street == null || $scope.editedUser.address.street == ""){
+            $scope.editedUser.address.street = thisuser2.address.street;
+          }
+          if($scope.editedUser.address.city == null || $scope.editedUser.address.city == ""){
+            $scope.editedUser.address.city = thisuser2.address.city;
+          }
+          if($scope.editedUser.address.state == null || $scope.editedUser.address.state == ""){
+            $scope.editedUser.address.state = thisuser2.address.state;
+          }
+          if($scope.editedUser.address.zip == null || $scope.editedUser.address.zip == ""){
+            $scope.editedUser.address.zip = thisuser2.address.zip;
+          }
+        }
+*/
+        var newEdit = JSON.stringify($scope.editedOrder);
+        Orders.update(newEdit).then(function(response) {
+        
+        // Manually refresh to show changes made
+        window.location = "admin_page.html";
+        console.log("listingController - Success: Users.update");
+
+        }, function(error) {
+        window.alert("Problem updating order.\nTry again.");
+        console.log('orderController- Cant find order: ', error);
+        });
+        
+      }  // end main else
+      console.log("updateOrder: " + JSON.stringify($scope.editedOrder));
+
+    }
+
+
+
   }
 ]);

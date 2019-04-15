@@ -72,9 +72,8 @@
             <tr class = "notfirst" ng-repeat="order in orders | filter: query track by $index" ng-click="showDetails(order)">
               <td>{{order.created_at}}</td>
               <td>{{order.name}}</td>
-              <td>{{order.size}}<br>{{order.medium}}</td>
-              
-              <td>   </td>
+              <td>{{order.size}}<br>{{order.medium}}</td>   
+              <td>{{order.status}}</td>
             </tr>
           </tbody>
         </table>
@@ -82,8 +81,8 @@
     </section>
     <!-- Order Details -->
     <aside>
-      <br><br><br><br>
       <br><br><br>
+      <!--<br><br><br><br>-->
       <div class="ordercard orderinfo">
         <div class="cardbody">
           <div class="cardhead">
@@ -93,8 +92,8 @@
           <input type="image" src="images/edit.png" width=75px align = "right" name="saveForm" class="btTxt submit" id="saveForm" onclick="document.getElementById('id02').style.display='block'"/>
           <!--<button ng-click=showUser()>Click</button>-->
           <h2 align= "left">{{detailedInfo.created_at}}</h2>
-          <h3 align = "left">Status: </h3>
-          <h3 align= "left">Image Details: </h3>
+          <h3 align = "left"><b>Status:</b> {{detailedInfo.status}}</h3>
+          <h3 align= "left"><b>Image Details:</b> </h3>
           <p>
             <img src="{{detailedInfo.img}}" width="250"/>
             <br>
@@ -104,9 +103,9 @@
             <br>
             <button ng-click="showImage(detailedInfo.img);">Download</button>
           </p>    
-          <h3 align= "left">Name: {{detailedInfo.name}}</h3>
-          <h3 align="left">Email: {{detailedInfo.email}}</h3>
-          <h3 align= "left">Address: </h3>
+          <h3 align= "left"><b>Name:</b> {{detailedInfo.name}}</h3>
+          <h3 align="left"><b>Email:</b> {{detailedInfo.email}}</h3>
+          <h3 align= "left"><b>Address:</b> </h3>
           <h3 align="left">{{detailedInfo.address.street}}, {{detailedInfo.address.city}}, {{detailedInfo.address.state}} {{detailedInfo.address.zip}}</h3>
         <!--
           <h3 align="left">{{detailedInfo.address.city}}, {{detailedInfo.address.state}} {{detailedInfo.address.zip}}</h3>
@@ -122,23 +121,34 @@
 <div id="id02" class="editorder">
   <div class="editorder-content">
     <form class="modal-content animate">
-      <span onclick="document.getElementById('id02').style.display='none'" class="closee" title="Close Modal">&times;</span>
+      <span onclick="document.getElementById('id02').style.display='none'" class="closee" title="Close Modal"><input type="reset" value="x"></span>
       <!-- Order Information -->
       <div novalidate class="container simple-form">
         <center><label for="head"><b>Order Info</b></label>
           <br>
-          <input type="text" ng-model="editedUser.first"placeholder="{{detailedInfo.created_at}}" name="created_at" disabled>
-          <input type="text" ng-model="editedUser.last"placeholder="{{detailedInfo.name}}" name="name">
+          <select ng-model="editedOrder.status">
+            <option value="" selected disabled hidden>{{detailedInfo.status}}</option>
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+          <input type="text" placeholder="{{detailedInfo.created_at}}" name="created_at" disabled>
+          <input type="text" ng-model="editedOrder.size"placeholder="{{detailedInfo.size}}" name="name">
+          <input type="text" ng-model="editedOrder.medium" placeholder="{{detailedInfo.medium}}" name="email">
           <br>
-          <input type="text" ng-model="editedUser.email" placeholder="email" name="email">
+          <label for="head"><b>Customer Info</b></label>
           <br>
-          <input type="text" ng-model="editedUser.address.street" placeholder="{{detailedInfo.address.street}}" name="address">
+          <input type="text" ng-model="editedOrder.name"placeholder="{{detailedInfo.name}}" name="name">
+          <input type="text" ng-model="editedUser.email" placeholder="{{detailedInfo.email}}" name="email">
           <br>
-          <input type="text" ng-model="editedUser.address.city" placeholder="{{detailedInfo.address.city}}" name="city">
-          <input type="text" ng-model="editedUser.address.state" placeholder="{{detailedInfo.address.state}}" name="state">
-          <input type="text" ng-model="editedUser.address.zip" placeholder="{{detailedInfo.address.zip}}" name="zip">
+          <input type="text" ng-model="editedOrder.address.street" placeholder="{{detailedInfo.address.street}}" name="address">
+          <br>
+          <input type="text" ng-model="editedOrder.address.city" placeholder="{{detailedInfo.address.city}}" name="city">
+          <input type="text" ng-model="editedOrder.address.state" placeholder="{{detailedInfo.address.state}}" name="state">
+          <input type="text" ng-model="editedOrder.address.zip" placeholder="{{detailedInfo.address.zip}}" name="zip">
           <br><br>
-          <button class="start" ng-click="">Confirm Changes</button>
+          <button class="start" ng-click="updateOrder()">Confirm Changes</button>
         </center>
       </div> 
     </form>
