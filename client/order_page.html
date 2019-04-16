@@ -19,8 +19,8 @@
             <li class="push"> <button onclick="window.location.href='/index.html'">Sign Out</button></li>
         </ul>
     </nav>
-    <!-- End of Navigation Bar -->
-    <div ng-controller="OrdersController">
+<!-- End of Navigation Bar -->
+<div ng-controller="OrdersController">
         <br><br><br><br><br><br>
         <br><br><br><br><br><br>
         <!--Holds All Four of the Blocks-->
@@ -64,23 +64,23 @@
                 <h2>Choose A Size</h2><br>
                 <form id="sizeSelection">
     
-                  <input type="radio" name="size" value="10x10" ng-model="order.size"> 10x10
+                  <input type="radio" name="size" value="10x10" ng-model="newOrder.size"> 10x10
                   <br><br>
-                  <input type="radio" name="size" value="13x13" ng-model="order.size"> 13x13 
+                  <input type="radio" name="size" value="13x13" ng-model="newOrder.size"> 13x13 
                   <br><br>
-                  <input type="radio" name="size" value="16x16" ng-model="order.size"> 16x16 
+                  <input type="radio" name="size" value="16x16" ng-model="newOrder.size"> 16x16 
                   <br><br>
-                  <input type="radio" name="size" value="17x17" ng-model="order.size"> 17x17 
+                  <input type="radio" name="size" value="17x17" ng-model="newOrder.size"> 17x17 
                   <br><br>
-                  <input type="radio" name="size" value="24x24" ng-model="order.size"> 24x24 
+                  <input type="radio" name="size" value="24x24" ng-model="newOrder.size"> 24x24 
                   <br><br>
-                  <input type="radio" name="size" value="36x36" ng-model="order.size"> 36x36 
+                  <input type="radio" name="size" value="36x36" ng-model="newOrder.size"> 36x36 
                   <br><br>
-                  <input type="radio" name="size" value="44x44" ng-model="order.size"> 44x44 
+                  <input type="radio" name="size" value="44x44" ng-model="newOrder.size"> 44x44 
                   <br><br>
                   <input type="radio">
-                  <input type="number" id="width" name="width" style="width: 75px" ng-model="order.size_width"> x
-                  <input type="number" id="height" name="height" style="width: 75px" ng-model="order.size_height">
+                  <input type="number" id="width" name="width" style="width: 75px" ng-model="newOrder.size_width"> x
+                  <input type="number" id="height" name="height" style="width: 75px" ng-model="newOrder.size_height">
     <!--        
                   <input type="submit" value="Submit" ng-click="showDetails(order)">
     -->
@@ -107,10 +107,10 @@
                 <!--Medium Selection-->
                 <h2>Choose A Medium</h2><br>
                 <form id="mediumSelection">
-                    <input type="radio" name="medium" value="collage" ng-model="order.medium">   Collage<br><br>
-                    <input type="radio" name="medium" value="paper cutting" ng-model="order.medium">   Paper cutting<br><br>
-                    <input type="radio" name="medium" value="transparencies" ng-model="order.medium">   Transparencies<br><br>
-                    <input type="radio" name="medium" value="black and white" ng-model="order.medium">   Black and White<br><br>
+                    <input type="radio" name="medium" value="collage" ng-model="newOrder.medium">   Collage<br><br>
+                    <input type="radio" name="medium" value="paper cutting" ng-model="newOrder.medium">   Paper cutting<br><br>
+                    <input type="radio" name="medium" value="transparencies" ng-model="newOrder.medium">   Transparencies<br><br>
+                    <input type="radio" name="medium" value="black and white" ng-model="newOrder.medium">   Black and White<br><br>
     
     <!--
                     <u>Photo Paper</u><br>
@@ -221,6 +221,7 @@
                  <button class="btn btn-primary" ng-click="showDetails(newOrder)">Verify Order</button>
                  <br><br>
                  <p> {{detailedInfo.size}} </p>
+                 <p> {{detailedInfo.size_width}} {{detailedInfo.size_height}}</p>
                  <p> {{detailedInfo.medium}} </p>
                  <br>
                  <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
@@ -241,7 +242,7 @@
                 <input type="submit" value="Submit Order" ng-click="addOrder()">          
                 <!--End of PayPal Button-->
             </center>
-            </div>
+        </div>
     
             <div class="clr-fix"></div>
         </div>
@@ -256,30 +257,6 @@
     </center>
     
     </div>
-
-<!--Preview Image-->
-<script>
-    var outImage="userImage";
-    function preview_2(obj)
-    {
-        if (FileReader)
-        {
-          var reader = new FileReader();
-          reader.readAsDataURL(obj.files[0]);
-          reader.onload = function (e) {
-             var image=new Image();
-             image.src=e.target.result;
-             image.onload = function () {
-              document.getElementById(outImage).src=image.src;
-          };
-      }
-  }
-  else
-  {
-	        // Not supported
-        }
-    }
-</script>
 
 <!--Button Scripts-->
 <script>
@@ -320,9 +297,34 @@
     });
 </script>
 
+<!--Preview Image-->
+<script>
+    var outImage="userImage";
+    function preview_2(obj)
+    {
+        if (FileReader)
+        {
+          var reader = new FileReader();
+          reader.readAsDataURL(obj.files[0]);
+          reader.onload = function (e) {
+             var image=new Image();
+             image.src=e.target.result;
+             image.onload = function () {
+              document.getElementById(outImage).src=image.src;
+          };
+      }
+  }
+  else
+  {
+	        // Not supported
+        }
+    }
+</script>
+<!--End of Preview Image-->
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+<script src="js/form.js"></script>
 <script src="js/app.js"></script>
 <script src="js/factories/listingFactory.js"></script>
 <script src="js/controllers/listingController.js"></script>
