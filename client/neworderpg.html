@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
+    <link rel="stylesheet" href="styles/order_page.css">
+    <meta charset="utf-8">
+    <!--JQuery Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body background="images/forest.png" ng-app="printsApp">
+    <!-- Navigation Bar -->
+    <nav class="zone green">
+        <ul class = "background"></ul>
+        <ul class="main-nav"> 
+            <li><a href="#upload">Place Order</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/account_page.html">Account</a></li>
+            <li class="push"> <button onclick="window.location.href='/index.html'">Sign Out</button></li>
+        </ul>
+    </nav>
+    <!-- End of Navigation Bar -->
+    <div ng-controller="OrdersController">
+        <br><br><br><br><br><br>
+        <br><br><br><br><br><br>
+        <!--Holds All Four of the Blocks-->
+        <div class="container">
+            <div class="row" id="upload">
+                <center>
+                    <h2>Upload An Image</h2>               
+                    <!--Image Preview is display through the Script at the bottom-->
+                    <form enctype="multipart/form-data">
+                        <center>
+                            <input type="file" name="photo" accept="image/*" onChange="preview_2(this);" fileread="newOrder.img"><br>
+                            <img id="userImage" width="175"><br>
+                            <br>
+                        </center>
+                    </form>
+                    <!--End of Image Preview-->
+                </center>
+            </div>
+            <div class="row" id="size">
+                <center>
+                <h2>Choose A Size</h2><br>
+                <form id="sizeSelection">
+
+                  <input type="radio" name="size" value="10x10" ng-model="order.size"> 10x10
+                  <br><br>
+                  <input type="radio" name="size" value="13x13" ng-model="order.size"> 13x13 
+                  <br><br>
+                  <input type="radio" name="size" value="16x16" ng-model="order.size"> 16x16 
+                  <br><br>
+                  <input type="radio" name="size" value="17x17" ng-model="order.size"> 17x17 
+                  <br><br>
+                  <input type="radio" name="size" value="24x24" ng-model="order.size"> 24x24 
+                  <br><br>
+                  <input type="radio" name="size" value="36x36" ng-model="order.size"> 36x36 
+                  <br><br>
+                  <input type="radio" name="size" value="44x44" ng-model="order.size"> 44x44 
+                  <br><br>
+                  <input type="radio">
+                  <input type="number" id="width" name="width" style="width: 75px" ng-model="order.size_width"> x
+                  <input type="number" id="height" name="height" style="width: 75px" ng-model="order.size_height">
+          </form>
+
+          <br>
+
+          <p> For custom size inquiries, use the contact form. </p>
+                    <!--
+                    <p> If the following sizes do not fit your demands input your custom dimensions here in pixels. </p>
+                    <form>
+                        Height: <input type = "decimal" name = "Height"><br>
+                        <br>
+                        Width: <input type = "decimal" name = "Width"><br>
+                        <br>
+                        <input type = "submit" value = "Submit">
+                    </form>
+                -->
+                <!--End of Size Selection-->        
+            </center>
+        </div>
+        <div class="row" id="mediums">
+            <center>
+                <!--Medium Selection-->
+                <h2>Choose A Medium</h2><br>
+                <form id="mediumSelection">
+                    <input type="radio" name="medium" value="collage" ng-model="order.medium">   Collage<br><br>
+                    <input type="radio" name="medium" value="paper cutting" ng-model="order.medium">   Paper cutting<br><br>
+                    <input type="radio" name="medium" value="transparencies" ng-model="order.medium">   Transparencies<br><br>
+                    <input type="radio" name="medium" value="black and white" ng-model="order.medium">   Black and White<br><br>
+
+    <!--
+                    <u>Photo Paper</u><br>
+                    <input type="radio" name="medium" value="PremiumGlossy170" ng-model="order.medium"> Premium Glossy Photo Paper (170)<br>
+                    <input type="radio" name="medium" value="PremiumGlossy250" ng-model="order.medium"> Premium Glossy Photo Paper (250)<br>
+                    <input type="radio" name="medium" value="PremiumSemiGloss170" ng-model="order.medium"> Premium Semigloss Photo Paper (170)<br>
+                    <input type="radio" name="medium" value="PremiumSemiGlossy250" ng-model="order.medium"> Premium Semigloss Photo Paper (250)<br>
+                    <input type="radio" name="medium" value="PremiumLuster" ng-model="order.medium"> Premium Luster Photo Paper (260)<br>
+                    <input type="radio" name="medium" value="PremiumSemimatte" ng-model="order.medium"> Premium Semimatte Photo Paper (260)<br>
+    
+                    <u>Proofing Paper</u><br>
+                    <input type="radio" name="medium" value="ProofCommercial" ng-model="order.medium"> Proofing Paper Commercial<br>
+                    <input type="radio" name="medium" value="ProofSemimatte" ng-model="order.medium"> Proofing Paper White Semimatte<br>
+                    <input type="radio" name="medium" value="ProofPublication" ng-model="order.medium"> Proof Publication<br>
+    
+                    <u>Matte Paper</u><br>
+                    <input type="radio" name="medium" value="MattePaper" ng-model="order.medium"> Doubleweight Matte Paper<br>
+                    <input type="radio" name="medium" value="UltraPremium" ng-model="order.medium"> Ultra Premium Presentation Paper Matte<br>
+                    <input type="radio" name="medium" value="SomersetVelvet" ng-model="order.medium"> Somerset Velvet (roll)<br>
+                    <input type="radio" name="medium" value="SingleMatte" ng-model="order.medium"> Singleweight Matte Paper<br>
+                    <input type="radio" name="medium" value="PresentationMatte" ng-model="order.medium"> Presentation Paper Matte<br>
+    
+                    <u>Fine Art Paper</u><br>
+                    <input type="radio" name="medium" value="UltraSmoothFineArt" ng-model="order.medium"> UltraSmooth Fine Art Paper<br>
+                    <input type="radio" name="medium" value="TexturedFineArt" ng-model="order.medium"> Textured Fine Art Paper<br>
+                    <input type="radio" name="medium" value="VelvetFineArt" ng-model="order.medium"> Velvet Fine Art Paper<br>
+                    <input type="radio" name="medium" value="WatercolorPaper" ng-model="order.medium"> Watercolor Paper - Radiant White<br>
+                    <input type="radio" name="medium" value="PremiumWater" ng-model="order.medium"> Premium Canvas Satin PremierArt Water Resistant Canvas<br>
+                    <input type="radio" name="medium" value="PremiumMatte" ng-model="order.medium"> Premium Canvas Matte Piezo Pro Matte Canvas<br>
+                    <input type="radio" name="medium" value="Canvas" ng-model="order.medium"> Canvas<br>
+    
+                    <u>Others</u><br>
+                    <input type="radio" name="medium" value="MattePoster" ng-model="order.medium"> Enhanced Matte Posterboard<br>
+                    <input type="radio" name="medium" value="SomersetVelversheet" ng-model="order.medium"> Somerset Velver (sheet)<br>
+                    <input type="radio" name="medium" value="SyntheticPaper" ng-model="order.medium"> Enhanced Adhesive Synthetic Paper<br>
+                -->
+    <!--
+    
+                    Photo Paper: <select id = "MediumOption"><br>
+                        <option value="PremiumGlossy170" ng-model="order.medium">Premium Glossy Photo Paper (170)</option>
+                        <option value="PremiumGlossy250" ng-model="order.medium">Premium Glossy Photo Paper (250)</option>
+                        <option value="PremiumSemiGloss170" ng-model="order.medium">Premium Semigloss Photo Paper (170)</option>
+                        <option value="PremiumSemiGlossy250" ng-model="order.medium">Premium Semigloss Photo Paper (250)</option>
+                        <option value="PremiumLuster" ng-model="order.medium">Premium Luster Photo Paper (260)</option>
+                        <option value="PremiumSemimatte" ng-model="order.medium">Premium Semimatte Photo Paper (260)</option>
+                    </select>
+                    <br><br>
+    
+                    Proofing Paper: <select id = "MediumOption"><br>
+                        <option value="ProofCommercial" ng-model="order.medium">Proofing Paper Commercial</option>
+                        <option value="ProofSemimatte" ng-model="order.medium">Proofing Paper White Semimatte</option>
+                        <option value="ProofPublication" ng-model="order.medium">ProofPublication</option>
+                    </select>
+                    <br><br>
+    
+                    Matte Paper: <select id = "MediumOption"><br>
+                        <option value="MattePaper" ng-model="order.medium">Doubleweight Matte Paper</option>
+                        <option value="UltraPremium" ng-model="order.medium">Ultra Premium Presentation Paper Matte</option>
+                        <option value="SomersetVelvet" ng-model="order.medium">Somerset Velvet (roll)</option>
+                        <option value="SingleMatte" ng-model="order.medium">Singleweight Matte Paper</option>
+                        <option value="PresentationMatte" ng-model="order.medium">Presentation Paper Matte</option>
+                    </select>
+                    <br><br>
+    
+                    Fine Art Paper: <select id = "MediumOption"><br>
+                        <option value="UltraSmoothFineArt" ng-model="order.medium">UltraSmooth Fine Art Paper</option>
+                        <option value="TexturedFineArt" ng-model="order.medium">Textured Fine Art Paper</option>
+                        <option value="VelvetFineArt" ng-model="order.medium">Velvet Fine Art Paper</option>
+                        <option value="WatercolorPaper" ng-model="order.medium">Watercolor Paper - Radiant White</option>
+                        <option value="PremiumWater" ng-model="order.medium">Premium Canvas Satin PremierArt Water Resistant Canvas</option>
+                        <option value="PremiumMatte" ng-model="order.medium">Premium Canvas Matte Piezo Pro Matte Canvas</option>
+                        <option value="Canvas" ng-model="order.medium">Canvas</option>
+                    </select>
+                    <br><br>
+    
+                    Others: <select id = "MediumOption"><br>
+                        <option value="MattePoster" ng-model="order.medium">Enhanced Matte Posterboard</option>
+                        <option value="SomersetVelversheet" ng-model="order.medium">Somerset Velver (sheet)</option>
+                        <option value="SyntheticPaper" ng-model="order.medium">Enhanced Adhesive Synthetic Paper</option>
+                    </select>
+                    <br><br>
+                -->
+    <!--
+                    <input type="submit" value="Submit" ng-click="showDetails(order)">
+                    <p> {{detailedInfo.medium}} </p>
+                -->
+            </form>
+            <!--End of Medium Selection-->
+            <!--Medium Selection-->
+                     <!--
+                    <h2>Choose A Medium</h2><br>
+                    Mediums: <select id = "MediumOption">
+                        <option value="Black and white">Black and white</option>
+                        <option value="Paper cutting">Paper cutting</option>
+                        <option value="transparencies">Transparencies</option>
+                        <option value="Collage">Collage</option>
+                    </select><br><br>
+                    <input type = "submit" value = "Submit">
+                -->
+                <!--End of Medium Selection-->
+            </center>
+        </div>
+        <div class="row" id="paypal">
+            <center>
+                <!--PayPal Button-->
+                <h2>Pay Here</h2>
+                <br>
+                <button class="btn btn-primary" ng-click="showDetails(newOrder)">Verify Order</button>
+                <br><br>
+                <p> {{detailedInfo.size}} </p>
+                <p> {{detailedInfo.medium}} </p>
+                <br>
+                <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="VEMBP3LD3LNEC">
+                    <table>
+                        <tr><td><input type="hidden" name="on0" value="Name of drop-down menu">Name of drop-down menu</td></tr><tr><td><select name="os0">
+                            <option value="Option 1">Option 1 $0.01 USD</option>
+                            <option value="Option 2">Option 2 $0.02 USD</option>
+                            <option value="Option 3">Option 3 $0.03 USD</option>
+                        </select> </td></tr>
+                    </table>
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+                <br>
+                <input type="submit" value="Submit Order" ng-click="addOrder()">          
+                <!--End of PayPal Button-->
+            </center>
+        </div>
+
+        <div class="clr-fix"></div>
+    </div>
+    <br><br>
+    
+    <center>
+        <input type="button" id="button1" value="Show Upload">
+        <input type="button" id="button2" value="Show Size">
+        <input type="button" id="button3" value="Show Medium">
+        <input type="button" id="button4" value="Show PayPal">
+        <input type="button" id="button5" value="Show All">
+    </center>
+    
+</div>
+
+<!--Preview Image-->
+<script>
+    var outImage="userImage";
+    function preview_2(obj)
+    {
+        if (FileReader)
+        {
+          var reader = new FileReader();
+          reader.readAsDataURL(obj.files[0]);
+          reader.onload = function (e) {
+           var image=new Image();
+           image.src=e.target.result;
+           image.onload = function () {
+              document.getElementById(outImage).src=image.src;
+          };
+      }
+  }
+  else
+  {
+	        // Not supported
+        }
+    }
+</script>
+
+<!--Button Scripts-->
+<script>
+    $('#button1').click(function()
+    {
+        $('#upload').show();
+        $('#size').hide();
+        $('#mediums').hide();
+        $('#paypal').hide();
+    });
+    $('#button2').click(function()
+    {
+        $('#upload').hide();
+        $('#size').show();
+        $('#mediums').hide();
+        $('#paypal').hide();
+    });
+    $('#button3').click(function()
+    {
+        $('#upload').hide();
+        $('#size').hide();
+        $('#mediums').show();
+        $('#paypal').hide();
+    });
+    $('#button4').click(function()
+    {
+        $('#upload').hide();
+        $('#size').hide();
+        $('#mediums').hide();
+        $('#paypal').show();
+    });
+    $('#button5').click(function()
+    {
+        $('#upload').show();
+        $('#size').show();
+        $('#mediums').show();
+        $('#paypal').show();
+    });
+</script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/factories/listingFactory.js"></script>
+<script src="js/controllers/listingController.js"></script>
+<script src="js/factories/orderFactory.js"></script>
+<script src="js/controllers/orderController.js"></script>
+</body>
+</html>
