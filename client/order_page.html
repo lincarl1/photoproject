@@ -2,13 +2,13 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
-    <link rel="stylesheet" href="styles/order_page.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet"> 
     <meta charset="utf-8">
     <!--JQuery Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles/order.css">
 </head>
-<body background="images/forest.png" ng-app="printsApp">
+<body ng-app="printsApp">
 <!-- Navigation Bar -->
     <nav class="zone green">
         <ul class = "background"></ul>
@@ -22,136 +22,181 @@
     <!-- End of Navigation Bar -->
 <div ng-controller="OrdersController">
     <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
     <!--Holds All Four of the Blocks-->
-    <div class="container">
-        <div class="row" id="upload">
-            <center>
-                <h2>Upload An Image</h2>               
-                <!--Image Preview is display through the Script at the bottom-->
-                <form enctype="multipart/form-data">
-                    <center>
-                        <input type="file" name="photo" accept="image/*" onChange="preview_2(this);" fileread="newOrder.img"><br>
-                        <img id="userImage" width="175"><br>
-                        <br>
-                    </center>
-                </form>
-                <!--End of Image Preview-->
-            </center>
+<div class="container">
+    <!--Upload-->
+<div class="ordercard orderinfo">
+    <div class="cardbody">
+        <!--UI of front page-->
+        <div class="cardhead">
+                <br>
+                <center>
+                    <input type="button" id="button1" value="1">
+                    -------------------
+                    <input type="button" id="button2" value="2">
+                    -------------------
+                    <input type="button" id="button3" value="3">
+                    -------------------
+                    <input type="button" id="button4" value="Review" ng-click=reviewOrder(newOrder)>
+                </center>
+                <br>
         </div>
-        <div class="row" id="size">
-            <center>
-                <!--Size Selection-->
-                <!--
-                <h2>Choose A Size</h2><br>
-                Sizes: <select id = "PhotoOption">
-                    <option value = "small.jpg"> 640x480 
-                        <img id = "image" src = "paint.jpg" height = "64" width = "48">
-                    </option>
-                    <option value = "medium.jpg"> 1024x768 
-                        <img id = "image" src = "paint.jpg" height = "102.4" width = "76.8">
-                    </option>
-                    <option value = "large.jpg"> 1536x1024 
-                        <img id = "image" src = "paint.jpg" height = "153.6" width = "102.4">
-                    </option>
-                    <option value = "custom"> Custom
-                    </option>
-                </select>	
-                <input type = "submit" value = "Submit">
+        <div id="upload">
+            <h2>Upload Image</h2>
+            <br>
+            <form enctype="multipart/form-data">
+                <center>
+                    <input type="file" name="photo" accept="image/*" onChange="preview_2(this);" fileread="newOrder.img"><br>
+                    <img id="userImage" width="200"><br>
+                    <br>
+                </center>
+            </form>
+        </div>
 
-                <br><br>
-                -->
-            <h2>Choose A Size</h2><br>
+        <div id="size">
+            <h2>Choose Size</h2>
+            <br><br>
+            <form id="sizeSelection" class="sizes">
+                <section>
+                    <input type="radio" align="left" name="size" value="10x10" ng-model="newOrder.size"> 10x10
+                    <br><br>
+                    <input type="radio" name="size" value="13x13" ng-model="newOrder.size"> 13x13
+                    <br><br>
+                    <input type="radio" name="size" value="16x16" ng-model="newOrder.size"> 16x16
+                    <br>                      
+                </section>
+                <section>
+                    <input type="radio" name="size" value="17x17" ng-model="newOrder.size"> 17x17 
+                    <br><br>
+                    <input type="radio" align="right" name="size" value="24x24" ng-model="newOrder.size"> 24x24 
+                    <br>
+                </section>
+                <section>
+                    <input type="radio" name="size" value="36x36" ng-model="newOrder.size"> 36x36 
+                    <br><br>
+                    <input type="radio" name="size" value="44x44" ng-model="newOrder.size"> 44x44 
+                    <br>
+                </section>
+                <footer>
+                    <p>Custom: width x height (inches)</p>
+                    <input type="radio" name="width" value="">
+                    <select ng-model="newOrder.size_width">
+                        <option value="" selected disabled hidden>{{newOrder.size_width}}</option>
+                        <option value="10">10</option>
+                        <option value="13">13</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="24">24</option>
+                        <option value="36">36</option>
+                        <option value="44">44</option>
+                    </select>
+                    <!--
+                    <input type="text" id="width" name="width" style="width: 75px" ng-model="newOrder.size_width">
+                    --> x
+                    <input type="number" id="height" name="height" style="width: 75px" ng-model="newOrder.size_height">
+                    <br><br><br>
+                    <p> How large can I print my photo? </p> 
+                </footer>
+            </form>      
+        </div>
+
+        <div id="mediums">
+            <h2>Choose Medium</h2>
+            <br>
             <form>
-              <input type="radio" name="size" value="640x480" ng-model="newOrder.size"> 640x480 
-              <br><br>
-              <input type="radio" name="size" value="1024x768" ng-model="newOrder.size"> 1024x768 
-              <br><br>
-              <input type="radio" name="size" value="1536x1024" ng-model="newOrder.size"> 1536x1024 
-              <br><br>
-<!--
-              <input type="submit" value="Submit" ng-click="showDetails(order)">
--->
-            </form>
-            <br><br>         
-            <p> For custom size inquiries, use the contact form. </p>
-            <!--
-                <p> If the following sizes do not fit your demands input your custom dimensions here in pixels. </p>
-                <form>
-                    Height: <input type = "decimal" name = "Height"><br>
-                    <br>
-                    Width: <input type = "decimal" name = "Width"><br>
-                    <br>
-                    <input type = "submit" value = "Submit">
+                <select ng-model="newOrder.medium">
+                    <option value="" selected disabled hidden>{{newOrder.medium}}</option>
+                    <optgroup label="PHOTO PAPER">
+                    <option value="Glossy Photo Paper">Glossy Photo Paper</option>
+                    <option value="Semigloss Photo Paper">Semigloss Photo Paper</option>
+                    <option value="Luster Photo Paper">Luster Photo Paper</option>
+                    <option value="Semimatte Photo Paper">Semimatte Photo Paper</option>
+                    </optgroup>
+                    <optgroup label="PROOFING PAPER">
+                    <option value="Commercial Proofing Paper">Commercial Proofing Paper</option>
+                    <option value="White Semimatte Proofing Paper">White Semimatte Proofing Paper</option>
+                    <option value="Publication Proofing Paper">Publication Proofing Paper</option>
+                    </optgroup>
+                    <optgroup label="MATTE PAPER">
+                    <option value="Singleweight Matte Paper">Singleweight Matte Paper</option>
+                    <option value="Doubleweight Matte Paper">Doubleweight Matte Paper</option>
+                    <option value="Enhanced Matte Paper">Enhanced Matte Paper</option>
+                    <option value="Somerset Velvet">Somerset Velvet</option>
+                    <option value="Presentation Matte Paper">Presentation Matte Paper</option>
+                    </optgroup>
+                    <optgroup label="FINE ART PAPER">
+                    <option value="UltraSmooth Fine Art Paper">UltraSmooth Fine Art Paper</option>
+                    <option value="Textured Fine Art Paper">Textured Fine Art Paper</option>
+                    <option value="Velvet Fine Art Paper">Velvet Fine Art Paper</option>
+                    <option value="Watercolor Paper">Watercolor Paper</option>
+                    <option value="Canvas Satin">Canvas Satin</option>
+                    <option value="Canvas Matte">Canvas Matte</option>
+                    </optgroup>
+
+                </select>
+
+           </form>
+        </div>
+
+        <div id="paypal">
+                        <h2>Review Order</h2>
+            <br>
+            <section>
+            <br>
+            <img src="{{detailedInfo.img}}" width="100"/>
+            <br>
+            {{detailedInfo.size}}
+            <br>
+            {{detailedInfo.medium}}
+            <br>
+            </section>
+            <section>
+            <br>
+                Name: <br>
+                <input type="text" placeholder="{{detailedInfo.name}}" name="name" ng-model="newOrder.name">
+            </section>
+            <section>
+            <br>
+                Address: <br>
+                <input type="text" placeholder="{{detailedInfo.address.street}}" name="street" ng-model="newOrder.address.street">
+                <input type="text" placeholder="{{detailedInfo.address.city}}" name="street" ng-model="newOrder.address.city">
+                <input type="text" style="width:48%"placeholder="{{detailedInfo.address.state}}" name="state" ng-model="newOrder.address.state">
+                <input type="number" style="width:49%"placeholder="{{detailedInfo.address.zip}}" name="zip" ng-model="newOrder.address.zip">
+            </section>
+            <footer>
+                <br>
+                 <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="VEMBP3LD3LNEC">
+                    <center>
+                    <table>
+                        
+                        <tr><td><input type="hidden" name="on0" value="Your Order">Your Order</td></tr>
+
+                        <tr><td>
+                            <select name="os0">
+                            <option value="{{detailedInfo.size}}  {{detailedInfo.medium}}">{{detailedInfo.size}}  {{detailedInfo.medium}} $49.99 USD</option>
+                        </select> 
+                    </td></tr>
+                    </table>
+                </center>
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
                 </form>
-            -->
-            <!--End of Size Selection-->        
-            </center>
-        </div>
-        <div class="row" id="mediums">
-        <center>
-            <!--Medium Selection-->
-            <h2>Choose A Medium</h2><br>
-            <form>
-                <input type="radio" name="medium" value="canvas" ng-model="newOrder.medium">   Canvas<br><br>
-                <input type="radio" name="medium" value="fine art paper" ng-model="newOrder.medium">   Fine Art Paper<br><br>
-                <input type="radio" name="medium" value="photo paper(glossy)" ng-model="newOrder.medium">   Photo Paper(Glossy)<br><br>
-                <input type="radio" name="medium" value="photo paper(matte)" ng-model="newOrder.medium">   Photo Paper(Matte)<br><br>
-                <input type="radio" name="medium" value="black and white" ng-model="newOrder.medium">   Black and White<br><br>
-            </form>
-            <!--End of Medium Selection-->
-            <!--Medium Selection-->
-                 <!--
-                <h2>Choose A Medium</h2><br>
-                Mediums: <select id = "MediumOption">
-                    <option value="Black and white">Black and white</option>
-                    <option value="Paper cutting">Paper cutting</option>
-                    <option value="transparencies">Transparencies</option>
-                    <option value="Collage">Collage</option>
-                </select><br><br>
-                <input type = "submit" value = "Submit">
-            -->
-            <!--End of Medium Selection-->
-        </center>
-        </div>
-        <div class="row" id="paypal">
-        <center>
-            <!--PayPal Button-->
-            <h2>Pay Here</h2>
             <br>
-             <button class="btn btn-primary" ng-click="showDetails(newOrder)">Verify Order</button>
-             <br><br>
-             <p> {{detailedInfo.size}} </p>
-             <p> {{detailedInfo.medium}} </p>
-             <br>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_xclick">
-                <input type="hidden" name="business" value="example@gmail.com">
-                <input type="hidden" name="lc" value="US">
-                <input type="hidden" name="button_subtype" value="services">
-                <input type="hidden" name="no_note" value="0">
-                <input type="hidden" name="currency_code" value="USD">
-                <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
-            <br>
-            <input type="submit" value="Submit Order" ng-click="addOrder()">          
-            <!--End of PayPal Button-->
-        </center>
+            <input type="submit" value="Submit Order" ng-click="addOrder()"> 
+            </footer>
         </div>
+
+    </div>
+</div>
+
 
         <div class="clr-fix"></div>
     </div>
     <br><br>
 
-<center>
-    <input type="button" id="button1" value="Show Upload">
-    <input type="button" id="button2" value="Show Size">
-    <input type="button" id="button3" value="Show Medium">
-    <input type="button" id="button4" value="Show PayPal">
-    <input type="button" id="button5" value="Show All">
-</center>
 
 </div>
 

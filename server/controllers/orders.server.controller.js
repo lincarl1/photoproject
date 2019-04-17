@@ -31,7 +31,7 @@ exports.create = function(req, res) {
 
 /* Retreives all the orders, sorted by newest date first */
 exports.list = function(req, res) {
-  Order.find().sort({created_at: -1}).exec(function(err, order){
+  Order.find().sort({_id: -1}).exec(function(err, order){
     if(err){
       console.log(err);
       res.status(400).send(err);

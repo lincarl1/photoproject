@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet"> 
+    <meta charset="utf-8">
+    <!--JQuery Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles/order.css">
+</head>
+<body ng-app="printsApp">
+<!-- Navigation Bar -->
+    <nav class="zone green">
+        <ul class = "background"></ul>
+        <ul class="main-nav"> 
+            <li><a href="#upload">Place Order</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="/account_page.html">Account</a></li>
+            <li class="push"> <button onclick="window.location.href='/index.html'">Sign Out</button></li>
+        </ul>
+    </nav>
+    <!-- End of Navigation Bar -->
+<div ng-controller="OrdersController">
+    <br><br><br><br><br><br>
+<center>
+    <input type="button" id="button1" value="Upload">
+    <input type="button" id="button2" value="Size">
+    <input type="button" id="button3" value="Medium">
+    <input type="button" id="button4" value="Review" ng-click=reviewOrder(newOrder)>
+</center>
+    <!--<br><br><br><br><br><br>-->
+    <!--Holds All Four of the Blocks-->
+    <div class="container">
+    <!--Upload-->
+    <div class="ordercard orderinfo" id="upload">
+        <div class="cardbody">
+            <!--UI of front page-->
+            <div class="cardhead">
+                <h1>Buttons here</h1>
+                <!--<br>
+                <center>
+                -->
+                <!--
+                    <input type="button" id="button1" value="Upload">
+                    ---------
+                    <input type="button" id="button2" value="Size">
+                    ---------
+                    <input type="button" id="button3" value="Medium">
+                    ---------
+                    <input type="button" id="button4" value="Review" ng-click=reviewOrder(newOrder)>
+                -->
+                <!--
+                    <input type="button" id="button1" value="1">
+                    ---------------
+                    <input type="button" id="button2" value="2">
+                    ---------------
+                    <input type="button" id="button3" value="3">
+                    ---------------
+                    <input type="button" id="button4" value="Review" ng-click=reviewOrder(newOrder)>
+                </center>
+                <br>
+            -->
+            </div>
+            <h2>Upload Image</h2>
+            <br>
+            <form enctype="multipart/form-data">
+                <center>
+                    <input type="file" name="photo" accept="image/*" onChange="preview_2(this);" fileread="newOrder.img"><br>
+                    <img id="userImage" width="200"><br>
+                    <br>
+                </center>
+            </form>
+        </div>
+    </div>
+    <!--Size-->
+    <div class="ordercard orderinfo" id="size">
+        <div class="cardbody">
+            <!--UI of front page-->
+            <div class="cardhead">
+               <h1>Buttons here</h1>
+            </div>
+            <h2>Choose Size</h2>
+            <br><br>
+            <form id="sizeSelection" class="sizes">
+                <section>
+                    <input type="radio" align="left" name="size" value="10x10" ng-model="newOrder.size"> 10x10
+                    <br><br>
+                    <input type="radio" name="size" value="13x13" ng-model="newOrder.size"> 13x13
+                    <br><br>
+                    <input type="radio" name="size" value="16x16" ng-model="newOrder.size"> 16x16
+                    <br>                      
+                </section>
+                <section>
+                    <input type="radio" name="size" value="17x17" ng-model="newOrder.size"> 17x17 
+                    <br><br>
+                    <input type="radio" align="right" name="size" value="24x24" ng-model="newOrder.size"> 24x24 
+                    <br>
+                </section>
+                <section>
+                    <input type="radio" name="size" value="36x36" ng-model="newOrder.size"> 36x36 
+                    <br><br>
+                    <input type="radio" name="size" value="44x44" ng-model="newOrder.size"> 44x44 
+                    <br>
+                </section>
+                <footer>
+                    <p>Custom: width x height (inches)</p>
+                    <input type="radio" name="width" value="">
+                    <select ng-model="newOrder.size_width">
+                        <option value="" selected disabled hidden>{{newOrder.size_width}}</option>
+                        <option value="10">10</option>
+                        <option value="13">13</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="24">24</option>
+                        <option value="36">36</option>
+                        <option value="44">44</option>
+                    </select>
+                    <!--
+                    <input type="text" id="width" name="width" style="width: 75px" ng-model="newOrder.size_width">
+                    --> x
+                    <input type="number" id="height" name="height" style="width: 75px" ng-model="newOrder.size_height">
+                    <br><br><br>
+                    <p> How large can I print my photo? </p> 
+                </footer>
+            </form>      
+                
+        </div>
+    </div>
+    <!--Medium-->
+    <div class="ordercard orderinfo" id="mediums">
+        <div class="cardbody">
+            <!--UI of front page-->
+            <div class="cardhead">
+                <h1>Buttons here</h1>
+            </div>
+            <h2>Choose Medium</h2>
+            <br>
+            <form>
+                <select ng-model="newOrder.medium">
+                    <option value="" selected disabled hidden>{{newOrder.medium}}</option>
+                    <optgroup label="PHOTO PAPER">
+                    <option value="Glossy Photo Paper">Glossy Photo Paper</option>
+                    <option value="Semigloss Photo Paper">Semigloss Photo Paper</option>
+                    <option value="Luster Photo Paper">Luster Photo Paper</option>
+                    <option value="Semimatte Photo Paper">Semimatte Photo Paper</option>
+                    </optgroup>
+                    <optgroup label="PROOFING PAPER">
+                    <option value="Commercial Proofing Paper">Commercial Proofing Paper</option>
+                    <option value="White Semimatte Proofing Paper">White Semimatte Proofing Paper</option>
+                    <option value="Publication Proofing Paper">Publication Proofing Paper</option>
+                    </optgroup>
+                    <optgroup label="MATTE PAPER">
+                    <option value="Singleweight Matte Paper">Singleweight Matte Paper</option>
+                    <option value="Doubleweight Matte Paper">Doubleweight Matte Paper</option>
+                    <option value="Enhanced Matte Paper">Enhanced Matte Paper</option>
+                    <option value="Somerset Velvet">Somerset Velvet</option>
+                    <option value="Presentation Matte Paper">Presentation Matte Paper</option>
+                    </optgroup>
+                    <optgroup label="FINE ART PAPER">
+                    <option value="UltraSmooth Fine Art Paper">UltraSmooth Fine Art Paper</option>
+                    <option value="Textured Fine Art Paper">Textured Fine Art Paper</option>
+                    <option value="Velvet Fine Art Paper">Velvet Fine Art Paper</option>
+                    <option value="Watercolor Paper">Watercolor Paper</option>
+                    <option value="Canvas Satin">Canvas Satin</option>
+                    <option value="Canvas Matte">Canvas Matte</option>
+                    </optgroup>
+
+                </select>
+
+           </form>
+        </div>
+    </div>
+    <!--Verify-->
+    <div class="ordercard orderinfo" id="paypal">
+        <div class="cardbody">
+            <!--UI of front page-->
+            <div class="cardhead">
+                <h1>Buttons here</h1>
+            </div>
+            <h2>Review Order</h2>
+            <br>
+            <section>
+            <br>
+            <img src="{{detailedInfo.img}}" width="100"/>
+            <br>
+            {{detailedInfo.size}}
+            <br>
+            {{detailedInfo.medium}}
+            <br>
+            </section>
+            <section>
+            <br>
+                Name: <br>
+                <input type="text" placeholder="{{detailedInfo.name}}" name="name" ng-model="newOrder.name">
+            </section>
+            <section>
+            <br>
+                Address: <br>
+                <input type="text" placeholder="{{detailedInfo.address.street}}" name="street" ng-model="newOrder.address.street">
+                <input type="text" placeholder="{{detailedInfo.address.city}}" name="street" ng-model="newOrder.address.city">
+                <input type="text" style="width:48%"placeholder="{{detailedInfo.address.state}}" name="state" ng-model="newOrder.address.state">
+                <input type="number" style="width:49%"placeholder="{{detailedInfo.address.zip}}" name="zip" ng-model="newOrder.address.zip">
+            </section>
+            <footer>
+                <br>
+                 <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="VEMBP3LD3LNEC">
+                    <center>
+                    <table>
+                        
+                        <tr><td><input type="hidden" name="on0" value="Your Order">Your Order</td></tr>
+
+                        <tr><td>
+                            <select name="os0">
+                            <option value="{{detailedInfo.size}}  {{detailedInfo.medium}}">{{detailedInfo.size}}  {{detailedInfo.medium}} $49.99 USD</option>
+                        </select> 
+                    </td></tr>
+                    </table>
+                </center>
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            <br>
+            <input type="submit" value="Submit Order" ng-click="addOrder()"> 
+            </footer>
+        </div>
+    </div>
+
+        <div class="clr-fix"></div>
+    </div>
+    <br><br>
+
+<center>
+    <input type="button" id="button1" value="Show Upload">
+    <input type="button" id="button2" value="Show Size">
+    <input type="button" id="button3" value="Show Medium">
+    <input type="button" id="button4" value="Show PayPal" ng-click=reviewOrder(newOrder)>
+    <input type="button" id="button5" value="Show All">
+</center>
+
+</div>
+
+<!--Preview Image-->
+<script>
+    var outImage="userImage";
+    function preview_2(obj)
+    {
+        if (FileReader)
+        {
+          var reader = new FileReader();
+          reader.readAsDataURL(obj.files[0]);
+          reader.onload = function (e) {
+             var image=new Image();
+             image.src=e.target.result;
+             image.onload = function () {
+              document.getElementById(outImage).src=image.src;
+          };
+      }
+  }
+  else
+  {
+	        // Not supported
+        }
+    }
+</script>
+
+<!--Button Scripts-->
+<script>
+    $('#button1').click(function()
+    {
+        $('#upload').show();
+        $('#size').hide();
+        $('#mediums').hide();
+        $('#paypal').hide();
+    });
+    $('#button2').click(function()
+    {
+        $('#upload').hide();
+        $('#size').show();
+        $('#mediums').hide();
+        $('#paypal').hide();
+    });
+    $('#button3').click(function()
+    {
+        $('#upload').hide();
+        $('#size').hide();
+        $('#mediums').show();
+        $('#paypal').hide();
+    });
+    $('#button4').click(function()
+    {
+        $('#upload').hide();
+        $('#size').hide();
+        $('#mediums').hide();
+        $('#paypal').show();
+    });
+    $('#button5').click(function()
+    {
+        $('#upload').show();
+        $('#size').show();
+        $('#mediums').show();
+        $('#paypal').show();
+    });
+</script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/factories/listingFactory.js"></script>
+<script src="js/controllers/listingController.js"></script>
+<script src="js/factories/orderFactory.js"></script>
+<script src="js/controllers/orderController.js"></script>
+</body>
+</html>
