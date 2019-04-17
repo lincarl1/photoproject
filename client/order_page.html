@@ -51,6 +51,11 @@
                     <br>
                 </center>
             </form>
+            <a href="#" id="showsize" class="next round">Next &raquo;</a>
+            <!--
+            <a href="#" class="previous round">&#8249;</a>
+            <a href="#" id="showsize" class="next round">&#8250;</a>
+            -->
         </div>
 
         <div id="size">
@@ -95,9 +100,22 @@
                     --> x
                     <input type="number" id="height" name="height" style="width: 75px" ng-model="newOrder.size_height">
                     <br><br><br>
-                    <p> How large can I print my photo? </p> 
+                    <br><br><br>
+                    <div class="popup" onclick="myPopup()">How large can I print my photo?
+                      <span class="popuptext" id="myPopup">To receive the best quality print, divide pixel dimensions by 300dpi. For example a 6000 x 4200 pixel image can be printed up to 20 x 14 inches.</span>
+                    </div>
+
+                    <script>
+                        // When the user clicks on <div>, open the popup
+                        function myPopup() {
+                          var popup = document.getElementById("myPopup");
+                          popup.classList.toggle("show");
+                      }
+                    </script> 
                 </footer>
-            </form>      
+            </form>   
+            <a href="#" id="backupload" class="previous round">&laquo; Previous</a>
+            <a href="#" id="showmedium" class="next round">Next &raquo;</a>      
         </div>
 
         <div id="mediums">
@@ -136,6 +154,8 @@
                 </select>
 
            </form>
+            <a href="#" id="backsize" class="previous round">&laquo; Previous</a>
+            <a href="#" id="showreview" class="next round" ng-click=reviewOrder(newOrder)>Next &raquo;</a> 
         </div>
 
         <div id="paypal">
@@ -160,8 +180,8 @@
                 Address: <br>
                 <input type="text" placeholder="{{detailedInfo.address.street}}" name="street" ng-model="newOrder.address.street">
                 <input type="text" placeholder="{{detailedInfo.address.city}}" name="street" ng-model="newOrder.address.city">
-                <input type="text" style="width:48%"placeholder="{{detailedInfo.address.state}}" name="state" ng-model="newOrder.address.state">
-                <input type="number" style="width:49%"placeholder="{{detailedInfo.address.zip}}" name="zip" ng-model="newOrder.address.zip">
+                <input type="text" style="width:45%"placeholder="{{detailedInfo.address.state}}" name="state" ng-model="newOrder.address.state">
+                <input type="number" style="width:45%"placeholder="{{detailedInfo.address.zip}}" name="zip" ng-model="newOrder.address.zip">
             </section>
             <footer>
                 <br>
@@ -187,6 +207,7 @@
             <br>
             <input type="submit" value="Submit Order" ng-click="addOrder()"> 
             </footer>
+            <a href="#" id="backmedium" class="previous round">&laquo; Previous</a>
         </div>
 
     </div>
@@ -254,11 +275,46 @@
         $('#mediums').hide();
         $('#paypal').show();
     });
-    $('#button5').click(function()
+    $('#backupload').click(function()
     {
         $('#upload').show();
+        $('#size').hide();
+        $('#mediums').hide();
+        $('#paypal').hide();
+    });
+    $('#showsize').click(function()
+    {
+        $('#upload').hide();
         $('#size').show();
+        $('#mediums').hide();
+        $('#paypal').hide();
+    });
+    $('#backsize').click(function()
+    {
+        $('#upload').hide();
+        $('#size').show();
+        $('#mediums').hide();
+        $('#paypal').hide();
+    });
+    $('#showmedium').click(function()
+    {
+        $('#upload').hide();
+        $('#size').hide();
         $('#mediums').show();
+        $('#paypal').hide();
+    });
+    $('#backmedium').click(function()
+    {
+        $('#upload').hide();
+        $('#size').hide();
+        $('#mediums').show();
+        $('#paypal').hide();
+    });
+    $('#showreview').click(function()
+    {
+        $('#upload').hide();
+        $('#size').hide();
+        $('#mediums').hide();
         $('#paypal').show();
     });
 </script>
