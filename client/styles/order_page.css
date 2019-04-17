@@ -19,10 +19,19 @@
   border-color:grey;
   background-color: white;
   height: 450px;
-  width: 50%;
+  width: 64.5%;
   position: relative;
   box-sizing:border-box;
   opacity: 0.95;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.buttonContainer {
+  font-size: 0;
 }
 
 #size {
@@ -49,45 +58,38 @@
 }
 
 #button1 {
-  display: upload;
-  border-radius: 12px;
+  text-transform: uppercase;
+  width: 12.5%;
   color: white;
   font-size: 14px;
+  padding: 16px 4px;
   background-color:  #4CAF50;
 }
 
 #button2 {
-  display: size;
-  border-radius: 12px;
+  text-transform: uppercase;
+  width: 12.5%;
   color: white;
   font-size: 14px;
+  padding: 16px 4px;
   background-color:  #4CAF50;
 }
 
 #button3 {
-  display: mediums;
-  border-radius: 12px;
+  text-transform: uppercase;
+  width: 12.5%;
   color: white;
   font-size: 14px;
+  padding: 16px 4px;
   background-color:  #4CAF50;
 }
 
 #button4 {
-  display: paypal;
-  border-radius: 12px;
+  text-transform: uppercase;
+  width: 12.5%;
   color: white;
   font-size: 14px;
-  background-color:  #4CAF50;
-}
-
-#button5 {
-  display: upload;
-  display: size;
-  display: mediums;
-  display: paypal;
-  border-radius: 12px;
-  color: white;
-  font-size: 14px;
+  padding: 16px 4px;
   background-color:  #4CAF50;
 }
 
