@@ -36,12 +36,8 @@
         </center>
     </div>
     <div class="contact-form">
-        <form id="contact">
-            <input type="text" id="first-name" name="firstname" placeholder="First Name">
-
-            <br><br>
-
-            <input type="text" id="last-name" name="lastname" placeholder="Last Name">
+        <form id="contact" action="contact.php" method="post">
+            <input type="text" id="name" name="name" placeholder="Full Name">
 
             <br><br>
 
@@ -57,7 +53,7 @@
 
             <br><br>
 
-            <input type="submit" id="submit">
+            <input type="submit" id="submit" name="submit">
         </form>    
     </div>
 </div>

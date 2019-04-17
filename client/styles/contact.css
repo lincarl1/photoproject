@@ -92,8 +92,7 @@ input[type=submit]:hover {
   background-color: #45A049;
 }
 
-#first-name,
-#last-name,
+#name,
 #email,
 #subject,
 #message {
