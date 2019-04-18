@@ -27,6 +27,9 @@ var orderSchema = new Schema({
     type: String,
     required: true
   },
+  price: {
+    type: Number
+  },
   status: {
     type: String
   },
