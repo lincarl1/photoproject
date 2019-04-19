@@ -31,7 +31,7 @@ exports.create = function(req, res) {
 
 /* Retreives all the orders, sorted by newest date first */
 exports.list = function(req, res) {
-  Order.find().sort({created_at: -1}).exec(function(err, order){
+  Order.find().sort({_id: -1}).exec(function(err, order){
     if(err){
       console.log(err);
       res.status(400).send(err);
@@ -40,6 +40,58 @@ exports.list = function(req, res) {
     }
   });
 };
+
+
+exports.update = function(req, res) {
+  /* Replace the article's properties with the new properties found in req.body */
+  var updated = req.body;
+  console.log("exports.update updated: " + updated._id);
+  res.status(200);
+  // Find user by given unique id
+  Order.findById(updated._id, function (err, orderfound) {
+    if(err){
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      //console.log("orderfound original: " + JSON.stringify(orderfound));
+      // update order data
+      orderfound.status = updated.status;
+      if(updated.size != null)
+      {
+        orderfound.size = updated.size;
+      }
+      if(updated.medium != null)
+      {
+        orderfound.medium = updated.medium;
+      }
+      if(updated.name != null)
+      {
+        orderfound.name = updated.name;
+      }
+      if(updated.email != null)
+      {
+        orderfound.email = updated.email;
+      }
+      if(updated.address != null)
+      {
+        orderfound.address = updated.address;
+      }
+      
+      orderfound.save(function(err) {
+        if(err) {
+          console.log(err);
+          res.status(400).send(err);
+        } else {
+          //console.log("orderfound after edits: " + JSON.stringify(orderfound));
+          res.json(orderfound);
+        }
+      });
+      
+    }
+});
+
+};
+
 
 /*
 exports.read = function(req, res) {
@@ -81,7 +133,7 @@ exports.read = function(req, res) {
         res.json(orders);
         res.status(200);
       }
-    });
+    }).sort({created_at: -1});
   }
 };
 

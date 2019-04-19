@@ -6,7 +6,7 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
-  <link rel="stylesheet" href="./styles/newfront.css">
+  <link rel="stylesheet" href="./styles/style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Oswald|Satisfy|Unica+One" rel="stylesheet">
@@ -24,19 +24,21 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Bangers|Open+Sans" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="./js/index.js"></script>
 </head>
 <body ng-app="printsApp">
 
-  <!-- 
-*  Nav Bar
+  <!-- /***********************************************************************
+  Nav Bar
 **********************************************************************/ -->
-<nav class="zone green">
+<nav id="divNavBar" class="zone">
   <ul class = "background"></ul>
   <ul class="main-nav">
     <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#prices">Prices</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#service">Services</a></li>
+    <li><a href="#contactz">Contact</a></li>
     <!-- <li class="push"><a href="">Login</a></li> --> 
     <li class="push"> <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button></li>
     <li> <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</button></li>
@@ -45,102 +47,220 @@
 <!-- /***********************************************************************
 *  Nav Bar - end 
 **********************************************************************/ -->
-<section>
+<section id= "content">
+<!-- /***********************************************************************
+*  Front Page Block
+**********************************************************************/ -->
 
- <div class="background_block"><img src="images/leaf2.jpg"> 
-  <div class= "front_header">
-    <h1>PETREE'S PRINTS </h1>
-    <p> Life is full of stories. Tell yours. </p>
-  </div>
-</div>
-
-
-<div class = "module" id="about" data-aos="fade-in" data-aos-duration="2000">
- <div class="background_block"><img src="images/wood.jpg" style="max-height: 650px;"> 
-  <div class= "about header">
-    <center>
-      <h2>Meet Danielle Petree</h2>
-      <p> [optional autobio here] </p>
-    </center>
-    <img src="images/icon.png">
-  </div>
-</div>
-</div>
-
-<div class ="module" id="services" data-aos="fade-up" data-aos-duration="2000">
-  <div class="instruction_block"> 
-    <center>
-      <h1>Easy As ...</h1>
-    </center>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm"><img src="images/upload.png">
-         <div class="instruction_text">
-          Upload Image
+  <div class="module1 section-1">
+        <div class= "front_header">
+          <h1>PETREE'S PRINTS </h1>
+          <p> Life is full of stories. Tell yours. </p>
         </div>
-        <div id="circle">
-          <div class="number"><strong>1</strong></div>
+  </div>
+
+  <!-- /***********************************************************************
+*  Front Page Block - end 
+**********************************************************************/ -->
+<!-- /***********************************************************************
+*  Photo Display Block 
+**********************************************************************/ -->
+
+<!-- photo divs1 --> 
+ <div class="module1 section-4">
+    <div id="service">
+      <div class="two-up two-up--left-primary" data-component-name="two-up" data-component-id="6">
+        <div class="two-up__left two-up__left--has-margin-desktop">
+          <link rel="stylesheet" href="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9781/assets/styles/components/layered-gallery.css?1a5cd4f2f5d000528ecb6235546bcce6">
+          <link rel="stylesheet" href="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9781/assets/styles/components/two-up.css?1a5cd4f2f5d000528ecb6235546bcce6">
+          <div class="layered-gallery" data-component-name="layered-gallery" data-component-id="4">
+            <div class="layered-gallery__background" data-aos="fade-up" data-aos-duration="2000">
+              <div class="layered-gallery__background__gallery initialized completed is-loaded">
+                <img class="layered-gallery__background__gallery__image is-loaded" data-load="false" data-size-format="filename" data-image-dimensions="100x138" data-src="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9781/assets/images/pages/tour/websites/design-block/background-image-1.jpg?1a5cd4f2f5d000528ecb6235546bcce6" data-arrival-index="0" data-departure-index="0" alt="Spa hand cream." src="./images/waterfall.jpg" data-image-resolution="750w" style="">
+              </div>
+            </div>
+            <div class="layered-gallery__foreground" data-parallax-layer="0.1" style="transform: matrix(1, 0, 0, 1, 0, -156.5) translate3d(0px, -38.0078px, 0px);">
+              <div class="layered-gallery__foreground__gallery initialized completed is-loaded" data-aos="fade-down" data-aos-duration="2000">
+                <img class="layered-gallery__foreground__gallery__image is-loaded" data-load="false" data-size-format="filename" data-image-dimensions="100x67" data-src="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9781/assets/images/pages/tour/websites/design-block/foreground-image-1.jpg?1a5cd4f2f5d000528ecb6235546bcce6" data-arrival-index="0" data-departure-index="0" src="./images/camel.jpg" style="" data-image-resolution="1000w">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="two-up__right ">
+          <link rel="stylesheet" href="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9781/assets/styles/components/feature-text.css?1a5cd4f2f5d000528ecb6235546bcce6">
+          <div class="feature-text " data-component-name="feature-text" data-component-id="5" data-aos="fade-up" data-aos-duration="2000">
+            <div class ="head-section4" data-aos-duration="2000" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+              <h2>Affordable, Quality Prints</h2>
+            </div>
+            <p>Turn your favorite photos into lasting works of art with our easy to use printing service! Our mission is to produce the highest caliber print possible. We continually invest in the best equipment and top talent in the industry to deliver on that promise. </p>
+          </div>
         </div>
       </div>
-      <div class="col-sm"><img src="images/frame.png">
-        <div class="instruction_text">
-          Choose Size 
+    </div>  
+ </div>
+
+  <!-- photo divs2 --> 
+  <div class ="module section-5">
+    <div id="diy-block" data-scrolled-into-view="true" data-aos="fade-up" data-aos-duration="2000">
+      <link rel="stylesheet" href="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9781/assets/styles/components/two-up.css?1a5cd4f2f5d000528ecb6235546bcce6">
+      <div class="two-up two-up--right-primary" data-component-name="two-up" data-component-id="9">
+        <div class="two-up__left">
+          <link rel="stylesheet" href="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9781/assets/styles/components/feature-text.css?1a5cd4f2f5d000528ecb6235546bcce6">
+          <div class="feature-text " data-component-name="feature-text" data-component-id="7">
+            <div class ="head-section4" data-aos-duration="2000" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+              <h2>Customizable Printing</h2>
+            </div>
+            <p>Your photos deserve to look their best, free from any contraints. Which is why we provide the highest-quality photo printing with 100% customizable sizing and styling, including a variety selection of mediums and custom framing options, to brighten your world with superior portraits that will stand the test of time.</p>
+          </div>
+          <script src="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9782/scripts/components/feature-text.js" type="text/javascript"></script>
         </div>
-        <div id="circle">
-          <div class="number"><strong>2</strong></div>
+        <div class="two-up__right two-up__right--has-margin-desktop">
+          <link rel="stylesheet" href="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9781/assets/styles/components/images.css?1a5cd4f2f5d000528ecb6235546bcce6">
+          <div class="images" data-component-name="images" data-component-id="8">
+            <div class="layered-gallery__foreground" data-parallax-layer="0.1" style="transform: matrix(1, 0, 0, 1, 0, -156.5) translate3d(0px, -38.0078px, 0px);">
+              <div class="layered-gallery__foreground__gallery initialized completed is-loaded" data-aos="fade-left" data-aos-duration="2000">
+                <img class="layered-gallery__foreground__gallery__image is-loaded" data-load="false" data-size-format="filename" data-image-dimensions="100x67" data-src="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9781/assets/images/pages/tour/websites/design-block/foreground-image-1.jpg?1a5cd4f2f5d000528ecb6235546bcce6" data-arrival-index="0" data-departure-index="0" src="./images/feet.jpg" style="" data-image-resolution="1000w">
+              </div>
+            </div>
+          </div>
+          <script src="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9782/scripts/components/images.js" type="text/javascript"></script>
         </div>
       </div>
-      <div class="col-sm"><img src="images/medium.png">
-        <div class="instruction_text">
-          Choose Medium
-        </div>
-        <div id="circle">
-          <div class="number"><strong>3</strong></div>
-        </div>
-      </div>
-    </div>
+      <script src="https://static1.squarespace.com/static/ta/5134cbefe4b0c6fb04df8065/9782/scripts/components/two-up.js" type="text/javascript"></script></div>
   </div>
-  <center>
-    <button type="button" class="btn btn-primary">Get started!</button>
-  </center>
-  <br>
-  <br>
-  <br>
-</div>
-</div>
 
+<!-- /***********************************************************************
+*  Photo Display Block - end 
+**********************************************************************/ -->
+<!-- /***********************************************************************
+*  123 Block 
+**********************************************************************/ -->
 
-<div class="module" id="prices" data-aos="fade-up" data-aos-duration="2000">
-  <div class= "prices_block"> 
-    <div id="hero" style="background-image: url(&quot;green.jpg&quot;);">
-      <div style="position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.4);"></div>
-      <div class= "prices_header">
+  <div class="module section-3" data-aos="fade-up" data-aos-duration="2000">
+      <div class="instruction_block"> 
+      <center>
+            <h1>As Easy As..</h1>
+      </center>
+      <div class="container">
+        <div class="row">
+              <div class="col-sm" data-aos="fade-left" data-aos-duration="2000"><img src="./images/upload.png">
+                 <div class="instruction_text">
+                    Upload Image
+                 </div>
+                <div id="circle">
+                  <div class="number"><strong>1</strong></div>
+                </div>
+              </div>
+               <div class="col-sm" data-aos="fade-up" data-aos-duration="2500"><img src="./images/frame.png">
+                  <div class="instruction_text">
+                    Choose Size 
+                  </div>
+                <div id="circle">
+                  <div class="number"><strong>2</strong></div>
+                </div>
+              </div>
+              <div class="col-sm" data-aos="fade-right" data-aos-duration="2900"><img src="./images/medium.png">
+                <div class="instruction_text">
+                  Choose Medium
+                </div>
+                <div id="circle">
+                  <div class="number"><strong>3</strong></div>
+                </div>
+              </div>
+        </div>
+      </div>
         <center>
-          <h2>Prices</h2> 
+          <button type="button" class="btn btn-primary" data-aos="zoom-in-up" data-aos-duration="2200">Get started!</button>
         </center>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-
-<div class = "module" id="contact">
- <div class="background_block"><img src="images/white.jpg" style="max-height: 250px;"> 
-  <div class= "about header">
-    <center>
-      <h2>Contact</h2>
-
-      <p>Email Address: <a href="mailto:someone@example.com">someone@example.com</a>
         <br>
-      Phone Number: xxx-xxx-xxxx</p>
-    </center>
+        <br>
+        <br>
+      </div>
+  </div>
+
+<!-- /***********************************************************************
+*  123 Block - end 
+**********************************************************************/ -->
+<!-- /***********************************************************************
+*  About Us Block 
+**********************************************************************/ -->
+
+  <div class="module section-2">
+    <div id="about">
+       <div class = "about_me_block">
+           <div class= "about_text">
+              <center>
+                <h2>About Us</h2>
+                <p> Petree Prints was founded by Danielle Petree, who decided to take a leap of faith and pursued one of her passions, large format printing. Petree Prints was created as a need for a large format fine art photography printing in Gainesville, Florida. Petree Prints is a family run business and is dedicated to providing its clients with affordable, quality prints. </p>
+              </center>
+            <img src="">
+          </div>
+       </div>
+    </div>   
+  </div>
+
+<!-- /***********************************************************************
+*  About Us Block - end 
+**********************************************************************/ -->
+<!-- /***********************************************************************
+* Gallery Block  
+**********************************************************************/ -->
+
+  <div class="module section-7">
+     <div class = "gallery_block">
+        <center><h2>Gallery</h2></center>
+        <div class="w3-content" style= "max-height: 300px;">
+           <center>
+              <img class="mySlides" src="./images/landscape.jpg" style="max-height: 300px; width: auto;display:none">
+              <img class="mySlides" src="./images/abstract.jpg" style="max-height: 300px;width: auto;display:none">
+              <img class="mySlides" src="./images/family.jpg" style="max-height: 300px;width: auto;display:none">
+              <img class="mySlides" src="./images/about.jpg" style="max-height: 300px;width: auto;">
+           </center>
+            <div class="w3-row-padding w3-section">
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="./images/landscape.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+            </div>
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="./images/family.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
+            </div>
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="./images/abstract.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+            </div>
+            </div>
+        </div>
+     </div>
+  </div>
+
+  <!-- /***********************************************************************
+*  Gallery Block - end 
+**********************************************************************/ -->
+<!-- /***********************************************************************
+* Contact Block 
+**********************************************************************/ -->
+
+<div id="contactz">
+    <div class="module section-6">
+       <div class= "contact_block"> 
+          <div id="hero" style="background-image: url(&quot;./images/contact5.jpg&quot;);">
+              <div style="position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.5);">  
+              </div>
+          </div>
+         <div class= "contact_text">
+              <center>
+                  <h2 >Contact Us</h2> 
+                  <br>
+                  <p > 10251 NE 120 AVE. Archer FL, 32618 <br>
+                     PHONE: (352) 316-0879     |  petreeprinting@gmail.com 
+                  </p>
+              </center>
+        </div>
+      </div>
   </div>
 </div>
-</div>
 
+<!-- /***********************************************************************
+* Contact Block - end 
+**********************************************************************/ -->
 
 </section>
 
@@ -260,18 +380,15 @@
         <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
       </div>
     -->
-    </center>
-    </form>
+        </center>
+      </form>
+    </div>
   </div>
-
-
-
-  </div>
-
 </div>
 <!-- </div>
 </div>-->
 <!-- Optional JavaScript -->
+<script src="./js/index.js"></script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

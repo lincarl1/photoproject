@@ -9,11 +9,12 @@ var orders = require('../controllers/orders.server.controller.js'),
  */
 router.route('/')
   .get(orders.list)
+  .put(orders.update)
   .post(orders.create);
 
 
 router.route('/:orderId')
-  .get(orders.read)
+  .get(orders.read);
   //.put(users.update)
   //.delete(orders.delete);
 

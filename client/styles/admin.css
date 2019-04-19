@@ -1,3 +1,13 @@
+body {
+  /*background-image: url("../images/account1.jpg");*/
+  background-image: url("../images/account2.jpg");
+  /*background-size: auto;*/
+  /*background-size: contain; */
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
+  /*background-position: center;*/
+}
+
 .ordercard {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 500px;
@@ -26,21 +36,21 @@
 
 .orderinfo h2 {
     font-family: 'Oswald', sans-serif;
-    font-size: 26px;
+    font-size: 24px;
     padding: 0px 30px; 
     color: black; 
 }
 
 .orderinfo h3 {
     font-family: 'Oswald', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     padding: 0px 30px; 
     color: black; 
 }
 
 .orderinfo p {
   font-family: 'Oswald', sans-serif;
-  font-size: 22px; 
+  font-size: 20px; 
   padding: 0px 30px;
   color: black; 
 }
