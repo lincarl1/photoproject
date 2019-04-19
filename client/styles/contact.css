@@ -1,29 +1,81 @@
+html body{
+     background-color: : #f9f9f9;
+}
+
+#searchBar {
+  margin: 15px 10px;
+}
+
+section{
+  margin-top: 87px; 
+  background-color: : #f9f9f9;
+}
+
+.module{
+    padding:150px 20px 150px 20px;
+    text-align: center;
+}
+
+.section-2{
+     background-image:url('../images/cac.jpg');
+    background-position:center;
+    position: relative;
+    background-size: cover; 
+    height: 800px;
+}
+
+#map {
+        height: 316px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+
+       }
+
+
 /***********************************************************************
  *  Nav Bar
  **********************************************************************/
 
 .zone {
-    /*padding:30px 50px;*/
-    /*cursor:pointer;*/
-    
     font-size:2em;
     border-radius:4px;
-   /* border:1px solid #bbb; */
     transition: all 0.3s linear;
-    position: absolute;
+    position: fixed; 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 999;
+    top:-17px;
     width: 100%; 
 }
+
+.zone:hover {
+    -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    background: white; 
+   /* opacity: 0.6; */
+    color: black; 
+}
+.zone:hover > .zone a:hover{
+  color: black;
+}
+.zone a:hover{
+  color: black; 
+}
+
 
 .main-nav {
     display: flex;
     list-style: none;
     margin: 0;
     font-size: 25px;
-    /*background: white; 
-    opacity: 0.6; */
+    /*background: white; */
     font-family: 'Staatliches', cursive;
     letter-spacing: 3px;
     padding-right: 25px; 
+    background: #e0e1e500; 
 }
 
 @media only screen and (max-width: 600px) {
@@ -39,17 +91,17 @@
     margin-left: auto;
 }
 
-li {
+.zone li {
     padding: 16px;
 }
 
-a {
+.zone a {
     color: black;
     text-decoration: none;
 }
 
-button {
-  background-color: #4CAF50;
+.zone button {
+   background-color: #245f45;
   color: white;
   padding: 14px 20px;
   border: none;
@@ -58,46 +110,66 @@ button {
   font-size: 20px; 
 }
 
+.zone button:hover {
+  background-color: #4CAF50;
+}
+
+
 /***********************************************************************
       Nav Bar - end 
  **********************************************************************/
 
- /* Style the container/contact section */
+ /***********************************************************************
+      Contact
+ **********************************************************************/
+
+
+
+.contact_text h2{
+  position: absolute;
+  top: 11%; 
+  font-size: 60px;
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 3px;
+  color: black;
+  width: 95%; 
+  opacity: 1; 
+}
+
+.contact_text p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: black;
+    position: absolute;
+    top: 42%;
+    max-width: 95%; 
+    right:0;
+    left:0;
+    margin:auto;
+    line-height: 1.8; 
+}
+
+.contact_us_block{
+  height: 350px; 
+  width: 900px; 
+  background-color: white; 
+  opacity: 0.85; 
+  position: absolute;
+  margin: auto; 
+  right:0;
+  left:0;
+  top:-125px; 
+  bottom:0;
+}
+
+.tableWrapper {
+  max-height: 400px;
+  overflow: auto;
+  background-color: rgb(235, 221, 98);
+}
+button:hover {
+  /*opacity: 0.8;*/
+}
 .container {
-  max-width: 50%;
-  border-radius: 5px;
-  background-color: #ffffff98;
-  padding: 10px;
-  opacity: 0.95;
-}
-
-.contact-form {
-  text-align: center;
-  margin: 25px 0px;
-  padding: 10px;
-}
-
-input[type=submit] {
-  width: 20%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 5px;
-  margin: 0 auto;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45A049;
-}
-
-#first-name,
-#last-name,
-#email,
-#subject,
-#message {
-  width: 50%;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 16px;
 }
