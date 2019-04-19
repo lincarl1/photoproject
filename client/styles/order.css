@@ -1,11 +1,11 @@
 body {
   /*background-image: url("../images/account1.jpg");*/
-  background-image: url("../images/order3.jpg");
+  background-image: url("../images/plantyy.jpg");
   /*background-size: auto;*/
   /*background-size: contain; */
   /*background-repeat: no-repeat;*/
   background-size: cover;
-  /*background-position: center;*/
+  background-position: center;
 }
 
 /* -- choose file button -- */
@@ -37,12 +37,12 @@ input[type=button]:hover {
 }
 
 .cardhead {
-  background-color: #023f05;
+  background-color: #0f5232;
   color: white;
 }
 
 .cardbody {
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
   max-height: 500px;
 }
 
@@ -331,17 +331,18 @@ a {
 */
 
 button {
-background-color: #4CAF50;
+background-color: #0f5232;
 color: white;
-padding: 2px 20px;
+padding: 9px 20px;
 border: none;
 cursor: pointer;
 width: 100%;
-font-size: 20px; 
+font-size: 20px;
+letter-spacing: 2px;  
 }
 
-button:hover {
-opacity: 0.8;
+.zone button:hover {
+  background-color: #4CAF50;
 }
 
 
@@ -354,22 +355,19 @@ opacity: 0.8;
    /* border:1px solid #bbb;    
    position: absolute;*/
     transition: all 0.3s linear;
- 
     width: 100%; 
+  }
 
-
-    background: white;
-}
 
 .zone:hover > .zone a:hover{
   color: black;
 }
 .zone a:hover{
-  color: black; 
+  color: white; 
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
   
 }
