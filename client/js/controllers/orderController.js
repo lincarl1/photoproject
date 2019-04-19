@@ -19,7 +19,11 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
       $scope.orders.push({
         size: $scope.newOrder.size,
         medium: $scope.newOrder.medium,
-		totalprice: $scope.newOrder.totalprice
+		price: {
+		mediumPrice: $scope.newOrder.mediumPrice,
+		sizePrice: $scope.newOrder.sizePrice,
+		totalprice: $scope.newOrder.mediumPrice+$scope.newOrder.sizePrice
+		}
     });
 
     }, function(error) {
@@ -28,39 +32,45 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
 
     }
 
-
+	$scope.getMediumPrice = function(med) {
+		switch(med) {
+		case "collage":
+		return 2.00; 
+		break;
+		case "paper cutting":
+		return 4.00;
+		break;
+		case "transparencies":
+		return 7.50;
+		break;
+		case "black and white":
+		return 3.50;
+		break;
+		}
+	}; 
+	
+	$scope.getSizePrice = function(med) {
+		switch(med) {
+		case "640x480":
+		return 7.00; 
+		break;
+		case "1024x768":
+		return 10.50;
+		break;
+		case "1536x1024":
+		return 15.50;
+		break;
+		}
+	}; 
     $scope.showDetails = function(order) {
-      console.log("order: " + order);
-	  var x, y;
-	switch(order.size) {
-	case "640x480":
-	x = 2.00;
-	break; 
-	case "1024x768":
-	x = 3.00;
-	break;
-	case "1536x1024":
-	x = 4.00; 
-	break; 
+	if(order.medium != null && order.size != null) {
+	order.totalprice = $scope.getMediumPrice(order.medium) + $scope.getSizePrice(order.size);
 	}
-	
-	switch(order.medium) {
-	case "collage":
-	y = 10.50;
-	break;
-    case "paper cutting":
-	y = 13.50;
-	break;
-	case "transparencies":
-	y = 15.50;
-	break;
-	case "black and white":
-	y = 8.50;
-	break;
+	else{
+	order.totalprice = "Calculating price";	
 	}
-	order.totalprice = x+y;
-      $scope.detailedInfo = order;
-	
+	console.log(order.totalprice);
+    $scope.detailedInfo = order;
     };
 
   }

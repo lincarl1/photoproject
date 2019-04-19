@@ -70,11 +70,11 @@
             <h2>Choose A Size</h2><br>
             <form>
 
-              <input type="radio" name="size" value="640x480" ng-model="order.size"> 640x480 
+              <input type="radio" name="size" value="640x480" ng-model="order.size" ng-click = showDetails(order)> 640x480 
               <br><br>
-              <input type="radio" name="size" value="1024x768" ng-model="order.size"> 1024x768 
+              <input type="radio" name="size" value="1024x768" ng-model="order.size" ng-click = showDetails(order)> 1024x768 
               <br><br>
-              <input type="radio" name="size" value="1536x1024" ng-model="order.size"> 1536x1024 
+              <input type="radio" name="size" value="1536x1024" ng-model="order.size" ng-click = showDetails(order)> 1536x1024 
               <br><br>
 <!--
               <input type="submit" value="Submit" ng-click="showDetails(order)">
@@ -102,11 +102,11 @@
             <!--Medium Selection-->
             <h2>Choose A Medium</h2><br>
 
-            <form>
-                <input type="radio" name="medium" value="collage" ng-model="order.medium">   Collage<br><br>
-                <input type="radio" name="medium" value="paper cutting" ng-model="order.medium">   Paper cutting<br><br>
-                <input type="radio" name="medium" value="transparencies" ng-model="order.medium">   Transparencies<br><br>
-                <input type="radio" name="medium" value="black and white" ng-model="order.medium">   Black and White<br><br>
+            <form name ="Medium">
+                <input type="radio" name="medium" value="collage" ng-model="order.medium" ng-click= showDetails(order)>   Collage <br><br>
+                <input type="radio" name="medium" value="paper cutting" ng-model="order.medium" ng-click = showDetails(order)>   Paper cutting<br><br>
+                <input type="radio" name="medium" value="transparencies" ng-model="order.medium" ng-click = showDetails(order)>   Transparencies<br><br>
+                <input type="radio" name="medium" value="black and white" ng-model="order.medium" ng-click = showDetails(order)>   Black and White<br><br>
 
 
 <!--
@@ -130,10 +130,27 @@
             -->
             <!--End of Medium Selection-->
         </center>
+<!--		<script type = "text/javascript" src = 'js/controllers/orderController.js'>
+console.log("I got here"); 
+var rad = document.Medium.medium;
+var prev = null;
+for (var i = 0; i < rad.length; i++) {
+    rad[i].addEventListener('change', function() {
+        //(prev) ? console.log(prev.value): null;
+        if (this !== prev) {
+            prev = this;
+        }
+        console.log(this.value)
+		showDetails(order)(this.value);
+    });
+}
+</script>
+-->
     </div>
     <div class="row" id="paypal">
         <center>
 
+		
             <!--PayPal Button-->
             <h2>Pay Here</h2>
             <br>
@@ -141,7 +158,7 @@
              <br><br>
              <p> {{detailedInfo.size}} </p>
              <p> {{detailedInfo.medium}} </p>
-			 <p> {{detailedInfo.totalprice}} </p>
+			 <p> Final Price: {{detailedInfo.totalprice}}</p>
              <br>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_xclick">
