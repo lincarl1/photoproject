@@ -77,12 +77,16 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
         size_height: $scope.newOrder.size_height,
         size_width: $scope.newOrder.size_width,
         medium: $scope.newOrder.medium,
-        price: $scope.newOrder.price,
         status: $scope.newOrder.status,
         name: $scope.newOrder.name,
         address: $scope.newOrder.address,
         email: $scope.newOrder.email,
-        user_id: $scope.newOrder.user_id
+        user_id: $scope.newOrder.user_id,
+        price: {
+          mediumPrice: $scope.newOrder.mediumPrice,
+          sizePrice: $scope.newOrder.sizePrice,
+          totalPrice: $scope.newOrder.mediumPrice + $scope.newOrder.sizePrice
+        }
     });
 
     }, function(error) {
@@ -151,7 +155,105 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
 
     }
 
+    $scope.getMediumPrice = function(med) {
+      switch(med) {
+        case "Glossy Photo Paper":
+        return 5.00;
+        break;
+        case "Semigloss Photo Paper":
+        return 6.00;
+        break;
+        case "Luster Photo Paper":
+        return 7.00;
+        break;
+        case "Semimatte Photo Paper":
+        return 8.00;
+        break;
+        case "Commercial Proofing Paper":
+        return 4.00;
+        break;
+        case "White Semimatte Proofing Paper":
+        return 4.50;
+        break;
+        case "Publication Proofing Paper":
+        return 5.00;
+        break;
+        case "Singleweight Matte Paper":
+        return 6.00;
+        break;
+        case "Doubleweight Matte Paper":
+        return 6.50;
+        break;
+        case "Enhanced Matte Paper":
+        return 7.00;
+        break;
+        case "Somerset Velvet":
+        return 7.50;
+        break;
+        case "Presentation Matte Paper":
+        return 8.00;
+        break;
+        case "UltraSmooth Fine Art Paper":
+        return 5.00;
+        break;
+        case "Textured Fine Art Paper":
+        return 5.25;
+        break;
+        case "Velvet Fine Art Paper":
+        return 5.50;
+        break;
+        case "Watercolor Paper":
+        return 5.75;
+        break;
+        case "Canvas Satin":
+        return 6.00;
+        break;
+        case "Canvas Matte":
+        return 6.25;
+        break;
+      }
+    };
 
+    $scope.getSizePrice = function(med) {
+      switch(med) {
+        case "10x10":
+        return 10.00;
+        break;
+        case "13x13":
+        return 13.00;
+        break;
+        case "16x16":
+        return 16.00;
+        break;
+        case "17x17":
+        return 17.00;
+        break;
+        case "24x24":
+        return 24.00;
+        break;
+        case "36x36":
+        return 36.00;
+        break;
+        case "44x44":
+        return 44.00;
+        break;
+
+      }
+    };
+
+    $scope.showDetails = function(order) {
+      if(order.medium != null && order.size != null)
+      {
+        order.totalPrice = $scope.getMediumPrice(order.medium)
+        + $scope.getSizePrice(order.size);
+      }
+      else
+      {
+        order.totalPrice = "Please Pick A Medium and Size";
+      }
+      console.log(order.totalPrice);
+      $scope.detailedInfo = order;
+    };
 
 
     // Update order (admin use only)

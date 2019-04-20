@@ -51,11 +51,51 @@
                     <br>
                 </center>
             </form>
-            <a href="#" id="showsize" class="next round">Next &raquo;</a>
+            <a href="#" id="showmedium" class="next round">Next &raquo;</a>
             <!--
             <a href="#" class="previous round">&#8249;</a>
             <a href="#" id="showsize" class="next round">&#8250;</a>
             -->
+        </div>
+
+        <div id="mediums">
+            <h2>Choose Medium</h2>
+            <br>
+            <form>
+                <select ng-model="newOrder.medium" ng-click= showDetails(newOrder)>
+                    <option value="" selected disabled hidden>{{newOrder.medium}}</option>
+                    <optgroup label="PHOTO PAPER">
+                    <option value="Glossy Photo Paper">Glossy Photo Paper</option>
+                    <option value="Semigloss Photo Paper">Semigloss Photo Paper</option>
+                    <option value="Luster Photo Paper">Luster Photo Paper</option>
+                    <option value="Semimatte Photo Paper">Semimatte Photo Paper</option>
+                    </optgroup>
+                    <optgroup label="PROOFING PAPER">
+                    <option value="Commercial Proofing Paper">Commercial Proofing Paper</option>
+                    <option value="White Semimatte Proofing Paper">White Semimatte Proofing Paper</option>
+                    <option value="Publication Proofing Paper">Publication Proofing Paper</option>
+                    </optgroup>
+                    <optgroup label="MATTE PAPER">
+                    <option value="Singleweight Matte Paper">Singleweight Matte Paper</option>
+                    <option value="Doubleweight Matte Paper">Doubleweight Matte Paper</option>
+                    <option value="Enhanced Matte Paper">Enhanced Matte Paper</option>
+                    <option value="Somerset Velvet">Somerset Velvet</option>
+                    <option value="Presentation Matte Paper">Presentation Matte Paper</option>
+                    </optgroup>
+                    <optgroup label="FINE ART PAPER">
+                    <option value="UltraSmooth Fine Art Paper">UltraSmooth Fine Art Paper</option>
+                    <option value="Textured Fine Art Paper">Textured Fine Art Paper</option>
+                    <option value="Velvet Fine Art Paper">Velvet Fine Art Paper</option>
+                    <option value="Watercolor Paper">Watercolor Paper</option>
+                    <option value="Canvas Satin">Canvas Satin</option>
+                    <option value="Canvas Matte">Canvas Matte</option>
+                    </optgroup>
+
+                </select>
+
+           </form>
+            <a href="#" id="backupload" class="previous round">&laquo; Previous</a>
+            <a href="#" id="showsize" class="next round" ng-click=reviewOrder(newOrder)>Next &raquo;</a> 
         </div>
 
         <div id="size">
@@ -63,23 +103,23 @@
             <br><br>
             <form id="sizeSelection" class="sizes">
                 <section>
-                    <input type="radio" align="left" name="size" value="10x10" ng-model="newOrder.size"> 10x10
+                    <input type="radio" align="left" name="size" value="10x10" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 10x10
                     <br><br>
-                    <input type="radio" name="size" value="13x13" ng-model="newOrder.size"> 13x13
+                    <input type="radio" name="size" value="13x13" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 13x13
                     <br><br>
-                    <input type="radio" name="size" value="16x16" ng-model="newOrder.size"> 16x16
+                    <input type="radio" name="size" value="16x16" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 16x16
                     <br>                      
                 </section>
                 <section>
-                    <input type="radio" name="size" value="17x17" ng-model="newOrder.size"> 17x17 
+                    <input type="radio" name="size" value="17x17" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 17x17 
                     <br><br>
-                    <input type="radio" align="right" name="size" value="24x24" ng-model="newOrder.size"> 24x24 
+                    <input type="radio" align="right" name="size" value="24x24" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 24x24 
                     <br>
                 </section>
                 <section>
-                    <input type="radio" name="size" value="36x36" ng-model="newOrder.size"> 36x36 
+                    <input type="radio" name="size" value="36x36" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 36x36 
                     <br><br>
-                    <input type="radio" name="size" value="44x44" ng-model="newOrder.size"> 44x44 
+                    <input type="radio" name="size" value="44x44" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 44x44 
                     <br>
                 </section>
                 <footer>
@@ -114,53 +154,12 @@
                     </script> 
                 </footer>
             </form>   
-            <a href="#" id="backupload" class="previous round">&laquo; Previous</a>
-            <a href="#" id="showmedium" class="next round">Next &raquo;</a>      
-        </div>
-
-        <div id="mediums">
-            <h2>Choose Medium</h2>
-            <br>
-            <form>
-                <select ng-model="newOrder.medium">
-                    <option value="" selected disabled hidden>{{newOrder.medium}}</option>
-                    <optgroup label="PHOTO PAPER">
-                    <option value="Glossy Photo Paper">Glossy Photo Paper</option>
-                    <option value="Semigloss Photo Paper">Semigloss Photo Paper</option>
-                    <option value="Luster Photo Paper">Luster Photo Paper</option>
-                    <option value="Semimatte Photo Paper">Semimatte Photo Paper</option>
-                    </optgroup>
-                    <optgroup label="PROOFING PAPER">
-                    <option value="Commercial Proofing Paper">Commercial Proofing Paper</option>
-                    <option value="White Semimatte Proofing Paper">White Semimatte Proofing Paper</option>
-                    <option value="Publication Proofing Paper">Publication Proofing Paper</option>
-                    </optgroup>
-                    <optgroup label="MATTE PAPER">
-                    <option value="Singleweight Matte Paper">Singleweight Matte Paper</option>
-                    <option value="Doubleweight Matte Paper">Doubleweight Matte Paper</option>
-                    <option value="Enhanced Matte Paper">Enhanced Matte Paper</option>
-                    <option value="Somerset Velvet">Somerset Velvet</option>
-                    <option value="Presentation Matte Paper">Presentation Matte Paper</option>
-                    </optgroup>
-                    <optgroup label="FINE ART PAPER">
-                    <option value="UltraSmooth Fine Art Paper">UltraSmooth Fine Art Paper</option>
-                    <option value="Textured Fine Art Paper">Textured Fine Art Paper</option>
-                    <option value="Velvet Fine Art Paper">Velvet Fine Art Paper</option>
-                    <option value="Watercolor Paper">Watercolor Paper</option>
-                    <option value="Canvas Satin">Canvas Satin</option>
-                    <option value="Canvas Matte">Canvas Matte</option>
-                    </optgroup>
-
-                </select>
-
-           </form>
-            <a href="#" id="backsize" class="previous round">&laquo; Previous</a>
-            <a href="#" id="showreview" class="next round" ng-click=reviewOrder(newOrder)>Next &raquo;</a> 
+            <a href="#" id="backmedium" class="previous round">&laquo; Previous</a>
+            <a href="#" id="showreview" class="next round">Next &raquo;</a>      
         </div>
 
         <div id="paypal">
                         <h2>Review Order</h2>
-            <br>
             <section>
             <br>
             <img src="{{detailedInfo.img}}" width="100"/>
@@ -184,7 +183,9 @@
                 <input type="number" style="width:45%"placeholder="{{detailedInfo.address.zip}}" name="zip" ng-model="newOrder.address.zip">
             </section>
             <footer>
-                <br>
+                <div>
+                    <h3>Total Price: ${{detailedInfo.totalPrice}} </h3>
+                </div>
                  <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="hosted_button_id" value="VEMBP3LD3LNEC">
@@ -195,7 +196,7 @@
 
                         <tr><td>
                             <select name="os0">
-                            <option value="{{detailedInfo.size}}  {{detailedInfo.medium}}">{{detailedInfo.size}}  {{detailedInfo.medium}} $49.99 USD</option>
+                            <option value="{{detailedInfo.size}}  {{detailedInfo.medium}} {{detailedInfo.totalPrice}}">{{detailedInfo.size}}  {{detailedInfo.medium}} ${{detailedInfo.totalPrice}}</option>
                         </select> 
                     </td></tr>
                     </table>
@@ -207,7 +208,7 @@
             <br>
             <input type="submit" value="Submit Order" ng-click="addOrder()"> 
             </footer>
-            <a href="#" id="backmedium" class="previous round">&laquo; Previous</a>
+            <a href="#" id="backsize" class="previous round">&laquo; Previous</a>
         </div>
 
     </div>
@@ -257,15 +258,15 @@
     $('#button2').click(function()
     {
         $('#upload').hide();
-        $('#size').show();
-        $('#mediums').hide();
+        $('#size').hide();
+        $('#mediums').show();
         $('#paypal').hide();
     });
     $('#button3').click(function()
     {
         $('#upload').hide();
-        $('#size').hide();
-        $('#mediums').show();
+        $('#size').show();
+        $('#mediums').hide();
         $('#paypal').hide();
     });
     $('#button4').click(function()
