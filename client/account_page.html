@@ -24,19 +24,20 @@
 <body ng-app="printsApp">
 
 <!-- NAV BAR -->
-<nav class="zone green">
+<nav class="zone">
   <ul class = "background"></ul>
   <ul class="main-nav">
     <li><a href="/order_page.html">Place Order</a></li>
-    <li><a href="">Contact</a></li>
+    <li><a href="/contact.html">Contact</a></li>
     <li><a href="">Account</a></li>
-    <li class="push"> <button onclick="window.location.href='/index.html'" style="width:auto;">Logout</button></li>
+    <li class="push"> <button onclick="window.location.href='/index.html'" style="width:auto;">Sign Out</button></li>
   </ul>
 </nav>
 <!-- NAV BAR -->
 
 
 <div ng-controller="UsersController" ng-init="showUser()">
+  <br><br><br><br><br><br>
   <div>
     <section>
       <div class="usercard userinfo">
@@ -55,18 +56,6 @@
         </div>
       </div>
     </section>
-  <!--
-    <aside>
-      <br><br><br>
-      <h2 align = "left">Order History</h2>
-      <p align = "left"> Small Scroll Menu?</p>
-    </aside>
-  -->
-  <!--
-    <footer>
-      <p align = "center" >Additional Questions? Contact</p>
-    </footer>
-  -->
   </div>
 </div>
 
