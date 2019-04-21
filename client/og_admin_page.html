@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<div id="adminpg">
+<html>
+  <head>
+    <link rel="stylesheet" href="styles/og_admin.css">
+
+  </head>
+    <!-- Navigation Bar -->
+    <div class="topnav">
+            <a class="active page" href="">Manage Orders</a>
+            <a class="page" href="/order_page.html">Order Page</a>
+            <a class="page" href="/account_page.html">Account</a>
+            <a class="logout page" href="/index.html">Logout</a>
+        
+    </div>
+    <!-- End of Navigation Bar -->
+  <body ng-app="printsApp" background="images/background.jpg">
+    <!--JQuery Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <div class="container">
+      <div class="row">
+        <h1>Manage Orders</h1>
+      </div>
+      <div class="row" ng-controller="OrdersController">
+        <div class="col-md-6">
+          <header>
+          <div class="input-group" id="searchBar">
+            <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+            <input type="text" class="searchbar form-control" placeholder="Search" ng-model="query">
+          </div>
+        </header>
+        <section>
+          <div class="tableWrapper">
+            <table class="adminTable">
+              <thead>
+              <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Order Info</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan="5">
+                  <!--
+                  <div class="links"><a href="#">&laquo;</a>  <a href="#">&raquo;</a></div>
+                  -->
+                </td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr class = "notfirst" ng-repeat="order in orders | filter: query track by $index" ng-click="showDetails(order)">
+                <td>{{order.created_at}}</td>
+                <td>  </td>
+                <td>{{order.size}}<br>{{order.medium}}</td>
+              
+                <td>   </td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+        </section>
+        </div>
+        <aside>
+        <div class="col-md-6">
+          <br>
+          
+          <div class="boxed jumbotron">
+            <h2>Order Details</h2>
+            <h4>{{detailedInfo.created_at}}</h4>
+            <p><b>Name: </b> </p>
+            <p><b>Address:</b><br><br></p>
+            <p><b>Order Info:</b></p>
+            <p>
+            <img src="{{detailedInfo.img}}" width="175"/>
+            <br>
+            {{detailedInfo.size}}
+            <br>
+            {{detailedInfo.medium}}
+            <br>
+            <button ng-click="showImage(detailedInfo.img);">Download</button>
+            </p>
+            <p><b>Status:</b> </p>
+          </div>
+
+        </div>
+      </aside>
+      <footer>
+      </footer>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+    <script src="js/factories/orderFactory.js"></script>
+    <script src="js/controllers/orderController.js"></script>
+  </body>
+</html>
+</div>

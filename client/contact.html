@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
+  
+    <link rel="stylesheet" href="./styles/contact.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Oswald|Satisfy|Unica+One" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+   <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+-->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+     
+
+
+    <title>contact page</title>
+  </head>
+  <body>
+  
+  <!-- /***********************************************************************
+*  Nav Bar
+**********************************************************************/ -->
+    <nav id="divNavBar" class="zone">
+      <ul class = "background"></ul>
+        <ul class="main-nav">
+            <li><a href="/order_page.html">Place Order</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/account_page.html">Account</a></li>
+             <li class="push"> <a href="./index.html"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Out</button></a></li>
+            
+        </ul>
+      </nav>
+
+<!-- /***********************************************************************
+*  Nav Bar - end 
+**********************************************************************/ -->
+
+
+  <div class="module section-2">
+  <div class = "contact_us_block">
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class= "contact_text">
+        <center>
+           <h2 >Contact Us</h2> 
+           <br>
+            <p> 
+              Questions? Feel free to contact us <a href="mailto:petreeprint@gmail.com"><b>here</b></a>!
+              <br>
+              10251 NE 120 Ave, Archer, FL 32618 <br>
+                petreeprinting@gmail.com   <br> (352) 316-0879
+            </p>
+        </center>    
+     </div>
+    </div>
+    <div class="col">
+      <div id="map"></div>
+    <script>
+// Initialize and add the map
+    function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 29.4828892, lng: -82.5743305};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7AsgOZT47JH3FJIWIsJUF-Bs3ELBiKiM&callback=initMap">
+    </script>
+    </div>
+  </div>
+
+</div>
+
+
+
+     
+  </div>
+  </div>
+
+  
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  </body>
+  </html>

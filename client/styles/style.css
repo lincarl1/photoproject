@@ -1,100 +1,27 @@
-html body{
-     background-color: : #f9f9f9;
-}
-
 #searchBar {
   margin: 15px 10px;
 }
 
-/*background block styling 
+/*background block styling */ 
 .background_block {
+  display: flex; 
+  /* flex-grow: 1; */ 
   position: relative;
-  background-attachment: fixed; 
-  background-repeat: no-repeat;
-  background-position: center;
+  margin-bottom: 100px; 
 }
 .background_block img{
   width: 100%; 
   height: auto; 
-}*/ 
+}
 
-.front_header {
+.front_header{
   position: absolute;
-  top: 7%; 
-  margin-left: 80px; 
- 
-}
-.front_header h1 {
-    font-weight: 700;
-    font-size: 76px;
-    color: black;
-    font-family: 'Unica One', cursive; 
-   /* max-width: 50%; */
-}
-
-.front_header p{
-  font-family: 'Oswald', sans-serif;
-  font-size: 32px; 
-  color: black; 
-}
-
-section{
-  margin-top: 87px; 
-  background-color: : #f9f9f9;
-}
-
-.module{
-    padding:200px 20px 200px 20px;
-    text-align: center;
-}
-.section-1{
-    background-image:url('./images/leaforg.jpg');
-    background-position:center;
-     background-size: cover;
-    position: relative;
-    height: 750px;
-}
-.section-2{
-     background-image:url('./images/woodorg.jpg');
-    background-position:center;
-    position: relative;
-    height: 750px;
-}
-.section-4 h2 {
-    font-family: 'Clarkson',Helvetica,sans-serif; 
-     font-weight: 550;
-    line-height: 1.1em;
-    font-size: 35px;
-    color: #222;
-}
-
-.section-5 h2{
-    font-family: 'Clarkson',Helvetica,sans-serif; 
-     font-weight: 550;
-    line-height: 1.1em;
-    font-size: 35px;
-    color: #222;
-}
-
-.section-5 p{
-    font-size: 12px;
-}
-.section-4 p{
-    font-size: 12px;
-}
-
-.section-5 .two-up__left{
-  margin-left: 30px; 
-}
-
-.section-5{
-  margin-top: 100px; 
-}
-body > section > .section-3 {
-    background-position:center;
-    position: relative;
-     background-size: cover;
-     background-color: : #f9f9f9 !important; 
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700; 
+  font-size: 100px; 
+  color: black;
+  right: 120px;
+  top: 30%;
 }
 
 /***********************************************************************
@@ -102,16 +29,14 @@ body > section > .section-3 {
  **********************************************************************/
 
 .zone {
+    /*padding:30px 50px;*/
+    /*cursor:pointer;*/
+    
     font-size:2em;
     border-radius:4px;
+   /* border:1px solid #bbb; */
     transition: all 0.3s linear;
-    position: fixed; 
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    z-index: 999;
-    top:-11px;
+    position: absolute;
     width: 100%; 
 }
 
@@ -121,13 +46,13 @@ body > section > .section-3 {
     -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
     box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
     background: white; 
-   /* opacity: 0.6; */
+    opacity: 0.6; 
     color: black; 
 }
-.zone:hover > .zone a:hover{
+.zone:hover > a:hover{
   color: black;
 }
-.zone a:hover{
+a:hover{
   color: black; 
 }
 
@@ -137,11 +62,11 @@ body > section > .section-3 {
     list-style: none;
     margin: 0;
     font-size: 25px;
-    /*background: white; */
+    /*background: white; 
+    opacity: 0.6; */
     font-family: 'Staatliches', cursive;
     letter-spacing: 3px;
     padding-right: 25px; 
-    background: #f9f9f9; 
 }
 
 @media only screen and (max-width: 600px) {
@@ -157,17 +82,17 @@ body > section > .section-3 {
     margin-left: auto;
 }
 
-.zone li {
+li {
     padding: 16px;
 }
 
-.zone a {
+a {
     color: black;
     text-decoration: none;
 }
 
-.zone button {
-   background-color: #347523;
+button {
+  background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
   border: none;
@@ -176,8 +101,8 @@ body > section > .section-3 {
   font-size: 20px; 
 }
 
-.zone button:hover {
-  background-color: #4CAF50;
+button:hover {
+  opacity: 0.8;
 }
 
 
@@ -185,159 +110,10 @@ body > section > .section-3 {
       Nav Bar - end 
  **********************************************************************/
 
- /***********************************************************************
-      About 
- **********************************************************************/
 
 
 
-.about h2{
-  position: absolute;
-  top: 11%; 
-  font-size: 60px;
-  font-family: 'Staatliches', cursive;
-  letter-spacing: 3px;
-  color: black;
-  width: 100%; 
-}
 
-.about p{
-    font-family: 'Oswald', sans-serif;
-    font-size: 45px;
-    color: black;
-    position: absolute;
-    top: 41%;
-    width: 100%;
-
-}
-.about img{
-    position: absolute;
-    height: 250px;
-    width: auto;
-    top: 28%;
-    margin-left: 77px;
-}
-
-
-/***********************************************************************
-      123 instruction 
- **********************************************************************/
-
-.instruction_block .container{
-  margin-top: 30px; 
-}
-
-
-.instruction_block .col-sm{
-    border-style: groove;
-    border-color: #68a949;
-    height: 275px;
-    width: 100px;
-    margin: 15px;
-    position: relative;
-    text-align: center;
-}
-
-.instruction_block{
-  margin-top: 20px; 
-}
-
-.instruction_block h1 {
-/*font-family: 'Bangers', cursive; */
-font-size: 48px; 
-letter-spacing: 5px; 
- font-family: 'Staatliches', cursive;
-color: black; 
-margin-bottom: 15px; 
-}
-
-.instruction_text{
-  font-family: 'Oswald', sans-serif;
-  font-size: 27px;
-  position: absolute;
-    left: 0;
-    bottom: 6px;
-    right: 0;
-}
-
-   #circle {
-    width: 70px;
-    height: 70px;
-    background: #3f6b2d;
-    border-radius: 50%;
-    position: absolute;
-    /* margin: 0 auto; */
-    left: 50%;
-    margin-left: -31px;
-    top: 50%;
-    margin-top: -50px;
-    top: 17px;
-    }
-
-.instruction_block .number{
-  /* vertical-align: middle; */
-    text-align: -webkit-center;
-    top: -12px;
-    margin-top: 25%;
-    font-size: 24px;
-    color: white; 
-}
-
-.instruction_block .col-sm img{
-  width:45%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  margin-top: 14%;
-}
-
-.instruction_block .btn-primary{
-  margin-top: 15px;
-    height: 50px;
-    width: 218px;
-    font-size: 27px;
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 2px;
-    background-color: black;
-    border: none;
-}
-.instruction_block .btn-primary:hover, .instruction_block .btn-primary:focus, .instruction_block .btn-primary:active, .instruction_block .btn-primary.active, .instruction_block .open>.dropdown-toggle.btn-primary {
-    background-color: #3f6b2d;
-    color: white;
-     /*set the color you want here*/
-}
-
-
-/***********************************************************************
-      123 instruction - end 
- **********************************************************************/
- /***********************************************************************
-      Prices 
- **********************************************************************/
-#hero {
-    position: relative;
-    background-position: center;
-    background-size: cover;
-    background-color: #555;
-    margin: 0 0 20px;
-    text-align: center;
-    transition: .8s;
-    height: 800px; 
-}
-
-.prices_header h2 {
-  position: absolute;
-  top: 11%; 
-  font-size: 60px;
-  font-family: 'Staatliches', cursive;
-  letter-spacing: 10px;
-  color: white;
-  width: 100%; 
-}
- /***********************************************************************
-      Prices - end 
- **********************************************************************/
 
 
 .tableWrapper {
@@ -358,7 +134,7 @@ input[type=text], input[type=password] {
 
 
 button:hover {
-  /*opacity: 0.8;*/
+  opacity: 0.8;
 }
 
 /* Extra styles for the cancel button */
@@ -477,14 +253,3 @@ span.psw {
      width: 100%;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
