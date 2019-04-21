@@ -115,18 +115,28 @@ footer {
 /***********************************************************************
  *  Nav Bar
  **********************************************************************/
-
+/*
 .zone {
-    /*padding:30px 50px;*/
-    /*cursor:pointer;*/
-    
     font-size:2em;
     border-radius:4px;
-   /* border:1px solid #bbb;    
-   position: absolute;*/
     transition: all 0.3s linear;
  
     width: 100%; 
+}
+*/
+.zone {
+    font-size:2em;
+    border-radius:4px;
+    transition: all 0.3s linear;
+    position: fixed; 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 999;
+    top:-17px;
+    width: 100%; 
+    background: white; 
 }
 
 .zone:hover {
@@ -181,13 +191,15 @@ footer {
 }
 
 .zone button {
-   background-color: #347523;
+  /* background-color: #347523;*/
+  background-color: #023f05;
   color: white;
-  padding: 14px 20px;
+  padding: 9px 20px;
   border: none;
   cursor: pointer;
   width: 100%;
-  font-size: 20px; 
+  font-size: 20px;
+  letter-spacing: 2px;
 }
 
 .zone button:hover {

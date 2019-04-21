@@ -47,13 +47,16 @@ section{
     z-index: 999;
     top:-17px;
     width: 100%; 
+    background: white; 
 }
 
 .zone:hover {
+  /*
     -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
     -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
     -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
     box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+ */
     background: white; 
    /* opacity: 0.6; */
     color: black; 
@@ -101,7 +104,8 @@ section{
 }
 
 .zone button {
-   background-color: #245f45;
+  /* background-color: #245f45; */
+  background-color: #023f05;
   color: white;
   padding: 9px 20px;
   border: none;
