@@ -1,6 +1,5 @@
 window.onload = function() {
     $(window).bind('scroll', update);
-    adjustPlacement();
     };
 
 
@@ -22,16 +21,7 @@ function update(){
     }); 
 }
 
-function adjustPlacement() {
-    //jQuery
-    /*var headerPlacement = getDivPlacement('divNavBar');*/
-    /*var headerPlacement = currentDiv('divNavBar');*/
-    $("#header").css({ top: headerPlacement + 'px' });
-    
-    var contentPlacement = getDivPlacement('header');
-    /*var contentPlacement = currentDiv('header');*/
-    $('#content').css('margin-top',contentPlacement);
-}
+
 
 
 
