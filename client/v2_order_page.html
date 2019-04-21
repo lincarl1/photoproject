@@ -13,7 +13,7 @@
     <nav class="zone">
       <ul class = "background"></ul>
         <ul class="main-nav">
-            <li><a href="">Order</a></li>
+            <li><a href="">Place Order</a></li>
             <li><a href="/contact.html">Contact</a></li>
             <li><a href="/account_page.html">Account</a></li>
              <li class="push"> <a href="./index.html"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Out</button></a></li>
@@ -73,10 +73,9 @@
         </div>
 
         <div id="size">
-            <p class="price">Total: ${{price}}</p>
             <h2>Choose Size</h2>
-            <br>
-            <form id="sizeSelection" class="sizes" ng-click=getPrice(newOrder)>
+            <br><br>
+            <form id="sizeSelection" class="sizes">
                 <section>
                     <input type="radio" align="left" name="size" value="10x10" ng-model="newOrder.size"> 10x10
                     <br><br>
@@ -113,8 +112,8 @@
                     </select>
                      x
                     <input type="number" id="height" name="height" style="width: 75px" ng-model="newOrder.size_height">
-                    <br><br><br><br><br>
-                    <p class="mediumprice">Size: ${{sizePrice}}</p> 
+                    <br><br><br>
+                    <br><br><br>
                     <div class="popup" onclick="myPopup()">How large can I print my photo?
                       <span class="popuptext" id="myPopup">To receive the best quality print, divide pixel dimensions by 300dpi. For example a 6000 x 4200 pixel image can be printed up to 20 x 14 inches.</span>
                     </div>
@@ -127,18 +126,16 @@
                       }
                     </script> 
                 </footer>
-            </form>  
-
+            </form>   
             <a href="#" id="backupload" class="previous round">&laquo; </a>
             <a href="#" id="showmedium" class="next round"> &raquo;</a>      
         </div>
 
         <div id="mediums">
-            <p class="price">Total: ${{price}}</p>
             <h2>Choose Medium</h2>
             <br>
             <form>
-                <select ng-model="newOrder.medium" ng-selected= getPrice(newOrder)>
+                <select ng-model="newOrder.medium">
                     <option value="" selected disabled hidden>{{newOrder.medium}}</option>
                     <optgroup label="PHOTO PAPER">
                     <option value="Glossy Photo Paper">Glossy Photo Paper</option>
@@ -170,10 +167,6 @@
                 </select>
 
            </form>
-           <br><br><br><br><br>
-           <br><br><br><br><br>
-           <br><br>
-           <p class="mediumprice">Medium: ${{mediumPrice}}</p>
             <a href="#" id="backsize" class="previous round">&laquo; </a>
             <a href="#" id="showreview" class="next round" ng-click=reviewOrder(newOrder)> &raquo;</a> 
         </div>
@@ -204,9 +197,6 @@
                 <input type="number" style="width:45%"placeholder="{{detailedInfo.address.zip}}" name="zip" ng-model="newOrder.address.zip">
             </section>
             <footer>
-                <div>
-                    <h3>Total Price: ${{detailedInfo.totalPrice}} </h3>
-                </div>
                 <br>
                  <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_s-xclick">
@@ -218,7 +208,7 @@
 
                         <tr><td>
                             <select name="os0">
-                            <option value="{{detailedInfo.size}}  {{detailedInfo.medium}}">{{detailedInfo.size}}  {{detailedInfo.medium}} ${{detailedInfo.totalPrice}} USD</option>
+                            <option value="{{detailedInfo.size}}  {{detailedInfo.medium}}">{{detailedInfo.size}}  {{detailedInfo.medium}} $49.99 USD</option>
                         </select> 
                     </td></tr>
                     </table>
@@ -263,7 +253,7 @@
   }
   else
   {
-            // Not supported
+	        // Not supported
         }
     }
 </script>

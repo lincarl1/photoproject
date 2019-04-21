@@ -366,3 +366,21 @@ padding: 14px 150px;
 .round {
   border-radius: 50%;
 }
+
+
+.price {
+  /*background-color: #023f05;*/
+  color: black;
+  font-size: 16px;
+  padding: 0px 16px;
+  right: 0;
+  top: 0.1;
+  position: absolute;
+}
+
+.mediumprice {
+  /*background-color: #023f05;*/
+  color: black;
+  font-size: 14px;
+  padding: 8px 16px;
+}

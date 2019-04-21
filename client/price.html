@@ -11,16 +11,15 @@
 <body ng-app="printsApp">
 <!-- Navigation Bar -->
     <nav class="zone">
-      <ul class = "background"></ul>
-        <ul class="main-nav">
-            <li><a href="">Order</a></li>
+        <ul class = "background"></ul>
+        <ul class="main-nav"> 
+            <li><a href="">Place Order</a></li>
             <li><a href="/contact.html">Contact</a></li>
             <li><a href="/account_page.html">Account</a></li>
-             <li class="push"> <a href="./index.html"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Out</button></a></li>
-            
+            <li class="push"> <button onclick="window.location.href='/index.html'">Sign Out</button></li>
         </ul>
-      </nav>
-    <!-- End of Navigation Bar -->
+    </nav>
+<!-- End of Navigation Bar -->
 <div ng-controller="OrdersController">
     <br><br><br><br><br><br>
     <!--Holds All Four of the Blocks-->
@@ -32,9 +31,6 @@
         <div class="cardhead">
                 <br>
                 <center>
-                    <!--
-                    <input type="button" id="but" value="1">
-                -->
                     <input type="image" src="/images/upload.png" width=40px class="btTxt submit" id="button1" />
                     <!--
                     _____________
@@ -65,83 +61,21 @@
                     <br>
                 </center>
             </form>
-            <a href="#" id="showsize" class="next round"> &raquo;</a>
+            <a href="#" id="showmedium" class="next round"> &raquo;</a>
             <!--
             <a href="#" class="previous round">&#8249;</a>
             <a href="#" id="showsize" class="next round">&#8250;</a>
             -->
         </div>
 
-        <div id="size">
-            <p class="price">Total: ${{price}}</p>
-            <h2>Choose Size</h2>
-            <br>
-            <form id="sizeSelection" class="sizes" ng-click=getPrice(newOrder)>
-                <section>
-                    <input type="radio" align="left" name="size" value="10x10" ng-model="newOrder.size"> 10x10
-                    <br><br>
-                    <input type="radio" name="size" value="13x13" ng-model="newOrder.size"> 13x13
-                    <br><br>
-                    <input type="radio" name="size" value="16x16" ng-model="newOrder.size"> 16x16
-                    <br>                      
-                </section>
-                <section>
-                    <input type="radio" name="size" value="17x17" ng-model="newOrder.size"> 17x17 
-                    <br><br>
-                    <input type="radio" align="right" name="size" value="24x24" ng-model="newOrder.size"> 24x24 
-                    <br>
-                </section>
-                <section>
-                    <input type="radio" name="size" value="36x36" ng-model="newOrder.size"> 36x36 
-                    <br><br>
-                    <input type="radio" name="size" value="44x44" ng-model="newOrder.size"> 44x44 
-                    <br>
-
-                </section>
-                <footer>
-                    <p>Custom: width x height (inches)</p>
-                    <input type="radio" name="size" value=" ">
-                    <select ng-model="newOrder.size_width">
-                        <option value="" selected disabled hidden>{{newOrder.size_width}}</option>
-                        <option value="10">10</option>
-                        <option value="13">13</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="24">24</option>
-                        <option value="36">36</option>
-                        <option value="44">44</option>
-                    </select>
-                     x
-                    <input type="number" id="height" name="height" style="width: 75px" ng-model="newOrder.size_height">
-                    <br><br><br><br><br>
-                    <p class="mediumprice">Size: ${{sizePrice}}</p> 
-                    <div class="popup" onclick="myPopup()">How large can I print my photo?
-                      <span class="popuptext" id="myPopup">To receive the best quality print, divide pixel dimensions by 300dpi. For example a 6000 x 4200 pixel image can be printed up to 20 x 14 inches.</span>
-                    </div>
-
-                    <script>
-                        // When the user clicks on <div>, open the popup
-                        function myPopup() {
-                          var popup = document.getElementById("myPopup");
-                          popup.classList.toggle("show");
-                      }
-                    </script> 
-                </footer>
-            </form>  
-
-            <a href="#" id="backupload" class="previous round">&laquo; </a>
-            <a href="#" id="showmedium" class="next round"> &raquo;</a>      
-        </div>
-
         <div id="mediums">
-            <p class="price">Total: ${{price}}</p>
             <h2>Choose Medium</h2>
             <br>
             <form>
-                <select ng-model="newOrder.medium" ng-selected= getPrice(newOrder)>
+                <select ng-model="newOrder.medium" ng-selected= showDetails(newOrder)>
                     <option value="" selected disabled hidden>{{newOrder.medium}}</option>
                     <optgroup label="PHOTO PAPER">
-                    <option value="Glossy Photo Paper">Glossy Photo Paper</option>
+                    <option value="Glossy Photo Paper">Glossy Photo Paper </option>
                     <option value="Semigloss Photo Paper">Semigloss Photo Paper</option>
                     <option value="Luster Photo Paper">Luster Photo Paper</option>
                     <option value="Semimatte Photo Paper">Semimatte Photo Paper</option>
@@ -170,17 +104,72 @@
                 </select>
 
            </form>
-           <br><br><br><br><br>
-           <br><br><br><br><br>
-           <br><br>
-           <p class="mediumprice">Medium: ${{mediumPrice}}</p>
-            <a href="#" id="backsize" class="previous round">&laquo; </a>
-            <a href="#" id="showreview" class="next round" ng-click=reviewOrder(newOrder)> &raquo;</a> 
+            <a href="#" id="backupload" class="previous round">&laquo; </a>
+            <a href="#" id="showsize" class="next round" ng-click=reviewOrder(newOrder)> &raquo;</a> 
+        </div>
+
+        <div id="size">
+            <h2>Choose Size</h2>
+            <br><br>
+            <form id="sizeSelection" class="sizes">
+                <section>
+                    <input type="radio" align="left" name="size" value="10x10" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 10x10
+                    <br><br>
+                    <input type="radio" name="size" value="13x13" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 13x13
+                    <br><br>
+                    <input type="radio" name="size" value="16x16" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 16x16
+                    <br>                      
+                </section>
+                <section>
+                    <input type="radio" name="size" value="17x17" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 17x17 
+                    <br><br>
+                    <input type="radio" align="right" name="size" value="24x24" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 24x24 
+                    <br>
+                </section>
+                <section>
+                    <input type="radio" name="size" value="36x36" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 36x36 
+                    <br><br>
+                    <input type="radio" name="size" value="44x44" ng-model="newOrder.size" ng-click = showDetails(newOrder)> 44x44 
+                    <br>
+                </section>
+                <footer>
+                    <p>Custom: width x height (inches)</p>
+                    <input type="radio" name="width" value="">
+                    <select ng-model="newOrder.size_width" ng-selected=showDetails(newOrder)>
+                        <option value="" selected disabled hidden>{{newOrder.size_width}}</option>
+                        <option value="10">10</option>
+                        <option value="13">13</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="24">24</option>
+                        <option value="36">36</option>
+                        <option value="44">44</option>
+                    </select>
+                    <!--
+                    <input type="text" id="width" name="width" style="width: 75px" ng-model="newOrder.size_width">
+                    --> x
+                    <input type="number" id="height" name="height" style="width: 75px" ng-model="newOrder.size_height">
+                    <br><br><br>
+                    <br><br><br>
+                    <div class="popup" onclick="myPopup()">How large can I print my photo?
+                      <span class="popuptext" id="myPopup">To receive the best quality print, divide pixel dimensions by 300dpi. For example a 6000 x 4200 pixel image can be printed up to 20 x 14 inches.</span>
+                    </div>
+
+                    <script>
+                        // When the user clicks on <div>, open the popup
+                        function myPopup() {
+                          var popup = document.getElementById("myPopup");
+                          popup.classList.toggle("show");
+                      }
+                    </script> 
+                </footer>
+            </form>   
+            <a href="#" id="backmedium" class="previous round">&laquo; </a>
+            <a href="#" id="showreview" class="next round"> &raquo;</a>      
         </div>
 
         <div id="paypal">
-            <h2>Review Order</h2>
-            <br>
+                        <h2>Review Order</h2>
             <section>
             <br>
             <img src="{{detailedInfo.img}}" width="100"/>
@@ -207,7 +196,6 @@
                 <div>
                     <h3>Total Price: ${{detailedInfo.totalPrice}} </h3>
                 </div>
-                <br>
                  <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="hosted_button_id" value="VEMBP3LD3LNEC">
@@ -218,7 +206,7 @@
 
                         <tr><td>
                             <select name="os0">
-                            <option value="{{detailedInfo.size}}  {{detailedInfo.medium}}">{{detailedInfo.size}}  {{detailedInfo.medium}} ${{detailedInfo.totalPrice}} USD</option>
+                            <option value="{{detailedInfo.size}}  {{detailedInfo.medium}} {{detailedInfo.totalPrice}}">{{detailedInfo.size}}  {{detailedInfo.medium}} ${{detailedInfo.totalPrice}}</option>
                         </select> 
                     </td></tr>
                     </table>
@@ -230,7 +218,7 @@
             <br>
             <input type="submit" value="Submit Order" ng-click="addOrder()"> 
             </footer>
-            <a href="#" id="backmedium" class="previous round">&laquo; </a>
+            <a href="#" id="backsize" class="previous round">&laquo; </a>
         </div>
 
     </div>
@@ -263,7 +251,7 @@
   }
   else
   {
-            // Not supported
+	        // Not supported
         }
     }
 </script>
@@ -280,15 +268,15 @@
     $('#button2').click(function()
     {
         $('#upload').hide();
-        $('#size').show();
-        $('#mediums').hide();
+        $('#size').hide();
+        $('#mediums').show();
         $('#paypal').hide();
     });
     $('#button3').click(function()
     {
         $('#upload').hide();
-        $('#size').hide();
-        $('#mediums').show();
+        $('#size').show();
+        $('#mediums').hide();
         $('#paypal').hide();
     });
     $('#button4').click(function()
@@ -342,9 +330,34 @@
     });
 </script>
 
+<!--Preview Image-->
+<script>
+    var outImage="userImage";
+    function preview_2(obj)
+    {
+        if (FileReader)
+        {
+          var reader = new FileReader();
+          reader.readAsDataURL(obj.files[0]);
+          reader.onload = function (e) {
+             var image=new Image();
+             image.src=e.target.result;
+             image.onload = function () {
+              document.getElementById(outImage).src=image.src;
+          };
+      }
+  }
+  else
+  {
+	        // Not supported
+        }
+    }
+</script>
+<!--End of Preview Image-->
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+<script src="js/form.js"></script>
 <script src="js/app.js"></script>
 <script src="js/factories/listingFactory.js"></script>
 <script src="js/controllers/listingController.js"></script>
