@@ -9,13 +9,11 @@
     <link rel="stylesheet" href="styles/order.css">
 </head>
 <body ng-app="printsApp">
-
-
 <!-- Navigation Bar -->
     <nav class="zone">
       <ul class = "background"></ul>
         <ul class="main-nav">
-            <li><a href="">Order</a></li>
+            <li><a class=active href="">Order</a></li>
             <li><a href="/account_page.html">Account</a></li>
             <li><a href="/contact.html">Contact</a></li>
              <li class="push"> <a href="./index.html"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Out</button></a></li>
@@ -24,13 +22,12 @@
       </nav>
     <!-- End of Navigation Bar -->
 <div ng-controller="OrdersController">
-    <br><br><br><br><br>
-    <br><br><br><br><br>
+    <br><br><br><br><br><br>
     <!--Holds All Four of the Blocks-->
 <div class="container">
     <!--Upload-->
 <div class="ordercard orderinfo">
-    <div class="cardbody">
+    
         <!--UI of front page-->
         <div class="cardhead">
                 <br>
@@ -38,26 +35,27 @@
                     <!--
                     <input type="button" id="but" value="1">
                 -->
-                    <input type="image" src="images/upload.png" width=40px class="btTxt submit" id="button1" />
+                    <input type="image" src="/images/upload.png" width=40px class="btTxt submit" id="button1" />
                     <!--
                     _____________
                     -->
-                    . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . . .
                     <!--<input type="button" id="button2" value="2">-->
-                    <input type="image" src="images/crop.png" width=40px class="btTxt submit" id="button2" />
-                    . . . . . . . . . . . . . .
+                    <input type="image" src="/images/crop.png" width=40px class="btTxt submit" id="button2" />
+                    . . . . . . . . . . . . . . . . .
                     <!--
                     <input type="button" id="button3" value="3">
                 -->
-                    <input type="image" src="images/canvas.png" width=40px class="btTxt submit" id="button3" />
-                    . . . . . . . . . . . . . .
+                    <input type="image" src="/images/canvas.png" width=40px class="btTxt submit" id="button3" />
+                    . . . . . . . . . . . . . . . . .
                     <!--
                     <input type="button" id="button4" value="Review" ng-click=reviewOrder(newOrder)>
                 -->
-                    <input type="image" src="images/review.svg" width=40px class="btTxt submit" id="button4" ng-click=reviewOrder(newOrder)>
+                    <input type="image" src="/images/review.svg" width=40px class="btTxt submit" id="button4" ng-click=reviewOrder(newOrder)>
                 </center>
                 <br>
         </div>
+        <div class="cardbody">
         <div id="upload">
             <h2>Upload Image</h2>
             <br>
@@ -117,6 +115,7 @@
                      x
                     <input type="number" id="height" name="height" style="width: 75px" ng-model="newOrder.size_height">
                     <br><br><br><br><br>
+                    <br><br>
                     <p class="mediumprice">Size: ${{sizePrice}}</p> 
                     <div class="popup" onclick="myPopup()">How large can I print my photo?
                       <span class="popuptext" id="myPopup">To receive the best quality print, divide pixel dimensions by 300dpi. For example a 6000 x 4200 pixel image can be printed up to 20 x 14 inches.</span>
@@ -175,6 +174,7 @@
            </form>
            <br><br><br><br><br>
            <br><br><br><br><br>
+           <br><br>
            <br><br>
            <p class="mediumprice">Medium: ${{mediumPrice}}</p>
             <a href="#" id="backsize" class="previous round">&laquo; </a>

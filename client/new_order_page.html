@@ -6,9 +6,11 @@
     <meta charset="utf-8">
     <!--JQuery Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="styles/order.css">
+    <link rel="stylesheet" href="styles/new_order.css">
 </head>
 <body ng-app="printsApp">
+
+
 <!-- Navigation Bar -->
     <nav class="zone">
       <ul class = "background"></ul>
@@ -22,7 +24,8 @@
       </nav>
     <!-- End of Navigation Bar -->
 <div ng-controller="OrdersController">
-    <br><br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
     <!--Holds All Four of the Blocks-->
 <div class="container">
     <!--Upload-->
@@ -35,23 +38,23 @@
                     <!--
                     <input type="button" id="but" value="1">
                 -->
-                    <input type="image" src="/images/upload.png" width=40px class="btTxt submit" id="button1" />
+                    <input type="image" src="images/upload.png" width=40px class="btTxt submit" id="button1" />
                     <!--
                     _____________
                     -->
                     . . . . . . . . . . . . . .
                     <!--<input type="button" id="button2" value="2">-->
-                    <input type="image" src="/images/crop.png" width=40px class="btTxt submit" id="button2" />
+                    <input type="image" src="images/crop.png" width=40px class="btTxt submit" id="button2" />
                     . . . . . . . . . . . . . .
                     <!--
                     <input type="button" id="button3" value="3">
                 -->
-                    <input type="image" src="/images/canvas.png" width=40px class="btTxt submit" id="button3" />
+                    <input type="image" src="images/canvas.png" width=40px class="btTxt submit" id="button3" />
                     . . . . . . . . . . . . . .
                     <!--
                     <input type="button" id="button4" value="Review" ng-click=reviewOrder(newOrder)>
                 -->
-                    <input type="image" src="/images/review.svg" width=40px class="btTxt submit" id="button4" ng-click=reviewOrder(newOrder)>
+                    <input type="image" src="images/review.svg" width=40px class="btTxt submit" id="button4" ng-click=reviewOrder(newOrder)>
                 </center>
                 <br>
         </div>

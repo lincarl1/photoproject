@@ -136,7 +136,8 @@ footer {
     z-index: 999;
     top:-17px;
     width: 100%; 
-    background: white; 
+    background: white;
+    padding-top: 10px; 
 }
 
 .zone:hover {
@@ -155,6 +156,9 @@ footer {
   color: black; 
 }
 
+.zone a.active {
+  color: #06700c;
+}
 
 .main-nav {
     display: flex;
@@ -182,7 +186,7 @@ footer {
 }
 
 .zone li {
-    padding: 16px;
+    padding: 10px 20px;
 }
 
 .zone a {

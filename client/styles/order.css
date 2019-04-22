@@ -1,13 +1,10 @@
 body {
-  /*background-image: url("../images/account1.jpg");*/
-  /*background-image: url("../images/order1.jpg");*/
-  background-image: url("../images/plantyy.jpg");
+  background-image: url("../images/order2.jpg");
   /*background-size: auto;*/
   /*background-size: contain; */
   /*background-repeat: no-repeat;*/
   background-size: cover;
-  background-position: center;
-
+  /*background-position: center;*/
 }
 
 /* -- choose file button -- */
@@ -65,7 +62,7 @@ input[type=image]:hover {
 
 .zone button {
   /*background-color: #245f45;*/
-  background-color: #01593f;
+  background-color: #023f05;
   color: white;
   padding: 9px 20px;
   border: none;
@@ -82,7 +79,11 @@ input[type=image]:hover {
 
 
 .zone li {
-    padding: 16px;
+    padding: 10px 20px;
+}
+
+.active {
+  color: #06700c;
 }
 
 .zone {
@@ -96,8 +97,9 @@ input[type=image]:hover {
     box-sizing: border-box;
     z-index: 999;
     top:-17px;
-    width: 100%;
-    margin-top: 15px; 
+    width: 100%; 
+    background: white;
+    padding-top: 10px;
 }
 
 
@@ -105,11 +107,11 @@ input[type=image]:hover {
   color: black;
 }
 .zone a:hover{
-  color: white; 
+  color: black; 
 }
 
 a {
-  color: white;
+  color: black;
   text-decoration: none;
   
 }
@@ -118,24 +120,29 @@ a {
 
 /*-----------------Order Steps Layout-----------------*/
 .ordercard {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 550px;
-  height: 500px;
+  -webkit-box-shadow: 0px 0px 122px 7px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 0px 122px 7px rgba(0,0,0,1);
+  box-shadow: 0px 0px 122px 7px rgba(0,0,0,1); 
+  /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+  width: 600px;
+  height: 550px;
   margin: auto;
   text-align: center;
   background-color: #FFFFFF;
   position: relative;
   /*padding: 10px 20px;*/
+  
 }
 
 .cardhead {
-  background-color: #01593f;
+  background-color: #023f05;
   color: white;
 }
 
 .cardbody {
-  /*background-color: #FFFFFF;*/
-  max-height: 500px;
+  background-color: #FFFFFF;
+  max-height: 550px;
+
 }
 
 
@@ -334,7 +341,7 @@ padding: 14px 150px;
 
 
 .previous {
-  background-color: #01593f;
+  background-color: #023f05;
   color: white;
   font-size: 20px;
   padding: 8px 16px;
@@ -353,7 +360,7 @@ padding: 14px 150px;
   right: 0;
   bottom: 0;
   position: absolute;
-  background-color: #01593f;
+  background-color: #023f05;
   color: white;
   font-size: 20px;
   padding: 8px 16px;
