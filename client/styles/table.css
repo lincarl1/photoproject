@@ -218,11 +218,12 @@ button:hover {
   font-size: 10px;
 }
 
-.editorder-content button[class=start]{
+.editorder-content button[class=confirm]{
   font-size: 14px;
   width: 406px;
   color: white;
-  background-color: #4CAF50;
+  /*background-color: #4CAF50;*/
+  background-color: #023F05;
   padding: 10px 26px;
   border-radius: 4px;
   border: 2px solid white;
@@ -230,9 +231,9 @@ button:hover {
   transition-duration: 0.4s;
 }
 
-.editorder-content button[class=start]:hover {
+.editorder-content button[class=confirm]:hover {
   background-color: #4CAF50; /* Green */
-  opacity: 0.6;
+  /*opacity: 0.6;*/
   color: white;
 }
 

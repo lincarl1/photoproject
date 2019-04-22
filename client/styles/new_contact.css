@@ -1,5 +1,5 @@
 html body{
-     background-color: #f9f9f9;
+     background-color: : #f9f9f9;
 }
 
 #searchBar {
@@ -8,7 +8,7 @@ html body{
 
 section{
   margin-top: 87px; 
-  background-color: #f9f9f9;
+  background-color: : #f9f9f9;
 }
 
 .module{
@@ -21,7 +21,7 @@ section{
     background-position:center;
     position: relative;
     background-size: cover; 
-    height: 900px;
+    height: 800px;
 }
 
 #map {
@@ -55,7 +55,8 @@ section{
     -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
     -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
     box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
- */ 
+ */
+    background: white; 
    /* opacity: 0.6; */
     color: black; 
 }
