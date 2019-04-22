@@ -127,12 +127,28 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
 
     };
 
-    // Current download button on admin page
-    $scope.showImage = function(img, alt) {
-        //window.location = img;
-        var win = window.open();
-        win.document.write('<iframe src="' + img  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
-      };
+    $scope.downloadImage = function(imgsrc) {
+      // atob to base64_decode the data-URI
+      var imgdata = atob(imgsrc.split(',')[1]);
+      // Convert the binary data to a Blob
+      var arrbuff = new ArrayBuffer(imgdata.length);
+      var intarr = new Uint8Array(arrbuff);
+      for (var i=0; i<imgdata.length; i++) {
+          intarr[i] = imgdata.charCodeAt(i) & 0xff;
+      }
+      try {
+          var blob = new Blob([arrbuff], {type: 'application/octet-stream'});
+      } catch (err) {
+          // Older browser support
+          var bb = new (window.WebKitBlobBuilder || window.MozBlobBuilder);
+          bb.append(arrbuff);
+          var blob = bb.getBlob('application/octet-stream'); // <-- Here's the Blob
+      }
+      // Create a temporary URL
+      var url = (window.webkitURL || window.URL).createObjectURL(blob);
+      // Download
+      location.href = url;
+    }
 
     // Populates account page with placed orders
     $scope.findOrders = function() {
@@ -336,36 +352,6 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
 
       }
     };
-/*
-    $scope.getPrice = function(order) {
-      if(order == null)
-      {
-        return 0;
-      }
-      if(order.medium != null && order.size != null)
-      {
-        order.totalPrice = $scope.getMediumPrice(order.medium)
-        + $scope.getSizePrice(order.size);
-      }
-      
-      else if (order.medium !=null && order.size==null)
-      {
-        order.totalPrice = $scope.getMediumPrice(order.medium);
-      }
-      
-
-      else if (order.size !=null && order.medium==null)
-      {
-        order.totalPrice = $scope.getSizePrice(order.size);
-      }
-      else
-      {
-        order.totalPrice = "Please Pick A Medium and Size";
-      }
-      console.log(order.totalPrice);
-      $scope.detailedInfo = order;
-    };
-*/
 
     $scope.getPrice = function(order) {
       if(order == null)

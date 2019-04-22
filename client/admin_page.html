@@ -31,6 +31,8 @@
   <ul class="main-nav">
     <li><a class="active" href="">Manage Orders</a></li>
     <!--
+    <li><a href="">Edit Sizes</a></li>
+    <li><a href="">Edit Mediums</a></li>
     <li><a href="/order_page.html">Order Page</a></li>
     <li><a href="/account_page.html">Account</a></li>
   -->
@@ -111,7 +113,7 @@
             <br>
             {{detailedInfo.medium}}
             <br>
-            <button ng-click="showImage(detailedInfo.img);">Download</button>
+            <button ng-click="downloadImage(detailedInfo.img);">Download</button>
           </p>    
           <h3 align= "left"><b>Name:</b> {{detailedInfo.name}}</h3>
           <h3 align="left"><b>Email:</b> {{detailedInfo.email}}</h3>
