@@ -1,6 +1,5 @@
 window.onload = function() {
     $(window).bind('scroll', update);
-    adjustPlacement();
     };
 
 
@@ -22,18 +21,6 @@ function update(){
     }); 
 }
 
-function adjustPlacement() {
-    //jQuery
-    /*var headerPlacement = getDivPlacement('divNavBar');*/
-    /*var headerPlacement = currentDiv('divNavBar');*/
-    $("#header").css({ top: headerPlacement + 'px' });
-    
-    var contentPlacement = getDivPlacement('header');
-    /*var contentPlacement = currentDiv('header');*/
-    $('#content').css('margin-top',contentPlacement);
-}
-
-
 
 function currentDiv(n) {
   showDivs(slideIndex = n);
@@ -51,8 +38,7 @@ function showDivs(n) {
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
   }
-  /*
   x[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " w3-opacity-off";
-  */
+  
 }

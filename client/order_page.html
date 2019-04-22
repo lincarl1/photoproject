@@ -206,7 +206,7 @@
                 <h3>Total Price: ${{detailedInfo.totalPrice}} </h3>
                 
                 <br>
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
         <!-- Identify your business so that you can collect the payments. -->
         <input type="hidden" name="business" value="Yourbusinessemail@paypal.com"> <!-- Add your PayPal Seller/Business email address Required-->
         <!-- Specify a Buy Now button. -->
@@ -220,7 +220,7 @@
         <input type='hidden' name='cancel_return' value='' /> <!-- Take customers to this URL when they cancel their checkout -->
         <input type='hidden' name='return' value='' /> <!-- Take customers to this URL when they finish their checkout  -->
         <!-- Display the payment button. -->
-        <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+        <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online" ng-click="addOrder()">
     </form>
                 <!--
                  <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">

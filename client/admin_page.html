@@ -29,9 +29,11 @@
 <nav class="zone green">
   <ul class = "background"></ul>
   <ul class="main-nav">
+    <!--
     <li><a href="">Manage Orders</a></li>
     <li><a href="/order_page.html">Order Page</a></li>
     <li><a href="/account_page.html">Account</a></li>
+  -->
     <li class="push"> <button onclick="window.location.href='/index.html'" style="width:auto;">Logout</button></li>
   </ul>
 </nav>
@@ -44,7 +46,6 @@
 <div ng-controller="OrdersController">
     <!-- Order Table -->
     <section>
-      <br>
       <div class="input-group" id="searchBar">
         <input type="text" class="searchbar form-control" placeholder="Search" ng-model="query">
       </div>
@@ -56,6 +57,7 @@
               <th>Date</th>
               <th>Name</th>
               <th>Order Info</th>
+              <th>Price</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -73,7 +75,8 @@
               <td>{{order.created_at}}</td>
               <td>{{order.name}}</td>
               <td>{{order.size}}<br>{{order.medium}}</td>   
-              <td>{{order.totalPrice}}</td>
+              <td>${{order.totalPrice}}</td>
+              <td>{{order.status}}</td>
             </tr>
           </tbody>
         </table>
@@ -81,7 +84,7 @@
     </section>
     <!-- Order Details -->
     <aside>
-      <br><br><br>
+      <br><br>
       <!--<br><br><br><br>-->
       <div class="ordercard orderinfo">
         <div class="cardbody">
@@ -93,6 +96,7 @@
           <!--<button ng-click=showUser()>Click</button>-->
           <h2 align= "left">{{detailedInfo.created_at}}</h2>
           <h3 align = "left"><b>Status:</b> {{detailedInfo.status}}</h3>
+          <h3 align = "left"><b>Price:</b> ${{detailedInfo.totalPrice}}</h3>
           <h3 align= "left"><b>Image Details:</b> </h3>
           <p>
             <img src="{{detailedInfo.img}}" width="250"/>
