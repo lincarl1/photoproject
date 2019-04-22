@@ -133,7 +133,7 @@ exports.read = function(req, res) {
         res.json(orders);
         res.status(200);
       }
-    }).sort({created_at: -1});
+    }).sort({_id: -1});
   }
 };
 
