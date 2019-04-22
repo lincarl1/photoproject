@@ -70,26 +70,32 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
       
       //$scope.newOrder.address = thisuser2.address.street + "\n" + thisuser2.address.city + ", " + thisuser2.address.state " " + thisuser2.address.zip;
       Orders.create($scope.newOrder).then(function(response) {
-      $scope.orders.push({
+        window.location = "verification.html";
+        $scope.orders.push({
         //img: btoa($scope.newOrder.img),
         img: $scope.newOrder.img,
         size: $scope.newOrder.size,
         medium: $scope.newOrder.medium,
+        totalPrice: $scope.newOrder.totalPrice,
         status: $scope.newOrder.status,
         name: $scope.newOrder.name,
         address: $scope.newOrder.address,
         email: $scope.newOrder.email,
         user_id: $scope.newOrder.user_id
-    });
+        });
 
-    }, function(error) {
-      console.log('Unable to add order: ', error);
-    });
+      }, function(error) {
+        console.log('Unable to add order: ', error);
+      });
 
     }
 
     // Show order details
     $scope.reviewOrder = function(order) {
+      if(order==null)
+      {
+        return 0;
+      }
       if(order.size_width != null && order.size_height != null)
       {
         order.size = order.size_width + "x" + order.size_height;
@@ -280,8 +286,8 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
       }
     };
 
-    $scope.getSizePrice = function(med) {
-      switch(med) {
+    $scope.getSizePrice = function(size) {
+      switch(size) {
         case "10x10":
         return 10.00;
         break;
@@ -303,6 +309,30 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
         case "44x44":
         return 44.00;
         break;
+        case "10":
+        return 15.00;
+        break;
+        case "13":
+        return 18.00;
+        break;
+        case "16":
+        return 21.00;
+        break;
+        case "17":
+        return 22.00;
+        break;
+        case "24":
+        return 29.00;
+        break;
+        case "36":
+        return 41.00;
+        break;
+        case "44":
+        return 49.00;
+        break;
+        default:
+        return 60.00;
+
 
       }
     };
@@ -342,6 +372,12 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
       {
         return 0;
       }
+      
+      if(order.size_width != null)
+      {
+        order.size = order.size_width
+      }
+      
       if(order.medium != null && order.size != null)
       {
         order.totalPrice = $scope.getMediumPrice(order.medium)
@@ -364,7 +400,11 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
       }
       else
       {
-        order.totalPrice = "Please Pick A Medium and Size";
+        order.totalPrice = "";
+      }
+      if(order.size_width != null)
+      {
+        order.size = order.size_width + "x" + order.size_height;
       }
       console.log(order.totalPrice);
       $scope.price = order.totalPrice;

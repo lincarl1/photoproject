@@ -27,8 +27,11 @@ var orderSchema = new Schema({
   },
   price: {
     mediumPrice: Number,
-    sizePrice: Number,
-    totalPrice: Number
+    sizePrice: Number
+    /*totalPrice: Number*/
+  },
+  totalPrice: {
+    type: Number
   },
   status: {
     type: String
