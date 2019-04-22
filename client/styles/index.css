@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 html body{
      background-color: #f9f9f9;
 }
@@ -78,7 +81,8 @@ section{
 }
 
 .zone button {
-   background-color: #347523;
+  /*background-color: #347523;*/
+  background-color: #023f05;
   color: white;
   padding: 9px 20px;
   border: none;
@@ -213,7 +217,8 @@ margin-bottom: 15px;
    #circle {
     width: 70px;
     height: 70px;
-    background: #3f6b2d;
+    /*background: #3f6b2d;*/
+    background: #023f05;
     border-radius: 50%;
     position: absolute;
     /* margin: 0 auto; */
@@ -239,7 +244,8 @@ margin-bottom: 15px;
   margin-left: auto;
   margin-right: auto;
   display: block;
-  margin-top: 14%;
+  /*margin-top: 14%;*/
+  margin-top: 25%;
 }
 
 .instruction_block .btn-primary{
@@ -250,10 +256,12 @@ margin-bottom: 15px;
     font-family: 'Oswald', sans-serif;
     letter-spacing: 2px;
     background-color: black;
+    /*background-color: #023f05;*/
     border: none;
 }
 .instruction_block .btn-primary:hover, .instruction_block .btn-primary:focus, .instruction_block .btn-primary:active, .instruction_block .btn-primary.active, .instruction_block .open>.dropdown-toggle.btn-primary {
-    background-color: #3f6b2d;
+    /*background-color: #3f6b2d;*/
+    background-color: #023f05;
     color: white;
      /*set the color you want here*/
 }
