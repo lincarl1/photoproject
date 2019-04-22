@@ -1,11 +1,11 @@
 body {
-  /*background-image: url("../images/account1.jpg");*/
-  background-image: url("../images/order1.jpg");
+ background-image: url("../images/plantyy2.jpg");
   /*background-size: auto;*/
   /*background-size: contain; */
   /*background-repeat: no-repeat;*/
   background-size: cover;
-  /*background-position: center;*/
+  background-position: center;
+
 }
 
 /* -- choose file button -- */
@@ -63,7 +63,7 @@ input[type=image]:hover {
 
 .zone button {
   /*background-color: #245f45;*/
-  background-color: #023f05;
+  background-color: #39773b;
   color: white;
   padding: 9px 20px;
   border: none;
@@ -94,8 +94,8 @@ input[type=image]:hover {
     box-sizing: border-box;
     z-index: 999;
     top:-17px;
-    width: 100%; 
-    background: white; 
+    width: 100%;
+    margin-top: 15px; 
 }
 
 
@@ -103,11 +103,11 @@ input[type=image]:hover {
   color: black;
 }
 .zone a:hover{
-  color: black; 
+  color: white; 
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
   
 }
@@ -127,12 +127,12 @@ a {
 }
 
 .cardhead {
-  background-color: #023f05;
+  background-color: #39773b;
   color: white;
 }
 
 .cardbody {
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
   max-height: 500px;
 }
 
@@ -332,7 +332,7 @@ padding: 14px 150px;
 
 
 .previous {
-  background-color: #023f05;
+  background-color: #39773b;
   color: white;
   font-size: 20px;
   padding: 8px 16px;
@@ -351,7 +351,7 @@ padding: 14px 150px;
   right: 0;
   bottom: 0;
   position: absolute;
-  background-color: #023f05;
+  background-color: #39773b;
   color: white;
   font-size: 20px;
   padding: 8px 16px;
