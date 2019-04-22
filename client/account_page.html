@@ -6,7 +6,7 @@
   <!-- Nav Bar Font -->
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Staatliches" rel="stylesheet">
   <!-- Custom CSS for layout -->
-  <link rel="stylesheet" href="./styles/account_page.css">
+  
 
   <!-- Font for user details -->
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Oswald|Satisfy|Unica+One" rel="stylesheet">
@@ -16,6 +16,8 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="./styles/account_page.css">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -37,7 +39,8 @@
 
 
 <div ng-controller="UsersController" ng-init="showUser()">
-  <br><br><br><br><br><br>
+  <br><br><br><br>
+  <br><br><br>
   <div>
     <section>
       <div class="usercard userinfo">
@@ -61,7 +64,8 @@
 
 <div ng-controller="OrdersController" ng-init=findOrders() class="userorders">
   <aside>
-      <br><br><br>
+      <br>
+      <!--<br><br><br>-->
       <h2 align = "left">Order History</h2>   
       <div id="searchBar">
         <input type="text" class="searchbar form-control" placeholder="Search" ng-model="query">
@@ -74,8 +78,9 @@
             <tr>
               <th>Date</th>
               <th>Order Info</th>
-              <th>Status</th>
-              <th>Preview</th>
+              <th> Price </th>
+              <th> Status </th>
+              <th> Preview </th>
             </tr>
           </thead>
           <tfoot>
@@ -90,7 +95,8 @@
           <tbody>
             <tr class = "notfirst" ng-repeat="order in orders | filter: query track by $index" ng-click="showDetails(order)">
               <td>{{order.created_at}}</td>
-              <td>{{order.size}}<br>{{order.medium}}<br>${{order.totalPrice}}</td>  
+              <td>{{order.size}}<br>{{order.medium}}</td>
+              <td> ${{order.totalPrice}} </td>
               <td>{{order.status}}</td>
               <td><img src="{{order.img}}" width="75"/></td>
             </tr>
@@ -135,7 +141,7 @@
         <input type="text" ng-model="editedUser.address.state" placeholder="{{thisuser.address.state}}" name="state">
         <input type="text" ng-model="editedUser.address.zip" placeholder="{{thisuser.address.zip}}" name="zip">
         <br><br>
-        <button class="start" ng-click="updateUser()">Confirm Changes</button>
+        <button class="confirm" ng-click="updateUser()">Confirm Changes</button>
         </center>
       </div>  
     </form>

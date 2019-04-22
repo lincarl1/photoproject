@@ -18,6 +18,7 @@
 body {
   /*background-image: url("../images/account1.jpg");*/
   background-image: url("../images/account2.jpg");
+  background-image: url("../images/order2.jpg");
   /*background-size: auto;*/
   /*background-size: contain; */
   /*background-repeat: no-repeat;*/
@@ -100,11 +101,11 @@ footer {
 section {
   padding: 20px 5px;
   float: left;
-  width: 50%;
+  width: 49%;
 }
 aside {
   float: right;
-  width: 44%;
+  width: 45%;
 }
 footer {
   clear: both;
@@ -329,11 +330,12 @@ span.psw {
   font-size: 12px;
 }
 
-.edituser-content button[class=start]{
+.edituser-content button[class=confirm]{
   font-size: 14px;
   width: 406px;
   color: white;
-  background-color: #4CAF50;
+  /*background-color: #4CAF50;*/
+  background-color: #023f05;
   padding: 10px 26px;
   border-radius: 4px;
   border: 2px solid white;
@@ -341,9 +343,9 @@ span.psw {
   transition-duration: 0.4s;
 }
 
-.edituser-content button[class=start]:hover {
+.edituser-content button[class=confirm]:hover {
   background-color: #4CAF50; /* Green */
-  opacity: 0.6;
+  /*opacity: 0.6;*/
   color: white;
 }
 
@@ -366,12 +368,12 @@ span.psw {
 
 
 
-
+/*
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
 }
-
+*/
 table.orderTable {
   font-family: Verdana, Geneva, sans-serif;
   border: 2px solid #023F05;
@@ -396,12 +398,14 @@ table.orderTable thead {
   background: -webkit-linear-gradient(top, #035106 0%, #023F05 66%, #023A05 100%);
   background: linear-gradient(to bottom, #035106 0%, #023F05 66%, #023A05 100%);
 }
+
 table.orderTable thead th {
   font-size: 19px;
   font-weight: bold;
   color: #FFFFFF;
   text-align: center;
   border-left: 2px solid #023F05;
+  padding: 5px 10px;
 }
 table.orderTable thead th:first-child {
   border-left: none;
