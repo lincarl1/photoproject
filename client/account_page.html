@@ -27,9 +27,9 @@
 <nav class="zone">
   <ul class = "background"></ul>
   <ul class="main-nav">
-    <li><a href="/order_page.html">Place Order</a></li>
-    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/order_page.html">Order</a></li>
     <li><a href="">Account</a></li>
+    <li><a href="/contact.html">Contact</a></li>
     <li class="push"> <button onclick="window.location.href='/index.html'" style="width:auto;">Sign Out</button></li>
   </ul>
 </nav>
@@ -90,7 +90,7 @@
           <tbody>
             <tr class = "notfirst" ng-repeat="order in orders | filter: query track by $index" ng-click="showDetails(order)">
               <td>{{order.created_at}}</td>
-              <td>{{order.size}}<br>{{order.medium}}</td>  
+              <td>{{order.size}}<br>{{order.medium}}<br>${{order.totalPrice}}</td>  
               <td>{{order.status}}</td>
               <td><img src="{{order.img}}" width="75"/></td>
             </tr>

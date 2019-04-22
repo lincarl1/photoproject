@@ -1,5 +1,11 @@
 body {
+<<<<<<< HEAD
  background-image: url("../images/plantyy2.jpg");
+=======
+  /*background-image: url("../images/account1.jpg");*/
+  /*background-image: url("../images/order1.jpg");*/
+  background-image: url("../images/plantyy.jpg");
+>>>>>>> 023117f546caf0216f62967b1f8752080cc9f303
   /*background-size: auto;*/
   /*background-size: contain; */
   /*background-repeat: no-repeat;*/
@@ -246,7 +252,7 @@ padding: 14px 150px;
 
 .h2 {
   color: grey;
-  font-size: 12pt;
+  font-size: 20pt;
 }
 
 

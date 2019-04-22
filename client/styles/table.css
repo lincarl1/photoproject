@@ -85,7 +85,8 @@ table.orderTable tr.notfirst:hover {
 /*----------------DOWNLOAD BUTTON-------------------*/
 
 button {
-background-color: #347523;
+/*background-color: #347523;*/
+background-color: #023F05;
 color: white;
 padding: 2px 20px;
 border: none;
@@ -95,7 +96,8 @@ font-size: 20px;
 }
 
 button:hover {
-opacity: 0.8;
+  background-color: #4d7850;
+/*opacity: 0.8;*/
 }
 
 /*----------------DOWNLOAD BUTTON-------------------*/
