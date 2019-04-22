@@ -1,11 +1,7 @@
 body {
-<<<<<<< HEAD
- background-image: url("../images/plantyy2.jpg");
-=======
   /*background-image: url("../images/account1.jpg");*/
   /*background-image: url("../images/order1.jpg");*/
   background-image: url("../images/plantyy.jpg");
->>>>>>> 023117f546caf0216f62967b1f8752080cc9f303
   /*background-size: auto;*/
   /*background-size: contain; */
   /*background-repeat: no-repeat;*/
@@ -69,7 +65,7 @@ input[type=image]:hover {
 
 .zone button {
   /*background-color: #245f45;*/
-  background-color: #39773b;
+  background-color: #01593f;
   color: white;
   padding: 9px 20px;
   border: none;
@@ -133,7 +129,7 @@ a {
 }
 
 .cardhead {
-  background-color: #39773b;
+  background-color: #01593f;
   color: white;
 }
 
@@ -338,7 +334,7 @@ padding: 14px 150px;
 
 
 .previous {
-  background-color: #39773b;
+  background-color: #01593f;
   color: white;
   font-size: 20px;
   padding: 8px 16px;
@@ -357,7 +353,7 @@ padding: 14px 150px;
   right: 0;
   bottom: 0;
   position: absolute;
-  background-color: #39773b;
+  background-color: #01593f;
   color: white;
   font-size: 20px;
   padding: 8px 16px;
