@@ -30,18 +30,8 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
       var thisuser2 = JSON.parse(sessionStorage['thisuser']);
       console.log("current user: " + sessionStorage['thisuser']);
       
-      
       console.log("$scope.newOrder.img: " + $scope.newOrder.img);
-/*
-//PRICING?
-      switch($scope.newOrder.size){
-        case "130x400": $scope.newOrder.price = 10.50;
-      }
-      if($scope.newOrder.size=="130x400")
-      {
-        $scope.newOrder.price = 10.50;
-      }
-*/    
+   
 
       // set size if custom
       if($scope.newOrder.size_width != null && $scope.newOrder.size_height != null)
@@ -261,7 +251,7 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
         return 4.00;
         break;
         case "White Semimatte Proofing Paper":
-        return 4.50;
+        return 4.59;
         break;
         case "Publication Proofing Paper":
         return 5.00;
@@ -270,13 +260,13 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
         return 6.00;
         break;
         case "Doubleweight Matte Paper":
-        return 6.50;
+        return 6.59;
         break;
         case "Enhanced Matte Paper":
         return 7.00;
         break;
         case "Somerset Velvet":
-        return 7.50;
+        return 7.59;
         break;
         case "Presentation Matte Paper":
         return 8.00;
@@ -288,7 +278,7 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
         return 5.25;
         break;
         case "Velvet Fine Art Paper":
-        return 5.50;
+        return 5.59;
         break;
         case "Watercolor Paper":
         return 5.75;
