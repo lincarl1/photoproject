@@ -164,6 +164,25 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
 
     };
 
+    $scope.validAdmin = function() {
+      if(sessionStorage['thisuser'] == null) {
+        window.location = "index.html";
+      }
+      var thisuser2 = JSON.parse(sessionStorage['thisuser']);
+      if(thisuser2.email != "admin")
+      {
+        window.location = "index.html";
+      }
+      //$scope.detailedInfo = $scope.users[index];
+      $scope.thisuser = thisuser2;
+
+    };
+
+    $scope.signout = function() {
+      sessionStorage.clear();
+      window.location = "index.html";
+    };
+
 
 
   }

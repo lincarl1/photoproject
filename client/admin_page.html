@@ -28,7 +28,7 @@
 <body ng-app="printsApp">
 
 <!-- NAV BAR -->
-<nav class="zone green">
+<nav class="zone green" ng-controller="UsersController">
   <ul class = "background"></ul>
   <ul class="main-nav">
     <li><a class="active" href="">Manage Orders</a></li>
@@ -38,13 +38,16 @@
     <li><a href="/order_page.html">Order Page</a></li>
     <li><a href="/account_page.html">Account</a></li>
   -->
+  <!--
     <li class="push"> <button onclick="window.location.href='/index.html'" style="width:auto;">Sign Out</button></li>
+  -->
+  <li class="push"> <button ng-click="signout()" style="width:auto;">Sign Out</button></li>
   </ul>
 </nav>
 <!-- NAV BAR -->
 
 <!-- Verify Logged In Status (Eventually verify admin) -->
-<div ng-controller="UsersController" ng-init="showUser()">
+<div ng-controller="UsersController" ng-init="validAdmin()">
 </div>
 
 <div class="section-2" ng-controller="OrdersController">

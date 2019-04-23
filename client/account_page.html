@@ -27,13 +27,13 @@
 <body ng-app="printsApp">
 
 <!-- NAV BAR -->
-<nav class="zone">
+<nav class="zone" ng-controller="UsersController">
   <ul class = "background"></ul>
   <ul class="main-nav">
     <li><a href="/order_page.html">Order</a></li>
     <li><a class="active" href="">Account</a></li>
     <li><a href="/contact.html">Contact</a></li>
-    <li class="push"> <button onclick="window.location.href='/index.html'" style="width:auto;">Sign Out</button></li>
+    <li class="push"> <button ng-click="signout()" style="width:auto;">Sign Out</button></li>
   </ul>
 </nav>
 <!-- NAV BAR -->

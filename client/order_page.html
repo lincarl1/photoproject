@@ -12,7 +12,7 @@
 </head>
 <body ng-app="printsApp">
 <!-- Navigation Bar -->
-    <nav class="zone">
+    <nav class="zone" ng-controller="UsersController">
       <ul class = "background"></ul>
 
         <ul class="main-nav">
@@ -22,10 +22,12 @@
             <li><a class=active href="">Order</a></li>
             <li><a href="/account_page.html">Account</a></li>
             <li><a href="/contact.html">Contact</a></li>
-             <li class="push"> <a href="./index.html"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Out</button></a></li> 
+            <li class="push"> <button ng-click="signout()" style="width:auto;">Sign Out</button></li> 
         </ul>
       </nav>
     <!-- End of Navigation Bar -->
+
+<div ng-controller="UsersController" ng-init="showUser()"></div>
 <div ng-controller="OrdersController">
     <br><br><br><br><br><br>
     <!--Holds All Four of the Blocks-->
