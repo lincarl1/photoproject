@@ -36,6 +36,7 @@ input[type=image]:hover {
 /*-------NAVBAR---------*/
 .main-nav {
     display: flex;
+    /*display: inline;*/
     list-style: none;
     margin: 0;
     font-size: 25px;
@@ -77,10 +78,18 @@ input[type=image]:hover {
   background-color: #4CAF50;
 }
 
-
-
-.zone li {
+/*
+#logo {
+  height: 50px;
+  width: 90px;
+  display: flex;
+  padding: 5px 10px;
+  margin-left: 0px
+}
+*/
+.zone li{
     padding: 10px 20px;
+    /*display: inline;*/
 }
 
 .active {

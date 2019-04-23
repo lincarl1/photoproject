@@ -1,5 +1,9 @@
 html body{
      background-color: : #f9f9f9;
+     background-image:url('../images/cac.jpg');
+     background-size: cover; 
+    background-position:center;
+
 }
 
 #searchBar {
@@ -17,10 +21,9 @@ section{
 }
 
 .section-2{
-     background-image:url('../images/cac.jpg');
-    background-position:center;
+     
     position: relative;
-    background-size: cover; 
+    
     height: 800px;
 }
 
