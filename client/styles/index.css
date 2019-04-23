@@ -506,7 +506,7 @@ span.psw {
   font-size: 14px;
   width: 400px;
   color: white;
-  background-color: #4CAF50;
+  background-color: #023f05;
   padding: 10px 26px;
   border-radius: 4px;
   border: 2px solid white;
@@ -516,7 +516,7 @@ span.psw {
 
 .login-content button[class=log]:hover {
   background-color: #4CAF50; /* Green */
-  opacity: 0.6;
+  /*opacity: 0.6;*/
   color: white;
 }
 
@@ -574,7 +574,7 @@ span.psw {
   font-size: 14px;
   width: 406px;
   color: white;
-  background-color: #4CAF50;
+  background-color: #023f05;
   padding: 10px 26px;
   border-radius: 4px;
   border: 2px solid white;
@@ -584,7 +584,7 @@ span.psw {
 
 .signup-content button[class=start]:hover {
   background-color: #4CAF50; /* Green */
-  opacity: 0.6;
+  /*opacity: 0.6;*/
   color: white;
 }
 

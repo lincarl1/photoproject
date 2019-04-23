@@ -168,6 +168,16 @@ a {
 
 /*---------------Order Steps Layout---------------*/
 
+#mediumselect {
+  margin: 50px;
+  width: 250px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  display: flexbox;
+}
+
 
 
 
@@ -280,12 +290,12 @@ padding: 14px 150px;
   display: none;
 }
 
-#mediumSelection {
-  font-size: 12px;
-  display: flexbox;
+#upload {
+  height: 450px;
 }
 
 #paypal {
+  height: 450px;
   display: none;
 }
 
@@ -402,4 +412,9 @@ padding: 14px 150px;
   color: black;
   font-size: 14px;
   padding: 8px 16px;
+}
+
+
+.section-2{
+    height: 800px;
 }

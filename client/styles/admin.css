@@ -9,6 +9,10 @@ body {
   /*background-position: center;*/
 }
 
+.section-2{
+    height: 800px;
+}
+
 .ordercard {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 500px;

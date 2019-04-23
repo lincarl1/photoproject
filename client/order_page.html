@@ -29,7 +29,7 @@
 <div ng-controller="OrdersController">
     <br><br><br><br><br><br>
     <!--Holds All Four of the Blocks-->
-<div class="container">
+<div class="container section-2">
     <!--Upload-->
 <div class="ordercard orderinfo">
     
@@ -79,9 +79,9 @@
         </div>
 
         <div id="size">
-            <p class="price">Total: ${{price}}</p>
+            <p class="price">Total: ${{price}}<br>Size: ${{sizePrice}}</p>
             <h2>Choose Size</h2>
-            <br>
+            <br><br><br>
             <form id="sizeSelection" class="sizes" ng-click=getPrice(newOrder)>
                 <section>
                     <input type="radio" align="left" name="size" value="10x10" ng-model="newOrder.size"> 10x10
@@ -120,8 +120,7 @@
                      x
                     <input type="number" id="height" name="height" style="width: 75px" ng-model="newOrder.size_height">
                     <br><br><br><br><br>
-                    <br><br>
-                    <p class="mediumprice">Size: ${{sizePrice}}</p> 
+                    <br><br><br>
                     <div class="popup" onclick="myPopup()">How large can I print my photo?
                       <span class="popuptext" id="myPopup">To receive the best quality print, divide pixel dimensions by 300dpi. For example a 6000 x 4200 pixel image can be printed up to 20 x 14 inches.</span>
                     </div>
@@ -141,11 +140,12 @@
         </div>
 
         <div id="mediums">
-            <p class="price">Total: ${{price}}</p>
+            <p class="price">Total: ${{price}}<br>Medium: ${{mediumPrice}}</p>
             <h2>Choose Medium</h2>
             <br>
+            <br>
             <form>
-                <select ng-model="newOrder.medium" ng-selected= getPrice(newOrder)>
+                <select id="mediumselect" ng-model="newOrder.medium" ng-selected= getPrice(newOrder)>
                     <option value="" selected disabled hidden>{{newOrder.medium}}</option>
                     <optgroup label="PHOTO PAPER">
                     <option value="Glossy Photo Paper">Glossy Photo Paper</option>
@@ -173,21 +173,16 @@
                     <option value="Canvas Satin">Canvas Satin</option>
                     <option value="Canvas Matte">Canvas Matte</option>
                     </optgroup>
-
                 </select>
 
            </form>
-           <br><br><br><br><br>
-           <br><br><br><br><br>
-           <br><br>
-           <br><br>
-           <p class="mediumprice">Medium: ${{mediumPrice}}</p>
             <a href="#" id="backsize" class="previous round">&laquo; </a>
             <a href="#" id="showreview" class="next round" ng-click=reviewOrder(newOrder)> &raquo;</a> 
         </div>
 
         <div id="paypal">
             <h2>Review Order</h2>
+            <br><br>
             <section>
             <br>
             <img src="{{detailedInfo.img}}" width="100"/>
@@ -207,29 +202,30 @@
                 Address: <br>
                 <input type="text" placeholder="{{detailedInfo.address.street}}" name="street" ng-model="newOrder.address.street">
                 <input type="text" placeholder="{{detailedInfo.address.city}}" name="street" ng-model="newOrder.address.city">
-                <input type="text" style="width:45%"placeholder="{{detailedInfo.address.state}}" name="state" ng-model="newOrder.address.state">
-                <input type="number" style="width:45%"placeholder="{{detailedInfo.address.zip}}" name="zip" ng-model="newOrder.address.zip">
+                <input type="text" style="width:41%"placeholder="{{detailedInfo.address.state}}" name="state" ng-model="newOrder.address.state">
+                <input type="number" style="width:41%"placeholder="{{detailedInfo.address.zip}}" name="zip" ng-model="newOrder.address.zip">
             </section>
             <footer>
+                <br><br>
                 <h3>Total Price: ${{detailedInfo.totalPrice}} </h3>
                 
                 <br>
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-        <!-- Identify your business so that you can collect the payments. -->
-        <input type="hidden" name="business" value="Yourbusinessemail@paypal.com"> <!-- Add your PayPal Seller/Business email address Required-->
-        <!-- Specify a Buy Now button. -->
-        <input type="hidden" name="cmd" value="_xclick">
-        <!-- Specify details about the item that buyers will purchase. -->
-        <input type="hidden" name="item_name" value="{{detailedInfo.size}} {{detailedInfo.medium}}"> <!-- Add Description e.g your room type Required-->
-        <input type="hidden" name="amount" value="{{detailedInfo.totalPrice}}"> <!-- Dynamically add Total Amount Required-->
-        <input type="hidden" name="currency_code" value=""> <!-- Update to your currency -->
-        <input id="invoice" type="hidden" value="" name="invoice"> <!-- Add Unique invoice for each transaction -->
-        <input type="hidden" name="notify_url" value="www.yourwebsite.com/ipn.php"> <!-- Please add IPN URL You can use this service to automate back-office and administrative functions, including fulfilling orders, tracking customers, and providing status and other information related to transactions. -->
-        <input type='hidden' name='cancel_return' value='' /> <!-- Take customers to this URL when they cancel their checkout -->
-        <input type='hidden' name='return' value='' /> <!-- Take customers to this URL when they finish their checkout  -->
-        <!-- Display the payment button. -->
-        <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online" ng-click="addOrder()">
-    </form>
+                    <!-- Identify your business so that you can collect the payments. -->
+                    <input type="hidden" name="business" value="Yourbusinessemail@paypal.com"> <!-- Add your PayPal Seller/Business email address Required-->
+                    <!-- Specify a Buy Now button. -->
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <!-- Specify details about the item that buyers will purchase. -->
+                    <input type="hidden" name="item_name" value="{{detailedInfo.size}} {{detailedInfo.medium}}"> <!-- Add Description e.g your room type Required-->
+                    <input type="hidden" name="amount" value="{{detailedInfo.totalPrice}}"> <!-- Dynamically add Total Amount Required-->
+                    <input type="hidden" name="currency_code" value=""> <!-- Update to your currency -->
+                    <input id="invoice" type="hidden" value="" name="invoice"> <!-- Add Unique invoice for each transaction -->
+                    <input type="hidden" name="notify_url" value="www.yourwebsite.com/ipn.php"> <!-- Please add IPN URL You can use this service to automate back-office and administrative functions, including fulfilling orders, tracking customers, and providing status and other information related to transactions. -->
+                    <input type='hidden' name='cancel_return' value='' /> <!-- Take customers to this URL when they cancel their checkout -->
+                    <input type='hidden' name='return' value='' /> <!-- Take customers to this URL when they finish their checkout  -->
+                    <!-- Display the payment button. -->
+                    <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online" ng-click="addOrder()">
+                </form>
                 <!--
                  <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_s-xclick">
@@ -257,7 +253,6 @@
                 </form>
             -->
             <br>
-            <input type="submit" value="Submit Order" ng-click="addOrder()"> 
             </footer>
             <a href="#" id="backmedium" class="previous round">&laquo; </a>
         </div>
