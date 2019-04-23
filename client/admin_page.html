@@ -121,7 +121,7 @@
             <button ng-click="downloadImage(detailedInfo.img);">Download</button>
           </p>    
           <h3 align= "left"><b>Name:</b> {{detailedInfo.name}}</h3>
-          <h3 align="left"><b>Email:</b> {{detailedInfo.email}}</h3>
+          <h3 align="left"><b>Email: </b><a href="mailto:{{detailedInfo.email}}?Subject=Petree%27s%20Prints" target="_top">{{detailedInfo.email}}</a></h3>
           <h3 align= "left"><b>Address:</b> </h3>
           <h3 align="left">{{detailedInfo.address.street}}, {{detailedInfo.address.city}}, {{detailedInfo.address.state}} {{detailedInfo.address.zip}}</h3>
         <!--
