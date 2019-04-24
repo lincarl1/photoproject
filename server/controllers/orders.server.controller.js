@@ -7,15 +7,7 @@ exports.create = function(req, res) {
 
   /* Instantiate an Order */
   var order = new Order(req.body);
-  // TESTING
 
-  //console.log("exports.create: order.img: " + JSON.stringify(order));
-  
-  //order.img.data = fs.readFileSync(req.files.userPhoto.path)
-  //order.img.data = order.img;
-  //order.img.contentType = 'image/png';
-  
-  // END TESTING
   /* Then save the order */
   order.save(function(err) {
     if(err) {
@@ -93,20 +85,6 @@ exports.update = function(req, res) {
 };
 
 
-/*
-exports.read = function(req, res) {
-  var order = req.order;
-  Order.find({id: order._id}).sort({created_at: -1}).exec(function(err, order){
-    if(err){
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.json(order);
-    }
-  });
-};
-*/
-
 // finds orders given unique user id
 exports.read = function(req, res) {
   console.log("req.order: " + req.order);
@@ -145,15 +123,5 @@ exports.orderByID = function(req, res, next, id) {
   console.log("id: " + id);
   req.id = id;
   next();
-  /*
-  Order.find({user_id: id}).exec(function(err, order) {
-    if(err) {
-      res.status(404).send(err);
-    } else {
-      req.order = order;
-      next();
-    }
-  });
-  */
-  
+
 };

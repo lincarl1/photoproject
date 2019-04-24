@@ -2,14 +2,10 @@
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema;
 
-/* Create your schema */
 var orderSchema = new Schema({
   img: {
-    type: String
-    //type: Buffer,
-    //data: Buffer
-    //data: Buffer,
-    //contentType: String
+    type: String,
+    required: true
   },
   size: {
     type: String, 
@@ -28,7 +24,6 @@ var orderSchema = new Schema({
   price: {
     mediumPrice: Number,
     sizePrice: Number
-    /*totalPrice: Number*/
   },
   totalPrice: {
     type: Number

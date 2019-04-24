@@ -19,12 +19,28 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
 
     $scope.detailedInfo = undefined;
 
-    // form to hold new order
-    //$scope.form = {};
-
 
     // When order is placed -> call addOrder to add to database
     $scope.addOrder = function() {
+      if($scope.newOrder == null) {
+        window.alert("Image, size, and medium are required.");
+        return 0;
+      }
+      if($scope.newOrder.img == null)
+      {
+        window.alert("Please upload an image with your order");
+        return 0;
+      }
+      if($scope.newOrder.size == null)
+      {
+        window.alert("Please select a size for your order");
+        return 0;
+      }
+      if($scope.newOrder.medium == null)
+      {
+        window.alert("Please select a medium for your order");
+        return 0;
+      }
       console.log("ORDERCONTROLLER - client");
       // gets user data from browser (saved through showUser() in listingController)
       var thisuser2 = JSON.parse(sessionStorage['thisuser']);
@@ -176,35 +192,6 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
           $scope.editedOrder._id = $scope.detailedInfo._id;
         }
 
-/*
-        if($scope.editedUser.first == null || $scope.editedUser.first == ""){
-          $scope.editedUser.first = thisuser2.first;
-        }
-        if($scope.editedUser.last == null || $scope.editedUser.last == ""){
-          $scope.editedUser.last = thisuser2.last;
-        }
-        if($scope.editedUser.email == null || $scope.editedUser.email == ""){
-          $scope.editedUser.email = thisuser2.email;
-        }
-        if($scope.editedUser.address == null){
-          $scope.editedUser.address = thisuser2.address;
-        }
-        else
-        {
-          if($scope.editedUser.address.street == null || $scope.editedUser.address.street == ""){
-            $scope.editedUser.address.street = thisuser2.address.street;
-          }
-          if($scope.editedUser.address.city == null || $scope.editedUser.address.city == ""){
-            $scope.editedUser.address.city = thisuser2.address.city;
-          }
-          if($scope.editedUser.address.state == null || $scope.editedUser.address.state == ""){
-            $scope.editedUser.address.state = thisuser2.address.state;
-          }
-          if($scope.editedUser.address.zip == null || $scope.editedUser.address.zip == ""){
-            $scope.editedUser.address.zip = thisuser2.address.zip;
-          }
-        }
-*/
         var newEdit = JSON.stringify($scope.editedOrder);
         Orders.update(newEdit).then(function(response) {
         
@@ -222,17 +209,6 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
 
     }
 
-
-
-
-
-
-
-
-
-
-
-    /*NEWSTUFF*/
     $scope.getMediumPrice = function(med) {
       switch(med) {
         case "Glossy Photo Paper":
@@ -389,7 +365,6 @@ angular.module('orders').controller('OrdersController', ['$scope', 'Orders',
 
     };
 
-    /*ENDNEWSTUFF*/
 
 
 

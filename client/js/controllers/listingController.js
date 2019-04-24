@@ -36,6 +36,7 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
           }
     }); 
     }, function(error) {
+      
       window.alert("Missing information or user already exists. Try again.");
       console.log('Unable to add user: ', error);
     });
@@ -173,7 +174,6 @@ angular.module('users').controller('UsersController', ['$scope', 'Users',
       {
         window.location = "index.html";
       }
-      //$scope.detailedInfo = $scope.users[index];
       $scope.thisuser = thisuser2;
 
     };

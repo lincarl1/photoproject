@@ -3,16 +3,9 @@ var mongoose = require('mongoose'),
     // password hashing
     bcrypt = require('bcrypt'), 
     Schema = mongoose.Schema;
-//    ObjectId = Schema.ObjectId;
 
-/* Create your schema */
+/* userSchema */
 var userSchema = new Schema({
-/*
-  _id: { 
-    type: ObjectId, 
-    auto: true 
-  },
-*/
   first: {
     type: String, 
     required: true
@@ -42,18 +35,7 @@ var userSchema = new Schema({
 },
 { collection: 'users' });
 
-/* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
-/*
-userSchema.pre('save', function(next) {
-  var currentTime = new Date;
-  this.updated_at = currentTime;
-  if(!this.created_at)
-  {
-    this.created_at = currentTime;
-  }
-  next();
-});
-*/
+
 userSchema.pre('save', function(next) {
   var time = new Date;
   var dd = String(time.getDate()).padStart(2, '0');
